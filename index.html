@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pemesanan WiFi & CCTV</title>
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/fa.min.css" />
+  </head>
+
+  <body>
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <h1 class="logo">WiFi<span>&</span>CCTV</h1>
+        <nav class="nav-menu">
+          <ul class="nav-links">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#layanan">Layanan</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+          </ul>
+        </nav>
+
+        <div class="auth-buttons">
+          <button class="btn-outline" onclick="openModal('register')">
+            Daftar
+          </button>
+          <button class="btn-primary" onclick="openModal('login')">
+            Login
+          </button>
+        </div>
+
+        <!-- Modal Login -->
+        <div id="loginModal" class="modal hidden">
+          <div class="modal-content">
+            <h3>Login</h3>
+            <form id="loginForm">
+              <label>Nama Pengguna:</label>
+              <input type="text" id="loginName" required />
+              <label>Pilih Sebagai:</label>
+              <select id="userRole" required>
+                <option value="">-- Pilih Peran --</option>
+                <option value="pemilik">Pemilik</option>
+                <option value="pekerja">Pekerja</option>
+                <option value="pengguna">Pengguna</option>
+              </select>
+              <button type="submit">Masuk</button>
+            </form>
+            <button onclick="closeModal()" class="close-btn">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero-header" id="beranda">
+      <div class="hero-content">
+        <h2 class="hero-title">Jasa Pemasangan WiFi & CCTV</h2>
+        <p class="hero-subtitle">
+          Profesional, cepat, dan terpercaya untuk rumah & bisnis Anda.
+        </p>
+        <a href="#layanan" class="hero-button">Lihat Layanan</a>
+      </div>
+    </section>
+
+    <main>
+      <!-- DASHBOARD -->
+      <section class="dashboard container" id="beranda">
+        <div class="dashboard-content">
+          <h2>Butuh Internet Cepat & Keamanan Terjamin? Kami Solusinya!</h2>
+          <p class="promo-text">
+            Dikerjakan oleh <strong> Teknisi Berpengalaman </strong> &
+            <strong> Bergaransi! </strong>
+          </p>
+
+          <div class="features">
+            <div class="feature-card">
+              <span>⚡</span>
+              <p>Pemasangan WiFi cepat & stabil</p>
+            </div>
+            <div class="feature-card">
+              <span>🎥</span>
+              <p>Instalasi CCTV indoor & outdoor</p>
+            </div>
+            <div class="feature-card">
+              <span>💡</span>
+              <p>Paket hemat WiFi + CCTV</p>
+            </div>
+            <div class="feature-card">
+              <span>🛡️</span>
+              <p>Garansi layanan 6 bulan</p>
+            </div>
+          </div>
+          <p>
+            <strong> Yuk, </strong> amankan <strong> Rumah </strong> dan
+            <strong> Bisnis </strong> anda hari ini juga!
+          </p>
+        </div>
+      </section>
+
+      <section class="installer-slider container" id="galeri">
+        <h2><i class="fas fa-image"></i> Galeri Pemasangan</h2>
+        <p class="subheading">
+          Dokumentasi instalasi WiFi dan CCTV oleh tim profesional kami
+        </p>
+        <div class="slider-wrapper">
+          <div class="slider">
+            <img src="assets/gambar 1.webp" alt="Installer 1" />
+            <img src="assets/gambar 4.webp" alt="Installer 2" />
+            <img src="assets/gambar 5.jpg" alt="Installer 3" />
+            <img src="assets/gambar 6.webp" alt="Installer 4" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION UNTUK ROLE: PEMILIK ===== -->
+      <section class="role-section role-pemilik hidden container">
+        <h2>Dashboard Pemilik</h2>
+        <p>Berikut adalah daftar pesanan yang masuk:</p>
+        <table class="role-table">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Layanan</th>
+              <th>Alamat</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Andi</td>
+              <td>WiFi</td>
+              <td>Jl. Merdeka No.10</td>
+              <td>Selesai</td>
+            </tr>
+            <tr>
+              <td>Sita</td>
+              <td>CCTV</td>
+              <td>Jl. Kenanga No.4</td>
+              <td>Proses</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Laporan Pekerja Hari Ini</h3>
+        <ul class="role-list">
+          <li>Teknisi A menyelesaikan 2 pemasangan WiFi.</li>
+          <li>Teknisi B sedang melakukan instalasi CCTV di Jakarta Barat.</li>
+        </ul>
+      </section>
+
+      <!-- ===== SECTION UNTUK ROLE: PEKERJA ===== -->
+      <section class="role-section role-pekerja hidden container">
+        <h2>Job List Hari Ini</h2>
+        <ul class="role-list">
+          <li>
+            <strong>WiFi - Rudi</strong> di Jl. Cemara No.23 — Catatan: Perlu
+            kabel tambahan.
+          </li>
+          <li>
+            <strong>CCTV - Dian</strong> di Jl. Bunga Raya No.12 — Catatan:
+            Kamera outdoor.
+          </li>
+        </ul>
+      </section>
+
+      <!-- ===== SECTION UNTUK ROLE: PENGGUNA ===== -->
+      <section class="role-section role-pengguna hidden container">
+        <h2>Status Pemesanan</h2>
+        <ul class="role-list">
+          <li>Pesanan WiFi — Status: <strong>Selesai</strong></li>
+          <li>Pesanan CCTV — Status: <strong>Dalam proses</strong></li>
+        </ul>
+
+        <h3>Riwayat Pemesanan Anda</h3>
+        <table class="role-table">
+          <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Layanan</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025-05-12</td>
+              <td>WiFi</td>
+              <td>Selesai</td>
+            </tr>
+            <tr>
+              <td>2025-06-02</td>
+              <td>CCTV</td>
+              <td>Proses</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- KARTU LAYANAN -->
+      <section class="services-section container" id="layanan">
+        <h2>Layanan Kami</h2>
+        <div class="card-container">
+          <div class="card" onclick="openModal('wifi')">
+            <img
+              src="assets/gambar 2.webp"
+              alt="Pemasangan WiFi"
+              class="card-img"
+            />
+            <h3>Pemasangan WiFi</h3>
+            <p>Layanan WiFi cepat dan stabil.</p>
+          </div>
+          <div class="card" onclick="openModal('cctv')">
+            <img
+              src="assets/gambar 3.jpg"
+              alt="Pemasangan CCTV"
+              class="card-img"
+            />
+            <h3>Pemasangan CCTV</h3>
+            <p>Instalasi CCTV untuk keamanan optimal.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODAL -->
+      <div id="overlay" class="overlay hidden"></div>
+
+      <div id="wifiModal" class="modal hidden">
+        <div class="modal-content">
+          <h3>Formulir Pemesanan WiFi</h3>
+          <form class="serviceForm" data-service="Pemasangan WiFi">
+            <label>Nama:</label>
+            <input type="text" name="name" required />
+
+            <label>Alamat:</label>
+            <textarea name="address" required></textarea>
+
+            <label>Catatan:</label>
+            <textarea name="notes"></textarea>
+
+            <label>Metode Pembayaran:</label>
+            <select name="payment" required>
+              <option value="">-- Pilih Pembayaran --</option>
+              <option value="Bank Transfer">Bank Transfer</option>
+              <option value="OVO">OVO</option>
+              <option value="GoPay">GoPay</option>
+              <option value="ShopeePay">ShopeePay</option>
+              <option value="DANA">DANA</option>
+              <option value="QRIS">QRIS</option>
+            </select>
+
+            <div class="qris-section hidden">
+              <p>Silakan scan QRIS di bawah ini untuk pembayaran:</p>
+              <img src="assets/qris.png" alt="QRIS Payment" class="qris-img" />
+            </div>
+
+            <button type="submit">Pesan WiFi</button>
+            <div class="form-message"></div>
+          </form>
+          <button onclick="closeModal()" class="close-btn">Tutup</button>
+        </div>
+      </div>
+
+      <div id="cctvModal" class="modal hidden">
+        <div class="modal-content">
+          <h3>Formulir Pemesanan CCTV</h3>
+          <form class="serviceForm" data-service="Pemasangan CCTV">
+            <label>Nama:</label>
+            <input type="text" name="name" required />
+
+            <label>Alamat:</label>
+            <textarea name="address" required></textarea>
+
+            <label>Catatan:</label>
+            <textarea name="notes"></textarea>
+
+            <label>Metode Pembayaran:</label>
+            <select name="payment" required>
+              <option value="">-- Pilih Pembayaran --</option>
+              <option value="Bank Transfer">Bank Transfer</option>
+              <option value="OVO">OVO</option>
+              <option value="GoPay">GoPay</option>
+              <option value="ShopeePay">ShopeePay</option>
+              <option value="DANA">DANA</option>
+              <option value="QRIS">QRIS</option>
+            </select>
+
+            <div class="qris-section hidden">
+              <p>Silakan scan QRIS di bawah ini untuk pembayaran:</p>
+              <img src="assets/qris.png" alt="QRIS Payment" class="qris-img" />
+            </div>
+
+            <button type="submit">Pesan CCTV</button>
+            <div class="form-message"></div>
+          </form>
+          <button onclick="closeModal()" class="close-btn">Tutup</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/home.js"></script>
+
+    <section id="kontak" class="kontak-section">
+      <div class="kontak-overlay">
+        <h2>Hubungi Kami</h2>
+        <p>Siap melayani kebutuhan pemasangan WiFi dan CCTV Anda.</p>
+        <ul class="kontak-info">
+          <li>📞 0812-3456-7890</li>
+          <li>✉️ info@jasapemasangan.com</li>
+          <li>📍 Jakarta, Indonesia</li>
+        </ul>
+      </div>
+    </section>
+  </body>
+</html>

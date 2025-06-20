@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* background: #f9f9f9;
+  color: #333; */
+  line-height: 1.6;
+}
+
+.container {
+  /* max-width: 960px; */
+  margin: auto;
+  padding: 20px;
+}
+
+header {
+  width: 100%;
+  background: #0077cc;
+  color: white;
+  /* text-align: center; */
+  padding: 40px 20px;
+  display: flex;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+header p {
+  margin: 10px 0 0;
+}
+
+/* ===== NAVBAR STYLING ===== */
+/* Logo */
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fefefe;
+  letter-spacing: 0.5px;
+}
+
+.logo span {
+  color: #333;
+}
+
+.navbar {
+  background-color: rgba(46, 136, 253, 0.821);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav-links li a:hover {
+  background-color: #007bff;
+  color: white;
+}
