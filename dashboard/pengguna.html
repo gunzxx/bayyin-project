@@ -3,32 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/fa.min.css" />
+    <link rel="stylesheet" href="../sa2/sweetalert2.min.css" />
     <link rel="stylesheet" href="../css/output.css" />
     <link rel="stylesheet" href="../css/dashboard.css" />
     <title>Pemesanan WiFi & CCTV</title>
   </head>
-  <body class="bg-gray-300">
+  <body class="w-full bg-[#f9f9f9] flex flex-col items-center">
     <header class="navbar">
       <div class="container nav-container">
-        <h1 class="logo">WiFi<span>&</span>CCTV</h1>
-        <nav class="nav-menu">
-          <ul class="nav-links">
-            <li><a href="#beranda">Beranda</a></li>
-            <li><a href="#layanan">Layanan</a></li>
-            <li><a href="#galeri">Galeri</a></li>
-            <li><a href="#kontak">Kontak</a></li>
-          </ul>
-        </nav>
+        <a href="/" class="logo">WiFi<span>&</span>CCTV</a>
 
         <div class="profile-container">
         </div>
       </div>
     </header>
 
-    <div class="text-center w-full p-10">
-      <h1>Dashboard Pengguna</h1>
+    <div class="w-[80%] flex flex-col items-center p-5 text-center gap-5">
+      <h1 class="font-bold text-[24px]">Dashboard Pengguna</h1>
+      <div class="w-full bg-white flex flex-col p-7 items-start gap-5 rounded-lg shadow-lg">
+        <h1 class="font-bold text-[16px]">Riwayat Pemesanan Anda</h1>
+        <table id="tableData">
+          <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Layanan</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
 
+    <div class="blur-bg"></div>
+
+    <div class="profile-modal">
+      <p><i class="fa fa-user" aria-hidden="true"></i> Edit profile</p>
+      <p class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</p>
+    </div>
+
+    <script src="../sa2/sweetalert2.all.min.js"></script>
     <script src="../js/dashboard.js"></script>
+    <script src="../js/pengguna.js"></script>
   </body>
 </html>

@@ -109,8 +109,8 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   }
 
   // Simpan ke session (sederhana)
-  sessionStorage.setItem("username", name);
-  sessionStorage.setItem("role", role);
+  localStorage.setItem("username", name);
+  localStorage.setItem("role", role);
 
   showContentByRole(role);
   closeModal();
@@ -125,7 +125,7 @@ function showContentByRole(role) {
   if (target) target.classList.remove("hidden");
 
   // Ubah navbar
-  document.querySelector(".auth-buttons").innerHTML = `<a href="./dashboard/${role}.html" style="color:white;">Halo, ${sessionStorage.getItem("username")} (${role})</a>`;
+  document.querySelector(".auth-buttons").innerHTML = `<a href="./dashboard/${role}.html" style="color:white;">Halo, ${localStorage.getItem("username")} (${role})</a>`;
 }
 
 function openModal(type) {
@@ -135,12 +135,12 @@ function openModal(type) {
 
 // Cek role saat reload halaman
 window.addEventListener("DOMContentLoaded", () => {
-  const role = sessionStorage.getItem("role");
-  const username = sessionStorage.getItem("username");
+  const role = localStorage.getItem("role");
+  const username = localStorage.getItem("username");
   if (role && username) {
     showContentByRole(role);
   }else{
-    sessionStorage.clear()
+    localStorage.clear();
   }
 });
 

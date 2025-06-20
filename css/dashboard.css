@@ -42,6 +42,7 @@ header p {
   font-weight: 700;
   color: #fefefe;
   letter-spacing: 0.5px;
+  text-decoration: none;
 }
 
 .logo span {
@@ -53,14 +54,15 @@ header p {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 3;
   width: 100%;
 }
 
 .nav-container {
-  max-width: 1200px;
+  /* max-width: 1200px; */
+  width: 100%;
   margin: 0 auto;
-  padding: 10px 2px;
+  padding: 10px 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -86,7 +88,77 @@ header p {
   transition: background 0.3s, color 0.3s;
 }
 
-.nav-links li a:hover {
+
+
+/* .nav-links li a:hover {
   background-color: #007bff;
   color: white;
+} */
+
+
+
+/* Profile */
+.profile-container{
+  cursor: pointer;
+}
+
+
+
+/* Table */
+table{
+  border-collapse: collapse;
+  width: 100%;
+}
+tr{
+  border-bottom: 1px solid #bbb;
+}
+tr:has(th){
+  background: #0077cc;
+  color: white;
+}
+th{
+  font-weight: bold;
+}
+td, th{
+  padding: 10px 30px;
+}
+
+
+
+
+
+/* Profile Modal */
+.profile-modal{
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  z-index: 5;
+  max-width: 200px;
+  background: white;
+  padding: 10px 40px 10px 20px;
+  /* display: flex; */
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+.profile-modal p{
+  font-size: 16px;
+  width: 100%;
+}
+.profile-modal p.logout{
+  cursor: pointer;
+}
+
+
+.blur-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  width: 100vw;
+  height: 100vh;
+  /* background: rgba(255,255,255, .2); */
+  display: none;
 }

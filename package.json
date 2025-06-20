@@ -5,7 +5,9 @@
   "type": "commonjs",
   "scripts": {
     "build": "postcss css/main.css -o css/output.css --minify",
-    "dev": " tailwindcss -i ./css/input.css -o ./css/output.css --watch"
+    "dev": "concurrently \"npm run tailwind\" \"npm run live\"",
+    "tailwind": "tailwindcss -i ./css/input.css -o ./css/output.css --minify --watch",
+    "live": "live-server ./"
   },
   "keywords": [
     "HTML template",
@@ -18,6 +20,7 @@
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^10.4.7",
+    "concurrently": "^9.1.2",
     "cssnano": "^5.1.9",
     "live-server": "^1.2.2",
     "postcss": "^8.4.14",
