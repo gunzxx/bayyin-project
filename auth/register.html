@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/fa.min.css" />
+    <link rel="stylesheet" href="/sa2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/css/output.css" />
+    <link rel="stylesheet" href="/css/auth.css" />
+    <title>Daftar</title>
+  </head>
+  
+  <body class="w-full bg-[#f9f9f9] flex flex-col items-center">
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="/" class="logo">WiFi<span>&</span>CCTV</a>
+
+        <div class="profile-container"></div>
+      </div>
+    </header>
+
+    <div class="w-[80%] p-10">
+      <h1 class="text-center">Silahkan daftarkan diri anda.</h1>
+      <div class="w-full flex">
+        <form id="registerForm" class="w-full flex flex-col items-center gap-7">
+          <div class="w-full flex flex-col gap-3">
+            <label class="text-[18px] font-semibold" for="email">Email</label>
+            <input required autofocus class="p-5 rounded-md outline-none border-none shadow-md" type="email" id="email" placeholder="Masukkan email...">
+          </div>
+          <div class="w-full flex flex-col gap-3">
+            <label class="text-[18px] font-semibold" for="username">Username</label>
+            <input required autofocus class="p-5 rounded-md outline-none border-none shadow-md" type="text" id="username" placeholder="Masukkan username...">
+          </div>
+          <div class="w-full flex flex-col gap-3">
+            <label class="text-[18px] font-semibold" for="password">Password</label>
+            <input required class="passwordInput p-5 rounded-md outline-none border-none shadow-md" type="password" id="password" placeholder="Masukkan password...">
+            <span class="error-msg hidden text-sm text-red-400">Password tidak sama!</span>
+          </div>
+          <div class="w-full flex flex-col gap-3">
+            <label class="text-[18px] font-semibold" for="passwordConfirmation">Ulangi Password</label>
+            <input required class="passwordInput p-5 rounded-md outline-none border-none shadow-md" type="password" id="passwordConfirmation" placeholder="Masukkan passwordConfirmation...">
+            <span class="error-msg hidden text-sm text-red-400">Password tidak sama!</span>
+          </div>
+          <div class="w-full flex flex-col gap-3">
+            <label class="text-[18px] font-semibold" for="role">Peran</label>
+            <select required class="p-3 rounded-lg outline-none border-none shadow-md" name="role" id="role">
+              <option value="pengguna">Pengguna</option>
+              <option value="pekerja">Pekerja</option>
+            </select>
+          </div>
+          <div class="w-full flex flex-col items-end gap-3">
+            <button class="p-5 pl-8 pr-8 rounded-md border-none outline-none shadow-md cursor-pointer bg-sky-300 text-white hover:shadow-lg text-[16px]">Daftar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="w-full"></div>
+    <script src="/sa2/sweetalert2.all.min.js"></script>
+    <script src="/core/data.js"></script>
+    <script src="/core/function.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/register.js"></script>
+  </body>
+</html>

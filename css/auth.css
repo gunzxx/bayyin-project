@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.container {
+  margin: auto;
+  padding: 20px;
+}
+
+header {
+  width: 100%;
+  background: #0077cc;
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+header p {
+  margin: 10px 0 0;
+}
+
+/* ===== NAVBAR STYLING ===== */
+/* Logo */
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fefefe;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #333;
+}
+
+.navbar {
+  background-color: rgba(46, 136, 253, 0.821);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  width: 100%;
+}
+
+.nav-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+
+/* Error input */
+.passwordInput.error{
+  box-shadow: 0 0 10px rgba(255, 0, 0, .3);
+}
+.error-msg{
+  display: block;
+}
+.error-msg.hidden{
+  display: none;
+}

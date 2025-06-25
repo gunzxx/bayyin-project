@@ -1,30 +1,24 @@
 // Cek role saat reload halaman
 window.addEventListener("DOMContentLoaded", () => {
-  const role = localStorage.getItem("role");
-  const username = localStorage.getItem("username");
+  const user = checkAuth();
   const pageRole = getPageRole();
 
-  if (!role || !username) {
-    // showContentByRole(role);
-    localStorage.clear();
+  if (!user) {
+    localStorage.removeItem("userid");
     window.location.href = "/";
-  } else if(role != pageRole){ // handle role
-    window.location.href = `/dashboard/${role}.html`;
   } else {
+    const role = user.role;
+
+    /** handle role */
+    if (role != pageRole) {
+      window.location.href = `/dashboard/${role}.html`;
+    }
+
     document.querySelector(
       ".profile-container"
-    ).innerHTML = `<p href="./dashboard/${role}.html" style="color:white;">Halo, ${localStorage.getItem(
-      "username"
-    )} (${role})</p>`;
+    ).innerHTML = `<p href="./dashboard/${role}.html" style="color:white;">Halo, ${user.username} (${role})</p>`;
   }
 });
-
-function getPageRole() {
-  const path = window.location.pathname; // Contoh: "/dashboard/pekerja.html"
-  const lastSegment = path.split("/").filter(Boolean).pop(); // "pekerja.html" atau "pekerja"
-  const pageName = lastSegment.replace(/\.html$/, "");
-  return pageName;
-}
 
 document.querySelector(".profile-container").addEventListener("click", () => {
   openProfileModal();
@@ -50,9 +44,10 @@ document.querySelector(".logout").addEventListener("click", (e) => {
     icon: "question",
     showCancelButton: true,
     allowOutsideClick: false,
+    confirmButtonColor: 'rgb(248,113,113)',
   }).then((res) => {
     if (res.isConfirmed) {
-      localStorage.clear();
+      localStorage.removeItem("userid");
       window.location.href = "/";
     }
   });

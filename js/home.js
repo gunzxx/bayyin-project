@@ -21,8 +21,8 @@ document.getElementById("orderForm")?.addEventListener("submit", function (e) {
 });
 
 // Tangani form di setiap card layanan
-document.querySelectorAll('.serviceForm').forEach(form => {
-  form.addEventListener('submit', function (e) {
+document.querySelectorAll(".serviceForm").forEach((form) => {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
     const name = this.querySelector('input[name="name"]').value.trim();
     const address = this.querySelector('textarea[name="address"]').value.trim();
@@ -35,7 +35,7 @@ document.querySelectorAll('.serviceForm').forEach(form => {
 
     const message = `Terima kasih, ${name}! Pesanan Anda untuk ${service} telah kami terima.`;
 
-    this.querySelector('.form-message').textContent = message;
+    this.querySelector(".form-message").textContent = message;
     this.reset();
   });
 });
@@ -43,12 +43,12 @@ document.querySelectorAll('.serviceForm').forEach(form => {
 // Toggle form tampil/sembunyi saat klik card
 function toggleForm(formId) {
   const form = document.getElementById(formId);
-  form.classList.toggle('active');
+  form.classList.toggle("active");
 }
 
 // Tangani pengiriman form
-document.querySelectorAll('.serviceForm').forEach(form => {
-  form.addEventListener('submit', function (e) {
+document.querySelectorAll(".serviceForm").forEach((form) => {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
     const name = this.querySelector('input[name="name"]').value.trim();
     const address = this.querySelector('textarea[name="address"]').value.trim();
@@ -60,7 +60,7 @@ document.querySelectorAll('.serviceForm').forEach(form => {
     }
 
     const message = `Terima kasih, ${name}! Pesanan Anda untuk ${service} telah kami terima.`;
-    this.querySelector('.form-message').textContent = message;
+    this.querySelector(".form-message").textContent = message;
     this.reset();
   });
 });
@@ -80,8 +80,8 @@ function closeModal() {
 }
 
 // Tangani pengiriman form
-document.querySelectorAll('.serviceForm').forEach(form => {
-  form.addEventListener('submit', function (e) {
+document.querySelectorAll(".serviceForm").forEach((form) => {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
     const name = this.querySelector('input[name="name"]').value.trim();
     const address = this.querySelector('textarea[name="address"]').value.trim();
@@ -93,7 +93,7 @@ document.querySelectorAll('.serviceForm').forEach(form => {
     }
 
     const message = `Terima kasih, ${name}! Pesanan Anda untuk ${service} telah kami terima.`;
-    this.querySelector('.form-message').textContent = message;
+    this.querySelector(".form-message").textContent = message;
     this.reset();
   });
 });
@@ -116,16 +116,20 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   closeModal();
 });
 
-function showContentByRole(role) {
+function showContentByRole(userParams) {
   // Sembunyikan semua blok role dulu
-  document.querySelectorAll(".role-section").forEach(el => el.classList.add("hidden"));
+  document
+    .querySelectorAll(".role-section")
+    .forEach((el) => el.classList.add("hidden"));
 
   // Tampilkan sesuai role
-  const target = document.querySelector(`.role-${role}`);
+  const target = document.querySelector(`.role-${userParams.role}`);
   if (target) target.classList.remove("hidden");
 
   // Ubah navbar
-  document.querySelector(".auth-buttons").innerHTML = `<a href="./dashboard/${role}.html" style="color:white;">Halo, ${localStorage.getItem("username")} (${role})</a>`;
+  document.querySelector(
+    ".auth-buttons"
+  ).innerHTML = `<a href="./dashboard/${userParams.role}.html" style="color:white;">Halo, ${userParams.username} (${userParams.role})</a>`;
 }
 
 function openModal(type) {
@@ -135,21 +139,25 @@ function openModal(type) {
 
 // Cek role saat reload halaman
 window.addEventListener("DOMContentLoaded", () => {
-  const role = localStorage.getItem("role");
-  const username = localStorage.getItem("username");
-  if (role && username) {
-    showContentByRole(role);
-  }else{
-    localStorage.clear();
+  const users = localStorage.getItem('users');
+  if(!users){
+    setUsers();
+  }
+  
+  const user = checkAuth();
+  if (user) {
+    showContentByRole(user);
+  } else {
+    localStorage.removeItem('userid');
   }
 });
 
-document.querySelectorAll('.serviceForm').forEach(form => {
+document.querySelectorAll(".serviceForm").forEach((form) => {
   const paymentSelect = form.querySelector('select[name="payment"]');
-  const qrisSection = form.querySelector('.qris-section');
+  const qrisSection = form.querySelector(".qris-section");
 
   if (paymentSelect && qrisSection) {
-    paymentSelect.addEventListener('change', () => {
+    paymentSelect.addEventListener("change", () => {
       if (paymentSelect.value === "QRIS") {
         qrisSection.classList.remove("hidden");
       } else {
@@ -158,7 +166,7 @@ document.querySelectorAll('.serviceForm').forEach(form => {
     });
   }
 
-  paymentSelect.addEventListener('change', () => {
+  paymentSelect.addEventListener("change", () => {
     if (paymentSelect.value === "QRIS") {
       qrisSection.classList.remove("hidden");
     } else {
@@ -166,4 +174,3 @@ document.querySelectorAll('.serviceForm').forEach(form => {
     }
   });
 });
-

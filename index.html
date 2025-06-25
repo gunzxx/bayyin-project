@@ -23,12 +23,8 @@
         </nav>
 
         <div class="auth-buttons">
-          <button class="btn-outline" onclick="openModal('register')">
-            Daftar
-          </button>
-          <button class="btn-primary" onclick="openModal('login')">
-            Login
-          </button>
+          <a href="/auth/register.html" class="btn-outline"> Daftar </a>
+          <a href="/auth/login.html" class="btn-primary"> Login </a>
         </div>
 
         <!-- Modal Login -->
@@ -298,8 +294,6 @@
       </div>
     </main>
 
-    <script src="js/home.js"></script>
-
     <section id="kontak" class="kontak-section">
       <div class="kontak-overlay">
         <h2>Hubungi Kami</h2>
@@ -311,5 +305,9 @@
         </ul>
       </div>
     </section>
+
+    <script src="/core/data.js"></script>
+    <script src="/core/function.js"></script>
+    <script src="/js/home.js"></script>
   </body>
 </html>

@@ -150,6 +150,12 @@ td, th{
 .profile-modal p.logout{
   cursor: pointer;
 }
+.profile-modal p.logout:hover{
+  color: red;
+}
+.profile-modal a{
+  text-decoration: none;
+}
 
 
 .blur-bg{
