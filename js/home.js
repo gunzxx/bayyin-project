@@ -76,7 +76,7 @@ function closeModal() {
   document.getElementById("overlay").classList.add("hidden");
   document.getElementById("wifiModal").classList.add("hidden");
   document.getElementById("cctvModal").classList.add("hidden");
-  document.getElementById("loginModal").classList.add("hidden");
+  // document.getElementById("loginModal").classList.add("hidden");
 }
 
 // Tangani pengiriman form
@@ -98,23 +98,23 @@ document.querySelectorAll(".serviceForm").forEach((form) => {
   });
 });
 
-document.getElementById("loginForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const name = document.getElementById("loginName").value.trim();
-  const role = document.getElementById("userRole").value;
+// document.getElementById("loginForm").addEventListener("submit", function (e) {
+//   e.preventDefault();
+//   const name = document.getElementById("loginName").value.trim();
+//   const role = document.getElementById("userRole").value;
 
-  if (!name || !role) {
-    alert("Harap isi semua kolom.");
-    return;
-  }
+//   if (!name || !role) {
+//     alert("Harap isi semua kolom.");
+//     return;
+//   }
 
-  // Simpan ke session (sederhana)
-  localStorage.setItem("username", name);
-  localStorage.setItem("role", role);
+//   // Simpan ke session (sederhana)
+//   localStorage.setItem("username", name);
+//   localStorage.setItem("role", role);
 
-  showContentByRole(role);
-  closeModal();
-});
+//   showContentByRole(role);
+//   closeModal();
+// });
 
 function showContentByRole(userParams) {
   // Sembunyikan semua blok role dulu

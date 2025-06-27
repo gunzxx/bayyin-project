@@ -2,12 +2,12 @@
 
 const datas = [
     {
-        tanggal: Date.now(),
+        tanggal: '2025-05-12',
         layanan: "WiFi",
         status: "selesai",
     },
     {
-        tanggal: Date.now(),
+        tanggal: '2025-06-02',
         layanan: "CCTV",
         status: "proses",
     },
@@ -18,9 +18,8 @@ datas.forEach(data => {
     
     const col1 = document.createElement('td');
     const col1Val = document.createElement('div');
-    tanggal = new Date(data['tanggal'])
-    col1.innerText = tanggal.toISOString().split('T')[0]
-    col1.appendChild(col1Val)
+    col1.innerText = data['tanggal'];
+    col1.appendChild(col1Val);
     
     const col2 = document.createElement('td');
     const col2Val = document.createElement('div');

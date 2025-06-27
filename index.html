@@ -6,12 +6,13 @@
     <title>Pemesanan WiFi & CCTV</title>
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/fa.min.css" />
+    <!-- <link rel="stylesheet" href="css/output.css" /> -->
   </head>
 
   <body>
     <!-- ===== NAVBAR ===== -->
     <header class="navbar">
-      <div class="container nav-container">
+      <div class="nav-container">
         <h1 class="logo">WiFi<span>&</span>CCTV</h1>
         <nav class="nav-menu">
           <ul class="nav-links">
@@ -24,27 +25,7 @@
 
         <div class="auth-buttons">
           <a href="/auth/register.html" class="btn-outline"> Daftar </a>
-          <a href="/auth/login.html" class="btn-primary"> Login </a>
-        </div>
-
-        <!-- Modal Login -->
-        <div id="loginModal" class="modal hidden">
-          <div class="modal-content">
-            <h3>Login</h3>
-            <form id="loginForm">
-              <label>Nama Pengguna:</label>
-              <input type="text" id="loginName" required />
-              <label>Pilih Sebagai:</label>
-              <select id="userRole" required>
-                <option value="">-- Pilih Peran --</option>
-                <option value="pemilik">Pemilik</option>
-                <option value="pekerja">Pekerja</option>
-                <option value="pengguna">Pengguna</option>
-              </select>
-              <button type="submit">Masuk</button>
-            </form>
-            <button onclick="closeModal()" class="close-btn">Tutup</button>
-          </div>
+          <a href="/auth/login.html" class="btn-primary"> Masuk </a>
         </div>
       </div>
     </header>
@@ -112,85 +93,91 @@
 
       <!-- ===== SECTION UNTUK ROLE: PEMILIK ===== -->
       <section class="role-section role-pemilik hidden container">
-        <h2>Dashboard Pemilik</h2>
-        <p>Berikut adalah daftar pesanan yang masuk:</p>
-        <table class="role-table">
-          <thead>
-            <tr>
-              <th>Nama</th>
-              <th>Layanan</th>
-              <th>Alamat</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Rudi</td>
-              <td>WiFi</td>
-              <td>Jl. Cemara No.23</td>
-              <td>Selesai</td>
-            </tr>
-            <tr>
-              <td>Dian</td>
-              <td>CCTV</td>
-              <td>Jl. Bunga Raya No.12</td>
-              <td>Proses</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="card-role">
+          <h2>Dashboard Pemilik</h2>
+          <p>Berikut adalah daftar pesanan yang masuk:</p>
+          <table class="role-table">
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>Layanan</th>
+                <th>Alamat</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rudi</td>
+                <td>WiFi</td>
+                <td>Jl. Cemara No.23</td>
+                <td>Selesai</td>
+              </tr>
+              <tr>
+                <td>Dian</td>
+                <td>CCTV</td>
+                <td>Jl. Bunga Raya No.12</td>
+                <td>Proses</td>
+              </tr>
+            </tbody>
+          </table>
 
-        <h3>Laporan Pekerja Hari Ini</h3>
-        <ul class="role-list">
-          <li>Teknisi A menyelesaikan 2 pemasangan WiFi.</li>
-          <li>Teknisi B sedang melakukan instalasi CCTV di Jakarta Barat.</li>
-        </ul>
+          <h3>Laporan Pekerja Hari Ini</h3>
+          <ul class="role-list">
+            <li>Teknisi A menyelesaikan 2 pemasangan WiFi.</li>
+            <li>Teknisi B sedang melakukan instalasi CCTV di Jakarta Barat.</li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===== SECTION UNTUK ROLE: PEKERJA ===== -->
       <section class="role-section role-pekerja hidden container">
-        <h2>Job List Hari Ini</h2>
-        <ul class="role-list">
-          <li>
-            <strong>WiFi - Rudi</strong> di Jl. Cemara No.23 — Catatan: Perlu
-            kabel tambahan.
-          </li>
-          <li>
-            <strong>CCTV - Dian</strong> di Jl. Bunga Raya No.12 — Catatan:
-            Kamera outdoor.
-          </li>
-        </ul>
+        <div class="card-role">
+          <h2>Job List Hari Ini</h2>
+          <ul class="role-list">
+            <li>
+              <strong>WiFi - Rudi</strong> di Jl. Cemara No.23 — Catatan: Perlu
+              kabel tambahan.
+            </li>
+            <li>
+              <strong>CCTV - Dian</strong> di Jl. Bunga Raya No.12 — Catatan:
+              Kamera outdoor.
+            </li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===== SECTION UNTUK ROLE: PENGGUNA ===== -->
       <section class="role-section role-pengguna hidden container">
-        <h2>Status Pemesanan</h2>
-        <ul class="role-list">
-          <li>Pesanan WiFi — Status: <strong>Selesai</strong></li>
-          <li>Pesanan CCTV — Status: <strong>Dalam proses</strong></li>
-        </ul>
+        <div class="card-role">
+          <h2>Status Pemesanan</h2>
+          <ul class="role-list">
+            <li>Pesanan WiFi — Status: <strong>Selesai</strong></li>
+            <li>Pesanan CCTV — Status: <strong>Dalam proses</strong></li>
+          </ul>
 
-        <h3>Riwayat Pemesanan Anda</h3>
-        <table class="role-table">
-          <thead>
-            <tr>
-              <th>Tanggal</th>
-              <th>Layanan</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>2025-05-12</td>
-              <td>WiFi</td>
-              <td>Selesai</td>
-            </tr>
-            <tr>
-              <td>2025-06-02</td>
-              <td>CCTV</td>
-              <td>Proses</td>
-            </tr>
-          </tbody>
-        </table>
+          <h3>Riwayat Pemesanan Anda</h3>
+          <table class="role-table">
+            <thead>
+              <tr>
+                <th>Tanggal</th>
+                <th>Layanan</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2025-05-12</td>
+                <td>WiFi</td>
+                <td>Selesai</td>
+              </tr>
+              <tr>
+                <td>2025-06-02</td>
+                <td>CCTV</td>
+                <td>Proses</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <!-- KARTU LAYANAN -->
