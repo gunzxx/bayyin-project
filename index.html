@@ -13,7 +13,13 @@
     <!-- ===== NAVBAR ===== -->
     <header class="navbar">
       <div class="nav-container">
-        <h1 class="logo">WiFi<span>&</span>CCTV</h1>
+        <a href="/" class="logo">
+          <img
+            src="/assets/logo1.png"
+            alt="Logo WiFi & CCTV"
+            style="height: 40px"
+          />
+        </a>
         <nav class="nav-menu">
           <ul class="nav-links">
             <li><a href="#beranda">Beranda</a></li>
@@ -232,6 +238,32 @@
               <option value="QRIS">QRIS</option>
             </select>
 
+            <!-- Section Bank Transfer -->
+            <div class="bank-section hidden">
+              <label>Pilih Bank:</label>
+              <select name="bank" required>
+                <option value="">-- Pilih Bank --</option>
+                <option value="BCA">Bank BCA</option>
+                <option value="BNI">Bank BNI</option>
+                <option value="BRI">Bank BRI</option>
+                <option value="Mandiri">Bank Mandiri</option>
+                <option value="BSI">Bank BSI</option>
+              </select>
+              <button type="button" class="close-bank-btn">
+                Batal Transfer Bank
+              </button>
+            </div>
+
+            <!-- Section E-Wallet -->
+            <div class="wallet-id-section hidden">
+              <p>ID Pembayaran kamu:</p>
+              <div
+                class="wallet-id-box"
+                style="font-weight: bold; font-size: 18px"
+              ></div>
+            </div>
+
+            <!-- Section Qris -->
             <div class="qris-section hidden">
               <p>Silakan scan QRIS di bawah ini untuk pembayaran:</p>
               <img src="assets/qris.png" alt="QRIS Payment" class="qris-img" />
@@ -268,6 +300,32 @@
               <option value="QRIS">QRIS</option>
             </select>
 
+            <!-- Section Bank Transfer -->
+            <div class="bank-section hidden">
+              <label>Pilih Bank:</label>
+              <select name="bank" required>
+                <option value="">-- Pilih Bank --</option>
+                <option value="BCA">Bank BCA</option>
+                <option value="BNI">Bank BNI</option>
+                <option value="BRI">Bank BRI</option>
+                <option value="Mandiri">Bank Mandiri</option>
+                <option value="BSI">Bank BSI</option>
+              </select>
+              <button type="button" class="close-bank-btn">
+                Batal Transfer Bank
+              </button>
+            </div>
+
+            <!-- Section E-Wallet -->
+            <div class="wallet-id-section hidden">
+              <p>ID Pembayaran kamu:</p>
+              <div
+                class="wallet-id-box"
+                style="font-weight: bold; font-size: 18px"
+              ></div>
+            </div>
+
+            <!-- Section Qris -->
             <div class="qris-section hidden">
               <p>Silakan scan QRIS di bawah ini untuk pembayaran:</p>
               <img src="assets/qris.png" alt="QRIS Payment" class="qris-img" />

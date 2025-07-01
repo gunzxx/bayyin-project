@@ -174,3 +174,48 @@ document.querySelectorAll(".serviceForm").forEach((form) => {
     }
   });
 });
+
+const forms = document.querySelectorAll(".serviceForm");
+
+  forms.forEach((form) => {
+    const paymentSelect = form.querySelector('select[name="payment"]');
+    const bankSection = form.querySelector(".bank-section");
+    const walletIdSection = form.querySelector(".wallet-id-section");
+    const walletIdBox = form.querySelector(".wallet-id-box");
+    const qrisSection = form.querySelector(".qris-section");
+    const closeBankBtn = form.querySelector(".close-bank-btn");
+
+    // Generate ID acak untuk e-wallet
+    function generateRandomID() {
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      let id = "ID-" + Array.from({ length: 8 }, () =>
+        chars.charAt(Math.floor(Math.random() * chars.length))
+      ).join("");
+      return id;
+    }
+
+    paymentSelect.addEventListener("change", () => {
+      const selected = paymentSelect.value;
+
+      // Reset semua section
+      bankSection.classList.add("hidden");
+      walletIdSection.classList.add("hidden");
+      qrisSection?.classList.add("hidden");
+
+      if (selected === "Bank Transfer") {
+        bankSection.classList.remove("hidden");
+      } else if (
+        ["OVO", "GoPay", "ShopeePay", "DANA"].includes(selected)
+      ) {
+        walletIdSection.classList.remove("hidden");
+        walletIdBox.textContent = generateRandomID();
+      } else if (selected === "QRIS") {
+        qrisSection?.classList.remove("hidden");
+      }
+    });
+
+    closeBankBtn.addEventListener("click", () => {
+      bankSection.classList.add("hidden");
+      paymentSelect.value = "";
+    });
+  });

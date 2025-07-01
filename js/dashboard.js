@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector(
       ".profile-container"
-    ).innerHTML = `<p href="./dashboard/${role}.html" style="color:white;">Halo, ${user.username} (${role})</p>`;
+    ).innerHTML = `<p href="./dashboard/${role}.html">Halo, ${user.username} (${role})</p>`;
   }
 });
 

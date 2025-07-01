@@ -11,17 +11,24 @@
   </head>
   <body class="w-full bg-[#f9f9f9] flex flex-col items-center">
     <header class="navbar">
-      <div class="container nav-container">
-        <a href="/" class="logo">WiFi<span>&</span>CCTV</a>
+      <div class="nav-container">
+        <a href="/" class="logo">
+          <img
+            src="/assets/logo1.png"
+            alt="Logo WiFi & CCTV"
+            style="height: 40px"
+          />
+        </a>
 
-        <div class="profile-container">
-        </div>
+        <div class="profile-container"></div>
       </div>
     </header>
 
     <div class="w-[80%] flex flex-col items-center p-5 text-center gap-5">
       <h1 class="font-bold text-[24px]">Dashboard Pekerja</h1>
-      <div class="w-full bg-white flex flex-col p-7 items-start gap-5 rounded-lg shadow-lg">
+      <div
+        class="w-full bg-white flex flex-col p-7 items-start gap-5 rounded-lg shadow-lg"
+      >
         <h1 class="font-bold text-[16px]">Job List Hari Ini</h1>
         <table id="tableData">
           <thead>
@@ -37,11 +44,75 @@
       </div>
     </div>
 
+    <div
+      class="w-full bg-white flex flex-col p-7 items-start gap-5 rounded-lg shadow-lg mt-6"
+    >
+      <h1 class="font-bold text-[16px]">Form Laporan Pemasangan</h1>
+      <form
+        id="laporanForm"
+        class="flex flex-col gap-4 w-full"
+        enctype="multipart/form-data"
+      >
+        <label for="layanan">Layanan:</label>
+        <select
+          name="layanan"
+          id="layanan"
+          required
+          class="border px-3 py-2 rounded"
+        >
+          <option value="">-- Pilih Layanan --</option>
+          <option value="Pemasangan WiFi">Pemasangan WiFi</option>
+          <option value="Pemasangan CCTV">Pemasangan CCTV</option>
+        </select>
+
+        <label for="lokasi">Lokasi Pemasangan:</label>
+        <input
+          type="text"
+          name="lokasi"
+          id="lokasi"
+          placeholder="Contoh: Jl. Merpati No. 5"
+          required
+          class="border px-3 py-2 rounded"
+        />
+
+        <label for="laporan">Laporan Pekerjaan:</label>
+        <textarea
+          name="laporan"
+          id="laporan"
+          rows="4"
+          required
+          placeholder="Contoh: Instalasi selesai, router berfungsi normal."
+          class="border px-3 py-2 rounded"
+        ></textarea>
+
+        <label for="foto">Upload Foto Lokasi:</label>
+        <input
+          type="file"
+          name="foto"
+          id="foto"
+          accept="image/*"
+          required
+          class="border px-3 py-2 rounded"
+        />
+
+        <button
+          type="submit"
+          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+        >
+          Kirim Laporan
+        </button>
+      </form>
+    </div>
+
     <div class="blur-bg"></div>
 
     <div class="profile-modal">
-      <a href="/profile/edit.html"><i class="fa fa-user" aria-hidden="true"></i> Edit profile</a>
-      <p class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</p>
+      <a href="/profile/edit.html"
+        ><i class="fa fa-user" aria-hidden="true"></i> Edit profile</a
+      >
+      <p class="logout">
+        <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+      </p>
     </div>
 
     <script src="../sa2/sweetalert2.all.min.js"></script>

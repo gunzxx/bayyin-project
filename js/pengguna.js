@@ -5,11 +5,13 @@ const datas = [
         tanggal: '2025-05-12',
         layanan: "WiFi",
         status: "selesai",
+        phone: '+6281234567890',
     },
     {
         tanggal: '2025-06-02',
         layanan: "CCTV",
         status: "proses",
+        phone: '+6281234567890',
     },
 ]
 

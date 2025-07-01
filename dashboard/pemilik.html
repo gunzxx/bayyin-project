@@ -11,8 +11,14 @@
   </head>
   <body class="w-full bg-[#f9f9f9] flex flex-col items-center">
     <header class="navbar">
-      <div class="container nav-container">
-        <a href="/" class="logo">WiFi<span>&</span>CCTV</a>
+      <div class="nav-container">
+        <a href="/" class="logo">
+          <img
+            src="/assets/logo1.png"
+            alt="Logo WiFi & CCTV"
+            style="height: 40px"
+          />
+        </a>
 
         <div class="profile-container"></div>
       </div>
@@ -33,6 +39,28 @@
               <th>Layanan</th>
               <th>Alamat</th>
               <th>Status</th>
+              <th class="action">Aksi</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      
+      <div
+        class="w-full bg-white flex flex-col p-7 items-start gap-5 rounded-lg shadow-lg"
+      >
+        <h1 class="font-bold text-[16px]">
+          Berikut adalah daftar pengguna:
+        </h1>
+        <table id="userTable">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Alamat</th>
+              <th>No. Handphone</th>
+              <!-- <th>Layanan</th>
+              <th>Status</th>
+              <th>Aksi</th> -->
             </tr>
           </thead>
           <tbody></tbody>

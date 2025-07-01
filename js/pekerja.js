@@ -51,3 +51,37 @@ datas.forEach(data => {
 function capitalizeFirst(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+  document.getElementById("laporanForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const layanan = document.getElementById("layanan").value;
+    const lokasi = document.getElementById("lokasi").value;
+    const laporan = document.getElementById("laporan").value;
+    const foto = document.getElementById("foto").files[0];
+
+    if (!layanan || !lokasi || !laporan || !foto) {
+      Swal.fire("Gagal", "Semua field harus diisi.", "error");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function () {
+      // Simulasi preview / penyimpanan
+      Swal.fire({
+        title: "Laporan Terkirim!",
+        html: `
+          <strong>Layanan:</strong> ${layanan}<br>
+          <strong>Lokasi:</strong> ${lokasi}<br>
+          <strong>Laporan:</strong> ${laporan}<br><br>
+          <img src="${reader.result}" alt="Foto Lokasi" style="max-width:100%; border-radius:8px;" />
+        `,
+        icon: "success",
+      });
+
+      // Reset form
+      document.getElementById("laporanForm").reset();
+    };
+
+    reader.readAsDataURL(foto); // membaca file gambar
+  });
