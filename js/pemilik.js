@@ -63,7 +63,7 @@ datas.forEach((data) => {
   const col5 = document.createElement("td");
   const col5Val = document.createElement("div");
   col5Val.innerHTML = data["status"] == 'proses'? makeVerifyButton() : makeVerified();
-  col5.classList.add('action')
+  col5.classList.add('center')
   col5.appendChild(col5Val);
 
   rowElement.appendChild(col1);

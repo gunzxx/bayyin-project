@@ -135,7 +135,7 @@ td, th{
   padding: 10px 30px;
   text-align: left;
 }
-td.action, th.action{
+td.center, th.center{
   padding: 10px 30px;
   text-align: center;
 }
