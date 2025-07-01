@@ -7,35 +7,34 @@ const datas = [
     pengguna: "Rudi",
     alamat: "Jl. Cemara No.23",
     status: "selesai",
-},
-{
+  },
+  {
     layanan: "CCTV",
     tanggal: Date.now(),
     pengguna: "Dian",
     alamat: "Jl. Bunga Raya No.12",
     status: "proses",
-},
+  },
 ];
 
 const userDatas = [
-    {
-        nama: 'rudi',
-        tanggal: '2025-05-12',
-        layanan: "WiFi",
-        status: "selesai",
-        alamat: "Jl. Cemara No.23",
-        phone: '+6281234567890',
-    },
-    {
-        nama: 'dian',
-        tanggal: '2025-06-02',
-        layanan: "CCTV",
-        status: "proses",
-        alamat: "Jl. Bunga Raya No.12",
-        phone: '+6281234567890',
-    },
-]
-
+  {
+    nama: "rudi",
+    tanggal: "2025-05-12",
+    layanan: "WiFi",
+    status: "selesai",
+    alamat: "Jl. Cemara No.23",
+    phone: "+6281234567890",
+  },
+  {
+    nama: "dian",
+    tanggal: "2025-06-02",
+    layanan: "CCTV",
+    status: "proses",
+    alamat: "Jl. Bunga Raya No.12",
+    phone: "+6281234567890",
+  },
+];
 
 datas.forEach((data) => {
   const rowElement = document.createElement("tr");
@@ -62,8 +61,9 @@ datas.forEach((data) => {
 
   const col5 = document.createElement("td");
   const col5Val = document.createElement("div");
-  col5Val.innerHTML = data["status"] == 'proses'? makeVerifyButton() : makeVerified();
-  col5.classList.add('center')
+  col5Val.innerHTML =
+    data["status"] == "proses" ? makeVerifyButton() : makeVerified();
+  col5.classList.add("center");
   col5.appendChild(col5Val);
 
   rowElement.appendChild(col1);
@@ -74,7 +74,6 @@ datas.forEach((data) => {
 
   document.querySelector("#tableData tbody").appendChild(rowElement);
 });
-
 
 userDatas.forEach((data) => {
   const rowElement = document.createElement("tr");
@@ -118,7 +117,7 @@ function makeVerified() {
 }
 
 document.querySelectorAll(".verify-btn").forEach((verifElem) => {
-  verifElem.addEventListener('click', (event) => {
+  verifElem.addEventListener("click", (event) => {
     // event.prefentDefault();
     Swal.fire({
       title: "Verifikasi pesanan?",
@@ -126,6 +125,18 @@ document.querySelectorAll(".verify-btn").forEach((verifElem) => {
       showCancelButton: true,
       allowOutsideClick: false,
       confirmButtonColor: "green",
+    }).then((res) => {
+      if (res.isConfirmed) {
+        Swal.fire({
+          title: "Berhasil diverifikasi ✅",
+          icon: "success",
+          showConfirmButton: false,
+        //   allowOutsideClick: false,
+          confirmButtonColor: "green",
+        });
+
+        event.target.parentElement.innerHTML = makeVerified();
+      }
     });
   });
 });
