@@ -52,3 +52,12 @@ document.querySelector(".logout").addEventListener("click", (e) => {
     }
   });
 });
+
+
+function showBlur(){
+  document.querySelector(".blur-bg").style.display = "flex";
+}
+
+function hiddenBlur(){
+  document.querySelector(".blur-bg").style.display = "none";
+}

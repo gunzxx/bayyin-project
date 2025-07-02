@@ -7,6 +7,7 @@ const datas = [
     pengguna: "Rudi",
     alamat: "Jl. Cemara No.23",
     status: "selesai",
+    tanggal: "2025-05-12",
   },
   {
     layanan: "CCTV",
@@ -14,25 +15,28 @@ const datas = [
     pengguna: "Dian",
     alamat: "Jl. Bunga Raya No.12",
     status: "proses",
+    tanggal: "2025-06-02",
   },
 ];
 
 const userDatas = [
   {
     nama: "rudi",
-    tanggal: "2025-05-12",
     layanan: "WiFi",
     status: "selesai",
     alamat: "Jl. Cemara No.23",
     phone: "+6281234567890",
+    catatan: "perlu kabel tambahan",
+    dokumentasi: "/assets/dok-wifi.jpeg",
   },
   {
     nama: "dian",
-    tanggal: "2025-06-02",
     layanan: "CCTV",
     status: "proses",
     alamat: "Jl. Bunga Raya No.12",
     phone: "+6281234567890",
+    catatan: "kamera outdoor",
+    dokumentasi: "/assets/dok-cctv.jpeg",
   },
 ];
 
@@ -56,22 +60,26 @@ datas.forEach((data) => {
 
   const col4 = document.createElement("td");
   const col4Val = document.createElement("div");
-  col4Val.innerText = capitalizeFirst(data["status"]);
+  col4Val.innerText = capitalizeFirst(data["alamat"]);
   col4.appendChild(col4Val);
 
   const col5 = document.createElement("td");
   const col5Val = document.createElement("div");
-  col5Val.innerHTML =
-    data["status"] == "proses" ? makeVerifyButton() : makeVerified();
-  col5.classList.add("center");
+  col5Val.innerText = capitalizeFirst(data["status"]);
   col5.appendChild(col5Val);
+
+  const col6 = document.createElement("td");
+  const col6Val = document.createElement("div");
+  col6Val.innerHTML = data["status"] == "proses" ? makeVerifyButton() : makeVerified();
+  col6.classList.add("center");
+  col6.appendChild(col6Val);
 
   rowElement.appendChild(col1);
   rowElement.appendChild(col2);
   rowElement.appendChild(col3);
   rowElement.appendChild(col4);
   rowElement.appendChild(col5);
-
+  rowElement.appendChild(col6);
   document.querySelector("#tableData tbody").appendChild(rowElement);
 });
 
@@ -93,9 +101,28 @@ userDatas.forEach((data) => {
   col3Val.innerText = capitalizeFirst(data["phone"]);
   col3.appendChild(col3Val);
 
+  const col4 = document.createElement("td");
+  const col4Val = document.createElement("div");
+  col4Val.innerText = capitalizeFirst(data["catatan"]);
+  col4.appendChild(col4Val);
+
+  const col5 = document.createElement("td");
+  const col5Val = document.createElement("div");
+  col5Val.innerText = capitalizeFirst(data["status"]);
+  col5.appendChild(col5Val);
+
+  const col6 = document.createElement("td");
+  const col6Val = document.createElement("div");
+  col6Val.innerHTML = makeDokButton(data["dokumentasi"]);
+  col6.classList.add("center");
+  col6.appendChild(col6Val);
+
   rowElement.appendChild(col1);
   rowElement.appendChild(col2);
   rowElement.appendChild(col3);
+  rowElement.appendChild(col4);
+  rowElement.appendChild(col5);
+  rowElement.appendChild(col6);
 
   document.querySelector("#userTable tbody").appendChild(rowElement);
 });
@@ -131,7 +158,7 @@ document.querySelectorAll(".verify-btn").forEach((verifElem) => {
           title: "Berhasil diverifikasi ✅",
           icon: "success",
           showConfirmButton: false,
-        //   allowOutsideClick: false,
+          //   allowOutsideClick: false,
           confirmButtonColor: "green",
         });
 
@@ -140,3 +167,35 @@ document.querySelectorAll(".verify-btn").forEach((verifElem) => {
     });
   });
 });
+
+function makeDokButton(link) {
+  return `
+  <button class="dok-btn" data-url=${link}>
+    lihat
+  </button>
+  `;
+}
+
+document.querySelectorAll(".dok-btn").forEach((elem) => {
+  elem.addEventListener("click", (event) => {
+    const url = event.target.getAttribute("data-url");
+    showDokImg(url);
+  });
+});
+
+document.querySelector(".dok-modal").addEventListener("click", (event) => {
+  document.querySelector(".dok-modal").style.display = "none";
+});
+
+function showDokImg(url) {
+  document.querySelector(".dok-modal").style.display = "flex";
+  document.querySelector(".dok-img").style.top = "auto";
+  document.querySelector(".dok-img").setAttribute("src", url);
+  // showBlur();
+}
+
+function hiddenDokImg(url) {
+  document.querySelector(".dok-modal").style.display = "none";
+  document.querySelector(".dok-img").style.top = "-100vh";
+  // showBlur();
+}

@@ -146,8 +146,8 @@ td.center, th.center{
 
 /* Profile Modal */
 .profile-modal{
-  position: absolute;
-  top: 100px;
+  position: fixed;
+  top: 60px;
   right: 100px;
   z-index: 5;
   max-width: 200px;
@@ -182,12 +182,11 @@ td.center, th.center{
   z-index: 4;
   width: 100vw;
   height: 100vh;
-  /* background: rgba(255,255,255, .2); */
   display: none;
 }
 
 /* ====== Form Laporan ====== */
-#laporanForm {
+#pekerjaForm {
   padding: 20px;
   background: #fff;
   border-radius: 8px;
@@ -200,14 +199,15 @@ td.center, th.center{
 }
 
 /* Label & Input */
-#laporanForm label {
+#pekerjaForm label {
   font-weight: 600;
+  text-align-last: left;
 }
 
-#laporanForm input[type="text"],
-#laporanForm textarea,
-#laporanForm select,
-#laporanForm input[type="file"] {
+#pekerjaForm input[type="text"],
+#pekerjaForm textarea,
+#pekerjaForm select,
+#pekerjaForm input[type="file"] {
   padding: 10px 14px;
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -215,15 +215,50 @@ td.center, th.center{
   transition: border 0.2s ease;
 }
 
-#laporanForm input:focus,
-#laporanForm textarea:focus,
-#laporanForm select:focus {
+#pekerjaForm input:focus,
+#pekerjaForm textarea:focus,
+#pekerjaForm select:focus {
   border-color: #007bff;
   outline: none;
 }
 
+
+/* Dokumentasi */
+.dok-modal{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255, .5);
+  z-index: 99;
+  cursor: pointer;
+}
+.dok-img{
+  height: 400px;
+  max-width: 600px;
+  position: absolute;
+  top: -100px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+  transition: 1s;
+}
+.dok-btn{
+  padding: 5px 13px;
+  border: none;
+  background: #aaa;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
 /* Tombol */
-#laporanForm button[type="submit"] {
+#pekerjaForm button[type="submit"] {
   background: #007bff;
   color: #fff;
   border: none;
@@ -234,13 +269,13 @@ td.center, th.center{
   transition: background 0.2s ease;
 }
 
-#laporanForm button[type="submit"]:hover {
+#pekerjaForm button[type="submit"]:hover {
   background: #0056b3;
 }
 
 /* Responsive */
 @media (max-width: 640px) {
-  #laporanForm {
+  #pekerjaForm {
     padding: 16px;
     font-size: 13px;
   }
@@ -258,3 +293,5 @@ td.center, th.center{
   background: green;
   color: white;
 }
+
+

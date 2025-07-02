@@ -10,14 +10,14 @@ const usersData = [
         id: 2,
         email: 'workera@gmail.com',
         username: 'worker A',
-        password: 'workera123',
+        password: '12345678',
         role: 'pekerja',
     },
     {
         id: 3,
         email: 'workerb@gmail.com',
         username: 'worker b',
-        password: 'workerb123',
+        password: '12345678',
         role: 'pekerja',
     },
     {
