@@ -4,7 +4,7 @@
   "description": "Build the HTML template with tailwind css.",
   "type": "commonjs",
   "scripts": {
-    "build": "postcss css/main.css -o css/output.css --minify",
+    "build": "postcss css/input.css -o css/output.css --minify",
     "dev": "concurrently \"npm run tailwind\" \"npm run live\"",
     "tailwind": "tailwindcss -i ./css/input.css -o ./css/output.css --minify --watch",
     "live": "live-server ./"
