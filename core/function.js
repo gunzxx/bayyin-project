@@ -25,7 +25,7 @@ function getPageRole() {
 function checkAuth() {
   const userid = localStorage.getItem("userid");
   if (!userid) {
-    return undefined;
+    return userid;
   }
   const user = getUser(userid);
   return user;

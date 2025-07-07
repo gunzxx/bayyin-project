@@ -1,3 +1,43 @@
+// DOM Content Loaded Handler
+window.addEventListener("DOMContentLoaded", () => {
+  const users = localStorage.getItem("users");
+  if (!users) {
+    setUsers();
+  }
+
+  const user = checkAuth();
+  if (!user) {
+    localStorage.removeItem("userid");
+  } else {
+    showContentByRole(user);
+
+    document
+      .querySelector(".profile-btn")
+      .addEventListener("click", (event) => {
+        openProfileModal();
+      });
+
+    document
+      .querySelector(".dashboard-btn")
+      .setAttribute("href", `/dashboard/${user.role}.html`);
+
+    document.querySelector(".logout").addEventListener("click", (e) => {
+      Swal.fire({
+        title: "Yakin untuk logout?",
+        icon: "question",
+        showCancelButton: true,
+        allowOutsideClick: false,
+        confirmButtonColor: "rgb(248,113,113)",
+      }).then((res) => {
+        if (res.isConfirmed) {
+          localStorage.removeItem("userid");
+          window.location.href = "/";
+        }
+      });
+    });
+  }
+});
+
 document.getElementById("orderForm")?.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -98,24 +138,6 @@ document.querySelectorAll(".serviceForm").forEach((form) => {
   });
 });
 
-// document.getElementById("loginForm").addEventListener("submit", function (e) {
-//   e.preventDefault();
-//   const name = document.getElementById("loginName").value.trim();
-//   const role = document.getElementById("userRole").value;
-
-//   if (!name || !role) {
-//     alert("Harap isi semua kolom.");
-//     return;
-//   }
-
-//   // Simpan ke session (sederhana)
-//   localStorage.setItem("username", name);
-//   localStorage.setItem("role", role);
-
-//   showContentByRole(role);
-//   closeModal();
-// });
-
 function showContentByRole(userParams) {
   // Sembunyikan semua blok role dulu
   document
@@ -129,28 +151,14 @@ function showContentByRole(userParams) {
   // Ubah navbar
   document.querySelector(
     ".auth-buttons"
-  ).innerHTML = `<a href="./dashboard/${userParams.role}.html" style="color:white;">Halo, ${userParams.username} (${userParams.role})</a>`;
+  ).innerHTML = `<span style="color:#a855f7;"><i class="fa-solid fa-user profile-btn"></i></span>`;
+  // ).innerHTML = `<span href="./dashboard/${userParams.role}.html" style="color:white;"><i class="fa-solid fa-user"></i></span>`;
 }
 
 function openModal(type) {
   document.getElementById("overlay").classList.remove("hidden");
   document.getElementById(`${type}Modal`).classList.remove("hidden");
 }
-
-// Cek role saat reload halaman
-window.addEventListener("DOMContentLoaded", () => {
-  const users = localStorage.getItem('users');
-  if(!users){
-    setUsers();
-  }
-  
-  const user = checkAuth();
-  if (user) {
-    showContentByRole(user);
-  } else {
-    localStorage.removeItem('userid');
-  }
-});
 
 document.querySelectorAll(".serviceForm").forEach((form) => {
   const paymentSelect = form.querySelector('select[name="payment"]');
@@ -177,45 +185,99 @@ document.querySelectorAll(".serviceForm").forEach((form) => {
 
 const forms = document.querySelectorAll(".serviceForm");
 
-  forms.forEach((form) => {
-    const paymentSelect = form.querySelector('select[name="payment"]');
-    const bankSection = form.querySelector(".bank-section");
-    const walletIdSection = form.querySelector(".wallet-id-section");
-    const walletIdBox = form.querySelector(".wallet-id-box");
-    const qrisSection = form.querySelector(".qris-section");
-    const closeBankBtn = form.querySelector(".close-bank-btn");
+forms.forEach((form) => {
+  const paymentSelect = form.querySelector('select[name="payment"]');
+  const bankSection = form.querySelector(".bank-section");
+  const walletIdSection = form.querySelector(".wallet-id-section");
+  const walletIdBox = form.querySelector(".wallet-id-box");
+  const qrisSection = form.querySelector(".qris-section");
+  const closeBankBtn = form.querySelector(".close-bank-btn");
 
-    // Generate ID acak untuk e-wallet
-    function generateRandomID() {
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-      let id = "ID-" + Array.from({ length: 8 }, () =>
+  // Generate ID acak untuk e-wallet
+  function generateRandomID() {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let id =
+      "ID-" +
+      Array.from({ length: 8 }, () =>
         chars.charAt(Math.floor(Math.random() * chars.length))
       ).join("");
-      return id;
+    return id;
+  }
+
+  paymentSelect.addEventListener("change", () => {
+    const selected = paymentSelect.value;
+
+    // Reset semua section
+    bankSection.classList.add("hidden");
+    walletIdSection.classList.add("hidden");
+    qrisSection?.classList.add("hidden");
+
+    if (selected === "Bank Transfer") {
+      bankSection.classList.remove("hidden");
+    } else if (["OVO", "GoPay", "ShopeePay", "DANA"].includes(selected)) {
+      walletIdSection.classList.remove("hidden");
+      walletIdBox.textContent = generateRandomID();
+    } else if (selected === "QRIS") {
+      qrisSection?.classList.remove("hidden");
     }
-
-    paymentSelect.addEventListener("change", () => {
-      const selected = paymentSelect.value;
-
-      // Reset semua section
-      bankSection.classList.add("hidden");
-      walletIdSection.classList.add("hidden");
-      qrisSection?.classList.add("hidden");
-
-      if (selected === "Bank Transfer") {
-        bankSection.classList.remove("hidden");
-      } else if (
-        ["OVO", "GoPay", "ShopeePay", "DANA"].includes(selected)
-      ) {
-        walletIdSection.classList.remove("hidden");
-        walletIdBox.textContent = generateRandomID();
-      } else if (selected === "QRIS") {
-        qrisSection?.classList.remove("hidden");
-      }
-    });
-
-    closeBankBtn.addEventListener("click", () => {
-      bankSection.classList.add("hidden");
-      paymentSelect.value = "";
-    });
   });
+
+  closeBankBtn.addEventListener("click", () => {
+    bankSection.classList.add("hidden");
+    paymentSelect.value = "";
+  });
+});
+
+function openProfileModal() {
+  showBlur();
+  document.querySelector(".profile-modal").style.display = "flex";
+}
+
+function closeProfileModal() {
+  hiddenBlur();
+  document.querySelector(".profile-modal").style.display = "none";
+}
+
+const blurBgElem = document.querySelector(".blur-bg");
+blurBgElem.addEventListener("click", () => {
+  closeProfileModal();
+});
+
+function showBlur() {
+  blurBgElem.style.display = "flex";
+}
+
+function hiddenBlur() {
+  blurBgElem.style.display = "none";
+}
+
+
+const slider = document.getElementById("scroll-container");
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener("mousedown", (e) => {
+  isDown = true;
+  slider.classList.add("active");
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener("mouseleave", () => {
+  isDown = false;
+  slider.classList.remove("active");
+});
+
+slider.addEventListener("mouseup", () => {
+  isDown = false;
+  slider.classList.remove("active");
+});
+
+slider.addEventListener("mousemove", (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 1.5; // Kecepatan scroll
+  slider.scrollLeft = scrollLeft - walk;
+});

@@ -39,7 +39,7 @@
               <th>Layanan</th>
               <th>Alamat</th>
               <th>Tanggal</th>
-              <th>Status</th>
+              <th>No. Handphone</th>
               <th class="center">Aksi</th>
             </tr>
           </thead>
@@ -51,7 +51,7 @@
         class="w-full bg-white flex flex-col p-7 items-start gap-5 rounded-lg shadow-lg"
       >
         <h1 class="font-bold text-[16px]">
-          Berikut adalah daftar pengguna:
+          Berikut adalah laporan pekerjaan:
         </h1>
         <table id="userTable">
           <thead>
@@ -68,12 +68,64 @@
         </table>
       </div>
 
-      <div class="w-full text-left flex flex-col">
-        <h1>Laporan pekerja hari ini:</h1>
-        <ul>
-          <li>Teknisi A menyelesaikan 2 pemasangan WiFi.</li>
-          <li>Teknisi B sedang melakukan instalasi CCTV di Jakarta Barat.</li>
-        </ul>
+      <div
+        class="w-full bg-white flex flex-col p-7 items-start gap-5 rounded-lg shadow-lg mt-6"
+      >
+        <h1 class="font-bold text-[16px]">Form Job List Pekerja:</h1>
+        <form
+          id="pekerjaForm"
+          class="flex flex-col gap-4 w-full"
+          enctype="multipart/form-data"
+        >
+          <label for="layanan">Layanan:</label>
+          <select
+            name="layanan"
+            id="layanan"
+            required
+            class="border px-3 py-2 rounded"
+          >
+            <option value="">-- Pilih Layanan --</option>
+            <option value="Pemasangan WiFi">Pemasangan WiFi</option>
+            <option value="Pemasangan CCTV">Pemasangan CCTV</option>
+          </select>
+  
+          <label for="lokasi">Nama Pengguna:</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Masukkan nama pengguna"
+            required
+            class="border px-3 py-2 rounded"
+          />
+  
+          <label for="lokasi">Lokasi Pemasangan:</label>
+          <input
+            type="text"
+            name="lokasi"
+            id="lokasi"
+            placeholder="Contoh: Jl. Merpati No. 5"
+            required
+            class="border px-3 py-2 rounded"
+          />
+  
+          <label for="laporan">Laporan Pekerjaan:</label>
+          <textarea
+            name="laporan"
+            id="laporan"
+            rows="4"
+            required
+            placeholder="Contoh: Instalasi selesai, router berfungsi normal."
+            class="border px-3 py-2 rounded"
+          ></textarea>
+  
+          <button
+            type="submit"
+            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          >
+            Kirim Laporan
+          </button>
+        </form>
       </div>
     </div>
 

@@ -8,6 +8,7 @@ const datas = [
     alamat: "Jl. Cemara No.23",
     status: "selesai",
     tanggal: "2025-05-12",
+    phone: "+6281234567890",
   },
   {
     layanan: "CCTV",
@@ -16,6 +17,7 @@ const datas = [
     alamat: "Jl. Bunga Raya No.12",
     status: "proses",
     tanggal: "2025-06-02",
+    phone: "+6281234567890",
   },
 ];
 
@@ -60,12 +62,12 @@ datas.forEach((data) => {
 
   const col4 = document.createElement("td");
   const col4Val = document.createElement("div");
-  col4Val.innerText = capitalizeFirst(data["alamat"]);
+  col4Val.innerText = capitalizeFirst(data["tanggal"]);
   col4.appendChild(col4Val);
 
   const col5 = document.createElement("td");
   const col5Val = document.createElement("div");
-  col5Val.innerText = capitalizeFirst(data["status"]);
+  col5Val.innerText = capitalizeFirst(data["phone"]);
   col5.appendChild(col5Val);
 
   const col6 = document.createElement("td");

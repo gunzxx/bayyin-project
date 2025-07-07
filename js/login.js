@@ -14,7 +14,10 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
       title: "Login berhasil!",
       icon: "success",
     }).then((result) => {
-      window.location.href = `/dashboard/${user.role}.html`;
+      if(user.role == 'pengguna'){
+        return window.location.href = `/`;
+      }
+      return window.location.href = `/dashboard/${user.role}.html`;
     });
   } else {
     return Swal.fire({

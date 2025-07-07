@@ -1,3 +1,7 @@
+:root {
+  --c1: #eef7ff;
+}
+
 * {
   box-sizing: border-box;
   font-family: "Segoe UI", sans-serif;
@@ -18,8 +22,8 @@ header {
   width: 100%;
   background: #0077cc;
   color: white;
-  padding: 40px 20px;
   display: flex;
+  margin: 0;
 }
 
 header h1 {
@@ -35,24 +39,22 @@ header p {
 /* Logo */
 .logo {
   font-size: 20px;
-  font-weight: 700;
   color: #fefefe;
-  letter-spacing: 0.5px;
   text-decoration: none;
-}
-
-.logo span {
-  color: #333;
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
 }
 
 .navbar {
-  background-color: rgba(46, 136, 253, 0.821);
+  /* background-color: rgba(46, 136, 253, 0.821); */
+  background-color: var(--c1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 3;
   width: 100%;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .nav-container {

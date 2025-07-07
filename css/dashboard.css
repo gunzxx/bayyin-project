@@ -19,9 +19,8 @@ body {
 
 header {
   width: 100%;
-  background: #0077cc;
+  background: #6b21a8;
   color: white;
-  /* text-align: center; */
   background: red;
   display: flex;
   padding: 0;
@@ -54,7 +53,7 @@ header p {
 
 .navbar {
   width: 100% !important;
-  background-color: rgba(46, 136, 253, 0.821);
+  background-color: #6b21a8;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
@@ -125,7 +124,7 @@ tr{
   border-bottom: 1px solid #bbb;
 }
 tr:has(th){
-  background: #0077cc;
+  background: #6b21a8;
   color: white;
 }
 th{
@@ -176,7 +175,7 @@ td.center, th.center{
 
 
 .blur-bg{
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 4;

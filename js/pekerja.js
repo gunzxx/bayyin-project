@@ -7,6 +7,7 @@ const datas = [
     pengguna: "Rudi",
     alamat: "Jl. Cemara No.23",
     catatan: "Perlu kabel tambahan",
+    phone: "+6281234567890",
   },
   {
     layanan: "CCTV",
@@ -14,6 +15,7 @@ const datas = [
     pengguna: "Dian",
     alamat: "Jl. Bunga Raya No.12",
     catatan: "Kamera outdoor",
+    phone: "+6281234567890",
   },
 ];
 
@@ -37,13 +39,19 @@ datas.forEach((data) => {
 
   const col4 = document.createElement("td");
   const col4Val = document.createElement("div");
-  col4Val.innerText = capitalizeFirst(data["catatan"]);
+  col4Val.innerText = capitalizeFirst(data["phone"]);
   col4.appendChild(col4Val);
+
+  const col5 = document.createElement("td");
+  const col5Val = document.createElement("div");
+  col5Val.innerText = capitalizeFirst(data["catatan"]);
+  col5.appendChild(col5Val);
 
   rowElement.appendChild(col1);
   rowElement.appendChild(col2);
   rowElement.appendChild(col3);
   rowElement.appendChild(col4);
+  rowElement.appendChild(col5);
 
   document.querySelector("#tableData tbody").appendChild(rowElement);
 });

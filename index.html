@@ -4,9 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pemesanan WiFi & CCTV</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/fonts/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/sa2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="css/output.css" />
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/fa.min.css" />
-    <!-- <link rel="stylesheet" href="css/output.css" /> -->
   </head>
 
   <body>
@@ -82,267 +88,104 @@
         </div>
       </section>
 
-      <section class="installer-slider container" id="galeri">
-        <h2><i class="fas fa-image"></i> Galeri Pemasangan</h2>
-        <p class="subheading">
-          Dokumentasi instalasi WiFi dan CCTV oleh tim profesional kami
-        </p>
-        <div class="slider-wrapper">
-          <div class="slider">
-            <img src="assets/gambar 1.webp" alt="Installer 1" />
-            <img src="assets/gambar 4.webp" alt="Installer 2" />
-            <img src="assets/gambar 5.jpg" alt="Installer 3" />
-            <img src="assets/gambar 6.webp" alt="Installer 4" />
+      <!-- ALASAN SECTION -->
+      <section
+        class="why-section container flex flex-col items-center gap-10 !pb-[100px]"
+        id="why"
+      >
+        <h2>Kenapa Memilih Kami?</h2>
+        <div class="max-w-[80%] flex gap-10 justify-center">
+          <div class="max-w-[30%] text-center">
+            <i class="bi bi-speedometer2 text-[20px] text-blue-400"></i>
+            <h4 class="mt-3 font-bold text-[20px]">Kecepatan Tinggi</h4>
+            <p>
+              Download, streaming, dan main game tanpa lag dengan kecepatan
+              hingga 500 Mbps.
+            </p>
+          </div>
+          <div class="max-w-[30%] text-center">
+            <i class="bi bi-shield-check text-[20px] text-blue-400"></i>
+            <h4 class="mt-3 font-bold text-[20px]">Koneksi Stabil</h4>
+            <p>
+              Teknologi fiber optik menjamin koneksi yang andal dan stabil 24/7,
+              apapun cuacanya.
+            </p>
+          </div>
+          <div class="max-w-[30%] text-center">
+            <i class="bi bi-headset text-[20px] text-blue-400"></i>
+            <h4 class="mt-3 font-bold text-[20px]">Dukungan Pelanggan</h4>
+            <p>
+              Tim support kami siap membantu Anda kapan saja jika terjadi
+              kendala teknis.
+            </p>
           </div>
         </div>
       </section>
 
-      <!-- ===== SECTION UNTUK ROLE: PEMILIK ===== -->
-      <section class="role-section role-pemilik hidden container">
-        <div class="card-role">
-          <h2>Dashboard Pemilik</h2>
-          <p>Berikut adalah daftar pesanan yang masuk:</p>
-          <table class="role-table">
-            <thead>
-              <tr>
-                <th>Nama</th>
-                <th>Layanan</th>
-                <th>Alamat</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Rudi</td>
-                <td>WiFi</td>
-                <td>Jl. Cemara No.23</td>
-                <td>Selesai</td>
-              </tr>
-              <tr>
-                <td>Dian</td>
-                <td>CCTV</td>
-                <td>Jl. Bunga Raya No.12</td>
-                <td>Proses</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h3>Laporan Pekerja Hari Ini</h3>
-          <ul class="role-list">
-            <li>Teknisi A menyelesaikan 2 pemasangan WiFi.</li>
-            <li>Teknisi B sedang melakukan instalasi CCTV di Jakarta Barat.</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- ===== SECTION UNTUK ROLE: PEKERJA ===== -->
-      <section class="role-section role-pekerja hidden container">
-        <div class="card-role">
-          <h2>Job List Hari Ini</h2>
-          <ul class="role-list">
-            <li>
-              <strong>WiFi - Rudi</strong> di Jl. Cemara No.23 — Catatan: Perlu
-              kabel tambahan.
-            </li>
-            <li>
-              <strong>CCTV - Dian</strong> di Jl. Bunga Raya No.12 — Catatan:
-              Kamera outdoor.
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- ===== SECTION UNTUK ROLE: PENGGUNA ===== -->
-      <section class="role-section role-pengguna hidden container">
-        <div class="card-role">
-          <h2>Status Pemesanan</h2>
-          <ul class="role-list">
-            <li>Pesanan WiFi — Status: <strong>Selesai</strong></li>
-            <li>Pesanan CCTV — Status: <strong>Dalam proses</strong></li>
-          </ul>
-
-          <h3>Riwayat Pemesanan Anda</h3>
-          <table class="role-table">
-            <thead>
-              <tr>
-                <th>Tanggal</th>
-                <th>Layanan</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>2025-05-12</td>
-                <td>WiFi</td>
-                <td>Selesai</td>
-              </tr>
-              <tr>
-                <td>2025-06-02</td>
-                <td>CCTV</td>
-                <td>Proses</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
       <!-- KARTU LAYANAN -->
-      <section class="services-section container" id="layanan">
+      <section class="services-section container bg-white !pt-[100px]" id="layanan">
         <h2>Layanan Kami</h2>
-        <div class="card-container">
-          <div class="card" onclick="openModal('wifi')">
+        <div class="flex justify-center gap-10">
+          <a
+            href="/package/wifi.html"
+            class="shadow-md bg-white hover:scale-[101%] rounded-md w-[30%] no-underline"
+          >
             <img
               src="assets/gambar 2.webp"
               alt="Pemasangan WiFi"
               class="card-img"
             />
-            <h3>Pemasangan WiFi</h3>
-            <p>Layanan WiFi cepat dan stabil.</p>
-          </div>
-          <div class="card" onclick="openModal('cctv')">
+            <div class="pr-5 pl-5 text-left text-black">
+              <h3>Pemasangan WiFi</h3>
+              <p>Layanan WiFi cepat dan stabil.</p>
+            </div>
+          </a>
+          <a
+            href="/package/cctv.html"
+            class="shadow-md bg-white hover:scale-[101%] rounded-md w-[30%] no-underline"
+          >
             <img
               src="assets/gambar 3.jpg"
               alt="Pemasangan CCTV"
               class="card-img"
             />
-            <h3>Pemasangan CCTV</h3>
-            <p>Instalasi CCTV untuk keamanan optimal.</p>
-          </div>
+            <div class="pr-5 pl-5 text-left text-black">
+              <h3>Pemasangan CCTV</h3>
+              <p>Instalasi CCTV untuk keamanan optimal.</p>
+            </div>
+          </a>
         </div>
       </section>
 
-      <!-- MODAL -->
-      <div id="overlay" class="overlay hidden"></div>
-
-      <div id="wifiModal" class="modal hidden">
-        <div class="modal-content">
-          <h3>Formulir Pemesanan WiFi</h3>
-          <form class="serviceForm" data-service="Pemasangan WiFi">
-            <label>Nama:</label>
-            <input type="text" name="name" required />
-
-            <label>Alamat:</label>
-            <textarea name="address" required></textarea>
-
-            <label>Catatan:</label>
-            <textarea name="notes"></textarea>
-
-            <label>Nomer telepon/wa:</label>
-            <textarea name="phone"></textarea>
-
-            <label>Metode Pembayaran:</label>
-            <select name="payment" required>
-              <option value="">-- Pilih Pembayaran --</option>
-              <option value="Bank Transfer">Bank Transfer</option>
-              <option value="OVO">OVO</option>
-              <option value="GoPay">GoPay</option>
-              <option value="ShopeePay">ShopeePay</option>
-              <option value="DANA">DANA</option>
-              <option value="QRIS">QRIS</option>
-            </select>
-
-            <!-- Section Bank Transfer -->
-            <div class="bank-section hidden">
-              <label>Pilih Bank:</label>
-              <select name="bank" required>
-                <option value="">-- Pilih Bank --</option>
-                <option value="BCA">Bank BCA</option>
-                <option value="BNI">Bank BNI</option>
-                <option value="BRI">Bank BRI</option>
-                <option value="Mandiri">Bank Mandiri</option>
-                <option value="BSI">Bank BSI</option>
-              </select>
-              <button type="button" class="close-bank-btn">
-                Batal Transfer Bank
-              </button>
-            </div>
-
-            <!-- Section E-Wallet -->
-            <div class="wallet-id-section hidden">
-              <p>ID Pembayaran kamu:</p>
-              <div
-                class="wallet-id-box"
-                style="font-weight: bold; font-size: 18px"
-              ></div>
-            </div>
-
-            <!-- Section Qris -->
-            <div class="qris-section hidden">
-              <p>Silakan scan QRIS di bawah ini untuk pembayaran:</p>
-              <img src="assets/qris.png" alt="QRIS Payment" class="qris-img" />
-            </div>
-
-            <button type="submit">Pesan WiFi</button>
-            <div class="form-message"></div>
-          </form>
-          <button onclick="closeModal()" class="close-btn">Tutup</button>
+      <!-- Galeri Section -->
+      <section class="w-full container !p-[100px] text-center bg-white" id="galeri">
+        <h2><i class="fas fa-image"></i> Galeri Pemasangan</h2>
+        <p class="subheading">
+          Dokumentasi instalasi WiFi dan CCTV oleh tim profesional kami
+        </p>
+        <div class="flex gap-10 overflow-x-auto space-x-4 scrollbar-hide" id="scroll-container">
+          <img
+            class="min-w-[600px] w-[600px] h-[400px] object-cover"
+            src="assets/gambar 1.webp"
+            alt="Installer 1"
+          />
+          <img
+            class="min-w-[600px] w-[600px] h-[400px] object-cover"
+            src="assets/gambar 4.webp"
+            alt="Installer 2"
+          />
+          <img
+            class="min-w-[600px] w-[600px] h-[400px] object-cover"
+            src="assets/gambar 5.jpg"
+            alt="Installer 3"
+          />
+          <img
+            class="min-w-[600px] w-[600px] h-[400px] object-cover"
+            src="assets/gambar 6.webp"
+            alt="Installer 4"
+          />
         </div>
-      </div>
-
-      <div id="cctvModal" class="modal hidden">
-        <div class="modal-content">
-          <h3>Formulir Pemesanan CCTV</h3>
-          <form class="serviceForm" data-service="Pemasangan CCTV">
-            <label>Nama:</label>
-            <input type="text" name="name" required />
-
-            <label>Alamat:</label>
-            <textarea name="address" required></textarea>
-
-            <label>Catatan:</label>
-            <textarea name="notes"></textarea>
-
-            <label>Nomer telepon/wa:</label>
-            <textarea name="phone"></textarea>
-
-            <label>Metode Pembayaran:</label>
-            <select name="payment" required>
-              <option value="">-- Pilih Pembayaran --</option>
-              <option value="Bank Transfer">Bank Transfer</option>
-              <option value="OVO">OVO</option>
-              <option value="GoPay">GoPay</option>
-              <option value="ShopeePay">ShopeePay</option>
-              <option value="DANA">DANA</option>
-              <option value="QRIS">QRIS</option>
-            </select>
-
-            <!-- Section Bank Transfer -->
-            <div class="bank-section hidden">
-              <label>Pilih Bank:</label>
-              <select name="bank" required>
-                <option value="">-- Pilih Bank --</option>
-                <option value="BCA">Bank BCA</option>
-                <option value="BNI">Bank BNI</option>
-                <option value="BRI">Bank BRI</option>
-                <option value="Mandiri">Bank Mandiri</option>
-                <option value="BSI">Bank BSI</option>
-              </select>
-              <button type="button" class="close-bank-btn">
-                Batal Transfer Bank
-              </button>
-            </div>
-
-            <!-- Section E-Wallet -->
-            <div class="wallet-id-section hidden">
-              <p>ID Pembayaran kamu:</p>
-              <div
-                class="wallet-id-box"
-                style="font-weight: bold; font-size: 18px"
-              ></div>
-            </div>
-
-            <!-- Section Qris -->
-            <div class="qris-section hidden">
-              <p>Silakan scan QRIS di bawah ini untuk pembayaran:</p>
-              <img src="assets/qris.png" alt="QRIS Payment" class="qris-img" />
-            </div>
-
-            <button type="submit">Pesan CCTV</button>
-            <div class="form-message"></div>
-          </form>
-          <button onclick="closeModal()" class="close-btn">Tutup</button>
-        </div>
-      </div>
+      </section>
     </main>
 
     <section id="kontak" class="kontak-section">
@@ -357,6 +200,19 @@
       </div>
     </section>
 
+    <div class="blur-bg"></div>
+
+    <div class="profile-modal">
+      <a class="dashboard-btn">
+        <i class="fa fa-home" aria-hidden="true"></i> Dashboard
+      </a>
+      <a href="/profile/edit.html">
+        <i class="fa fa-user" aria-hidden="true"></i> Edit profile
+      </a>
+      <a class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+    </div>
+
+    <script src="../sa2/sweetalert2.all.min.js"></script>
     <script src="/core/data.js"></script>
     <script src="/core/function.js"></script>
     <script src="/js/home.js"></script>
