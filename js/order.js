@@ -33,7 +33,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById('dataForm').addEventListener('submit', event => {
     event.preventDefault();
-    window.location.href = '/payment/wifi.html';
+    window.location.href = '/payment/index.html';
 });
 
 

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/fa.min.css" />
+    <link rel="stylesheet" href="../sa2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="../css/output.css" />
+    <link rel="stylesheet" href="../css/payment.css" />
+    <title>Pemesanan WiFi & CCTV</title>
+  </head>
+  <body class="w-full bg-[#f9f9f9] flex flex-col items-center">
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="/" class="logo">
+          <img
+            src="/assets/logo1.png"
+            alt="Logo WiFi & CCTV"
+            style="height: 40px"
+          />
+        </a>
+
+        <div class="auth-buttons">
+          <a href="/auth/register.html" class="btn-outline"> Daftar </a>
+          <a href="/auth/login.html" class="btn-primary"> Masuk </a>
+        </div>
+      </div>
+    </header>
+
+    <section class="w-full flex flex-col gap-0 p-[100px]">
+      <div class="shadow-md rounded-md p-10 bg-white">
+        <h1>Pilih Metode Pembayaran</h1>
+        <div class="flex flex-col gap-5 mt-10">
+          <!-- Payment Methods -->
+          <div class="space-y-4">
+            <!-- QRIS -->
+            <div
+              id="qris-method"
+              class="payment-card bg-white shadow-md rounded-lg p-6 border border-gray-700 hover:border-gray-600 cursor-pointer relative overflow-hidden hover:scale-[101%]"
+            >
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <img
+                      src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMgM0gxMVYxMUgzVjNaTTEzIDNIMjFWMTFIMTNWM1pNMyAxM0gxMVYyMUgzVjEzWk0xMyAxM0gyMVYyMUgxM1YxM1oiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo="
+                      alt="QRIS"
+                      class="w-6 h-6"
+                    />
+                  </div>
+                  <div>
+                    <h3 class="text-gray-700 font-semibold">
+                      QRIS (Biaya Admin +1%)
+                    </h3>
+                    <p class="text-gray-400 text-sm">
+                      Pembayaran dengan scan QR code
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ShopeePay -->
+            <div
+              id="shopeepay-method"
+              class="payment-card bg-white shadow-md rounded-lg p-6 border border-gray-700 hover:border-gray-600 cursor-pointer relative overflow-hidden hover:scale-[101%]"
+            >
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <span class="text-white font-bold text-sm">SP</span>
+                  </div>
+                  <div>
+                    <h3 class="text-gray-700 font-semibold">
+                      [S] Gratis Biaya Admin
+                    </h3>
+                    <p class="text-gray-400 text-sm">
+                      ShopeePay tanpa biaya admin
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- BANK -->
+            <div
+              id="bank-method"
+              class="payment-card bg-white shadow-md rounded-lg p-6 border border-gray-700 hover:border-gray-600 cursor-pointer relative overflow-hidden hover:scale-[101%]"
+            >
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 bg-blue-800 rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <span class="text-white font-bold text-sm">Bank</span>
+                  </div>
+                  <div>
+                    <h3 class="text-gray-700 font-semibold">Transfer Bank</h3>
+                    <p class="text-gray-400 text-sm">Transfer melalui Bank</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- GoPay -->
+            <div
+              id="gopay-method"
+              class="payment-card bg-white shadow-md rounded-lg p-6 border border-gray-700 hover:border-gray-600 cursor-pointer relative overflow-hidden hover:scale-[101%]"
+            >
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <span class="text-white font-bold text-sm">GP</span>
+                  </div>
+                  <div>
+                    <h3 class="text-gray-700 font-semibold">
+                      [G] Gratis Biaya Admin
+                    </h3>
+                    <p class="text-gray-400 text-sm">GoPay tanpa biaya admin</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full pt-7 flex justify-end">
+          <button
+            id="next-btn"
+            class="px-10 py-4 border-none outline-none rounded-md shadow-md bg-purple-800 text-white cursor-pointer hover:scale-[101%]"
+          >
+            Lanjutkan
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak" class="kontak-section w-full">
+      <div class="kontak-overlay">
+        <h2>Hubungi Kami</h2>
+        <p>Siap melayani kebutuhan pemasangan WiFi dan CCTV Anda.</p>
+        <ul class="kontak-info">
+          <li>📞 0812-3456-7890</li>
+          <li>✉️ info@jasapemasangan.com</li>
+          <li>📍 Jakarta, Indonesia</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- QRIS Modal -->
+    <div
+      id="qris-modal"
+      class="payment-modals fixed top-0 left-0 !w-[100vw] !h-[100vh] hidden items-center justify-center backdrop-blur-md z-10"
+    >
+      <i
+        id="close-qris"
+        class="close-modal-payment-btn fa fa-window-close fixed top-10 left-10 text-[32px] cursor-pointer"
+        aria-hidden="true"
+      ></i>
+      <div
+        class="w-[300px] h-[700px] p-5 shadow-lg rounded-md bg-white text-center flex flex-col justify-between"
+      >
+        <div class="flex flex-col">
+          <img src="/assets/qrcode.svg" class="w-full min-w-full" />
+          <!-- <h1>Terima kasih!</h1> -->
+          <p>Silahkan scan QR Code berikut untuk menyelesaikan pembayaran.</p>
+        </div>
+        <button
+          id="ok-qris-btn"
+          class="px-10 py-4 border-none outline-none rounded-md shadow-md bg-purple-800 text-white cursor-pointer hover:scale-[101%]"
+        >
+          Lanjutkan Pembayaran
+        </button>
+      </div>
+    </div>
+
+    <!-- ShopeePay Modal -->
+    <div
+      id="shopeepay-modal"
+      class="payment-modals fixed top-0 left-0 !w-[100vw] !h-[100vh] hidden items-center justify-center backdrop-blur-md z-10"
+    >
+      <i
+        id="close-shopeepay"
+        class="close-modal-payment-btn fa fa-window-close fixed top-10 left-10 text-[32px] cursor-pointer"
+        aria-hidden="true"
+      ></i>
+      <div
+        class="w-[300px] h-[700px] p-5 shadow-lg rounded-md bg-white text-center flex flex-col justify-between"
+      >
+        <div class="flex flex-col">
+          <h2 class="mb-3">Pembayaran dengan ShopeePay</h2>
+          <p class="text-justify">
+            Anda akan diarahkan ke halaman pembayaran oleh Shopee. Silahkan klik
+            tombol Lanjutkan Pembayaran untuk melanjutkan.
+          </p>
+        </div>
+        <a
+          href="/payment/wifi/shopeepay.html"
+          id="ok-shopeepay-btn"
+          class="px-10 py-4 border-none outline-none rounded-md shadow-md bg-orange-800 text-white no-underline cursor-pointer hover:scale-[101%]"
+          >Lanjutkan Pembayaran</a
+        >
+      </div>
+    </div>
+
+    <!-- Bank Modal -->
+    <div
+      id="bank-modal"
+      class="payment-modals fixed top-0 left-0 !w-[100vw] !h-[100vh] hidden items-center justify-center backdrop-blur-md z-10"
+    >
+      <i
+        id="close-bank"
+        class="close-modal-payment-btn fa fa-window-close fixed top-10 left-10 text-[32px] cursor-pointer"
+        aria-hidden="true"
+      ></i>
+      <div
+        class="w-[500px] h-[700px] p-5 shadow-lg rounded-md bg-white text-center flex flex-col justify-between"
+      >
+        <div class="flex flex-col">
+          <h2 class="mb-3">Pembayaran dengan bank</h2>
+          <div
+            class="w-full max-w-lg bg-white rounded-xl shadow-lg overflow-hidden"
+          >
+            <div class="p-6">
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <div
+                  class="bank-option flex items-center justify-center p-4 h-16 border border-gray-200 rounded-lg cursor-pointer transition-all duration-300 hover:border-primary hover:shadow-sm"
+                  data-bank="bca"
+                >
+                  <img
+                    class="max-h-6"
+                    src="/assets/bank/bca.webp"
+                    alt="Logo BCA"
+                  />
+                </div>
+                <div
+                  class="bank-option flex items-center justify-center p-4 h-16 border border-gray-200 rounded-lg cursor-pointer transition-all duration-300 hover:border-primary hover:shadow-sm"
+                  data-bank="mandiri"
+                >
+                  <img class="max-h-5" src="/assets/bank/mandiri.webp" alt="Logo
+                  Mandiri">
+                </div>
+                <div
+                  class="bank-option flex items-center justify-center p-4 h-16 border border-gray-200 rounded-lg cursor-pointer transition-all duration-300 hover:border-primary hover:shadow-sm"
+                  data-bank="bni"
+                >
+                  <img
+                    class="max-h-5"
+                    src="/assets/bank/bni.webp"
+                    alt="Logo BNI"
+                  />
+                </div>
+                <div
+                  class="bank-option flex items-center justify-center p-4 h-16 border border-gray-200 rounded-lg cursor-pointer transition-all duration-300 hover:border-primary hover:shadow-sm"
+                  data-bank="bri"
+                >
+                  <img
+                    class="max-h-6"
+                    src="/assets/bank/bri.png"
+                    alt="Logo BRI"
+                  />
+                </div>
+                <div
+                  class="bank-option flex items-center justify-center p-4 h-16 border border-gray-200 rounded-lg cursor-pointer transition-all duration-300 hover:border-primary hover:shadow-sm"
+                  data-bank="cimb"
+                >
+                  <img
+                    class="max-h-6"
+                    src="/assets/bank/cimb.svg"
+                    alt="Logo CIMB Niaga"
+                  />
+                </div>
+                <div
+                  class="bank-option flex items-center justify-center p-4 h-16 border border-gray-200 rounded-lg cursor-pointer transition-all duration-300 hover:border-primary hover:shadow-sm"
+                  data-bank="bsi"
+                >
+                  <img
+                    class="max-h-6"
+                    src="/assets/bank/bsi.png"
+                    alt="Logo BSI"
+                  />
+                </div>
+                <div
+                  class="bank-option flex items-center justify-center p-4 h-16 border border-gray-200 rounded-lg cursor-pointer transition-all duration-300 hover:border-primary hover:shadow-sm"
+                  data-bank="danamon"
+                >
+                  <img
+                    class="max-h-5"
+                    src="/assets/bank/danamon.png"
+                    alt="Logo Danamon"
+                  />
+                </div>
+                <div
+                  class="bank-option flex items-center justify-center p-4 h-16 border border-gray-200 rounded-lg cursor-pointer transition-all duration-300 hover:border-primary hover:shadow-sm"
+                  data-bank="permata"
+                >
+                  <img
+                    class="max-h-5"
+                    src="/assets/bank/permata.png"
+                    alt="Logo PermataBank"
+                  />
+                </div>
+                <div
+                  class="bank-option flex items-center justify-center p-4 h-16 border border-gray-200 rounded-lg cursor-pointer transition-all duration-300 hover:border-primary hover:shadow-sm"
+                  data-bank="ocbc"
+                >
+                  <img
+                    class="max-h-5"
+                    src="/assets/bank/ocbc.png"
+                    alt="Logo OCBC NISP"
+                  />
+                </div>
+              </div>
+
+              <div id="payment-instructions">
+                <div
+                  id="bca-details"
+                  class="payment-details hidden p-5 bg-slate-50 border border-dashed border-gray-300 rounded-lg"
+                >
+                  <h3 class="text-lg font-bold text-gray-800">
+                    Pembayaran via BCA Virtual Account
+                  </h3>
+                  <div class="my-3 flex justify-between items-center">
+                    <span id="va-bca" class="text-lg font-bold text-primary"
+                      >88081234567890</span
+                    >
+                    <button
+                      onclick="copyToClipboard('va-bca')"
+                      class="bg-purple-800 hover:bg-secondary-hover text-white text-sm font-medium px-4 py-2 rounded-md transition-colors"
+                    >
+                      Salin
+                    </button>
+                  </div>
+                  <p class="text-sm text-gray-600">
+                    Lakukan pembayaran ke nomor VA di atas melalui ATM BCA,
+                    m-BCA, atau KlikBCA.
+                  </p>
+                </div>
+                <div
+                  id="mandiri-details"
+                  class="payment-details hidden p-5 bg-slate-50 border border-dashed border-gray-300 rounded-lg"
+                >
+                  <h3 class="text-lg font-bold text-gray-800">
+                    Pembayaran via Mandiri Virtual Account
+                  </h3>
+                  <div class="my-3 flex justify-between items-center">
+                    <span id="va-mandiri" class="text-lg font-bold text-primary"
+                      >89081234567891</span
+                    >
+                    <button
+                      onclick="copyToClipboard('va-mandiri')"
+                      class="bg-purple-800 hover:bg-secondary-hover text-white text-sm font-medium px-4 py-2 rounded-md transition-colors"
+                    >
+                      Salin
+                    </button>
+                  </div>
+                  <p class="text-sm text-gray-600">
+                    Lakukan pembayaran ke nomor VA di atas melalui ATM Mandiri
+                    atau Livin' by Mandiri.
+                  </p>
+                </div>
+                <div
+                  id="bni-details"
+                  class="payment-details hidden p-5 bg-slate-50 border border-dashed border-gray-300 rounded-lg"
+                >
+                  <h3 class="text-lg font-bold text-gray-800">
+                    Pembayaran via BNI Virtual Account
+                  </h3>
+                  <div class="my-3 flex justify-between items-center">
+                    <span id="va-bni" class="text-lg font-bold text-primary"
+                      >82781234567892</span
+                    >
+                    <button
+                      onclick="copyToClipboard('va-bni')"
+                      class="bg-purple-800 hover:bg-secondary-hover text-white text-sm font-medium px-4 py-2 rounded-md transition-colors"
+                    >
+                      Salin
+                    </button>
+                  </div>
+                  <p class="text-sm text-gray-600">
+                    Lakukan pembayaran ke nomor VA di atas melalui ATM BNI atau
+                    BNI Mobile Banking.
+                  </p>
+                </div>
+                <div
+                  id="bri-details"
+                  class="payment-details hidden p-5 bg-slate-50 border border-dashed border-gray-300 rounded-lg"
+                >
+                  <h3 class="text-lg font-bold text-gray-800">
+                    Pembayaran via BRI (BRIVA)
+                  </h3>
+                  <div class="my-3 flex justify-between items-center">
+                    <span id="va-bri" class="text-lg font-bold text-primary"
+                      >11281234567893</span
+                    >
+                    <button
+                      onclick="copyToClipboard('va-bri')"
+                      class="bg-purple-800 hover:bg-secondary-hover text-white text-sm font-medium px-4 py-2 rounded-md transition-colors"
+                    >
+                      Salin
+                    </button>
+                  </div>
+                  <p class="text-sm text-gray-600">
+                    Lakukan pembayaran ke nomor VA di atas melalui ATM BRI atau
+                    aplikasi BRImo.
+                  </p>
+                </div>
+                <div
+                  id="cimb-details"
+                  class="payment-details hidden p-5 bg-slate-50 border border-dashed border-gray-300 rounded-lg"
+                >
+                  <h3 class="text-lg font-bold text-gray-800">
+                    Pembayaran via CIMB Niaga Virtual Account
+                  </h3>
+                  <div class="my-3 flex justify-between items-center">
+                    <span id="va-cimb" class="text-lg font-bold text-primary"
+                      >91081234567894</span
+                    >
+                    <button
+                      onclick="copyToClipboard('va-cimb')"
+                      class="bg-purple-800 hover:bg-secondary-hover text-white text-sm font-medium px-4 py-2 rounded-md transition-colors"
+                    >
+                      Salin
+                    </button>
+                  </div>
+                  <p class="text-sm text-gray-600">
+                    Lakukan pembayaran ke nomor VA di atas melalui ATM CIMB
+                    Niaga atau OCTO Mobile.
+                  </p>
+                </div>
+                <div
+                  id="bsi-details"
+                  class="payment-details hidden p-5 bg-slate-50 border border-dashed border-gray-300 rounded-lg"
+                >
+                  <h3 class="text-lg font-bold text-gray-800">
+                    Pembayaran via BSI Virtual Account
+                  </h3>
+                  <div class="my-3 flex justify-between items-center">
+                    <span id="va-bsi" class="text-lg font-bold text-primary"
+                      >93451234567895</span
+                    >
+                    <button
+                      onclick="copyToClipboard('va-bsi')"
+                      class="bg-purple-800 hover:bg-secondary-hover text-white text-sm font-medium px-4 py-2 rounded-md transition-colors"
+                    >
+                      Salin
+                    </button>
+                  </div>
+                  <p class="text-sm text-gray-600">
+                    Lakukan pembayaran ke nomor VA di atas melalui ATM BSI atau
+                    BSI Mobile.
+                  </p>
+                </div>
+                <div
+                  id="danamon-details"
+                  class="payment-details hidden p-5 bg-slate-50 border border-dashed border-gray-300 rounded-lg"
+                >
+                  <h3 class="text-lg font-bold text-gray-800">
+                    Pembayaran via Danamon Virtual Account
+                  </h3>
+                  <div class="my-3 flex justify-between items-center">
+                    <span id="va-danamon" class="text-lg font-bold text-primary"
+                      >87751234567896</span
+                    >
+                    <button
+                      onclick="copyToClipboard('va-danamon')"
+                      class="bg-purple-800 hover:bg-secondary-hover text-white text-sm font-medium px-4 py-2 rounded-md transition-colors"
+                    >
+                      Salin
+                    </button>
+                  </div>
+                  <p class="text-sm text-gray-600">
+                    Lakukan pembayaran ke nomor VA di atas melalui ATM Danamon
+                    atau D-Bank PRO.
+                  </p>
+                </div>
+                <div
+                  id="permata-details"
+                  class="payment-details hidden p-5 bg-slate-50 border border-dashed border-gray-300 rounded-lg"
+                >
+                  <h3 class="text-lg font-bold text-gray-800">
+                    Pembayaran via PermataBank Virtual Account
+                  </h3>
+                  <div class="my-3 flex justify-between items-center">
+                    <span id="va-permata" class="text-lg font-bold text-primary"
+                      >85521234567897</span
+                    >
+                    <button
+                      onclick="copyToClipboard('va-permata')"
+                      class="bg-purple-800 hover:bg-secondary-hover text-white text-sm font-medium px-4 py-2 rounded-md transition-colors"
+                    >
+                      Salin
+                    </button>
+                  </div>
+                  <p class="text-sm text-gray-600">
+                    Lakukan pembayaran ke nomor VA di atas melalui ATM Permata
+                    atau PermataMobile X.
+                  </p>
+                </div>
+                <div
+                  id="ocbc-details"
+                  class="payment-details hidden p-5 bg-slate-50 border border-dashed border-gray-300 rounded-lg"
+                >
+                  <h3 class="text-lg font-bold text-gray-800">
+                    Pembayaran via OCBC NISP Virtual Account
+                  </h3>
+                  <div class="my-3 flex justify-between items-center">
+                    <span id="va-ocbc" class="text-lg font-bold text-primary"
+                      >83361234567898</span
+                    >
+                    <button
+                      onclick="copyToClipboard('va-ocbc')"
+                      class="bg-purple-800 hover:bg-secondary-hover text-white text-sm font-medium px-4 py-2 rounded-md transition-colors"
+                    >
+                      Salin
+                    </button>
+                  </div>
+                  <p class="text-sm text-gray-600">
+                    Lakukan pembayaran ke nomor VA di atas melalui ATM OCBC NISP
+                    atau ONe Mobile.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a
+          href="/payment/wifi/bank.html"
+          id="ok-bank-btn"
+          class="px-10 py-4 border-none outline-none rounded-md shadow-md bg-green-600 text-white no-underline cursor-pointer hover:scale-[101%]"
+          >Lanjutkan Pembayaran</a
+        >
+      </div>
+    </div>
+
+    <!-- Gopay Modal -->
+    <div
+      id="gopay-modal"
+      class="payment-modals fixed top-0 left-0 !w-[100vw] !h-[100vh] hidden items-center justify-center backdrop-blur-md z-10"
+    >
+      <i
+        id="close-gopay"
+        class="close-modal-payment-btn fa fa-window-close fixed top-10 left-10 text-[32px] cursor-pointer"
+        aria-hidden="true"
+      ></i>
+      <div
+        class="w-[300px] h-[700px] p-5 shadow-lg rounded-md bg-white text-center flex flex-col justify-between"
+      >
+        <div class="flex flex-col">
+          <h2>Pembayaran dengan GoPay</h2>
+          <p class="text-justify">
+            Anda akan diarahkan ke halaman pembayaran oleh Gopay. Silahkan klik
+            tombol Lanjutkan Pembayaran untuk melanjutkan.
+          </p>
+        </div>
+        <a
+          href="/payment/wifi/gopay.html"
+          id="ok-gopay-btn"
+          class="px-10 py-4 border-none outline-none rounded-md shadow-md bg-green-600 text-white no-underline cursor-pointer hover:scale-[101%]"
+          >Lanjutkan Pembayaran</a
+        >
+      </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="blur-bg"></div>
+    <div class="profile-modal">
+      <a class="dashboard-btn">
+        <i class="fa fa-home" aria-hidden="true"></i> Dashboard
+      </a>
+      <a href="/profile/edit.html">
+        <i class="fa fa-user" aria-hidden="true"></i> Edit profile
+      </a>
+      <a href="/order">
+        <i class="fa fa-list" aria-hidden="true"></i> Pesanan
+      </a>
+      <a class="logout"
+        ><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a
+      >
+    </div>
+
+    <script src="../sa2/sweetalert2.all.min.js"></script>
+    <script src="/core/data.js"></script>
+    <script src="/core/function.js"></script>
+    <script src="/js/payment.js"></script>
+  </body>
+</html>

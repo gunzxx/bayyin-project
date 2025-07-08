@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/fa.min.css" />
-    <link rel="stylesheet" href="../sa2/sweetalert2.min.css" />
-    <link rel="stylesheet" href="../css/output.css" />
-    <link rel="stylesheet" href="../css/payment.css" />
+    <link rel="stylesheet" href="/css/fa.min.css" />
+    <link rel="stylesheet" href="/sa2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/css/output.css" />
+    <link rel="stylesheet" href="/css/payment.css" />
     <title>Pemesanan WiFi & CCTV</title>
   </head>
   <body class="w-full bg-[#f9f9f9] flex flex-col items-center">
@@ -30,12 +30,14 @@
     <section id="success-modal" class="w-full min-h-[100vh] flex items-center justify-center backdrop-blur-md">
         <!-- <i id="clodeModal" class="fa fa-window-close fixed top-10 left-10 text-[32px] cursor-pointer" aria-hidden="true"></i> -->
         <div class="w-[90%] h-[700px] p-5 shadow-lg rounded-md bg-white text-center flex justify-start">
-          <img src="/assets/qrcode.svg" class="w-[350px] h-fit">
-          <div class="flex flex-col text-left p-10">
+          <!-- <img src="/assets/qrcode.svg" class="w-[350px] h-fit"> -->
+          <div class="flex flex-col text-left p-10 text-[28px]">
             <h1>Terima kasih!</h1>
-            <p>Silahkan scan QR Code berikut untuk menyelesaikan pembayaran.</p>
+            <!-- <p>Silahkan scan QR Code berikut untuk menyelesaikan pembayaran.</p> -->
             <p>Invoice: SIP2505236729KWX1068235</p>
-            <p>Metode Pembayaran: QRIS</p>
+            <p>Metode Pembayaran: Transfer Bank</p>
+            <p class="font-bold mt-5">Total Biaya: Rp. 300.000,-</p>
+            <p class="font-bold">Status: <span class="bg-orange-400 rounded-md p-3">Belum Dibayar</span></p>
           </div>
         </div>
     </section>
@@ -67,7 +69,7 @@
       >
     </div>
 
-    <script src="../sa2/sweetalert2.all.min.js"></script>
+    <script src="/sa2/sweetalert2.all.min.js"></script>
     <script src="/core/data.js"></script>
     <script src="/core/function.js"></script>
     <script src="/js/detail.js"></script>

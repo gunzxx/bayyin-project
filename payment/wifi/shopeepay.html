@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/fa.min.css" />
+    <link rel="stylesheet" href="/sa2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/css/output.css" />
+    <link rel="stylesheet" href="/css/payment.css" />
+    <title>Pemesanan WiFi & CCTV</title>
+  </head>
+  <body class="w-full bg-[#f9f9f9] flex flex-col items-center">
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="/" class="logo">
+          <img
+            src="/assets/logo1.png"
+            alt="Logo WiFi & CCTV"
+            style="height: 40px"
+          />
+        </a>
+
+        <div class="auth-buttons">
+          <a href="/auth/register.html" class="btn-outline"> Daftar </a>
+          <a href="/auth/login.html" class="btn-primary"> Masuk </a>
+        </div>
+      </div>
+    </header>
+    
+    <section id="success-modal" class="w-full min-h-[100vh] flex items-center justify-center backdrop-blur-md">
+        <!-- <i id="clodeModal" class="fa fa-window-close fixed top-10 left-10 text-[32px] cursor-pointer" aria-hidden="true"></i> -->
+        <div class="w-[90%] h-[700px] p-5 shadow-lg rounded-md bg-white text-center flex justify-start">
+          <!-- <img src="/assets/qrcode.svg" class="w-[350px] h-fit"> -->
+          <div class="flex flex-col text-left p-10 text-[28px]">
+            <h1>Terima kasih!</h1>
+            <!-- <p>Silahkan scan QR Code berikut untuk menyelesaikan pembayaran.</p> -->
+            <p>Invoice: SIP2505236729KWX1068235</p>
+            <p>Metode Pembayaran: ShopeePay</p>
+            <p class="font-bold mt-5">Total Biaya: Rp. 300.000,-</p>
+            <p class="font-bold">Status: <span class="bg-orange-400 rounded-md p-3">Belum Dibayar</span></p>
+          </div>
+        </div>
+    </section>
+
+    <section id="kontak" class="kontak-section w-full">
+      <div class="kontak-overlay">
+        <h2>Hubungi Kami</h2>
+        <p>Siap melayani kebutuhan pemasangan WiFi dan CCTV Anda.</p>
+        <ul class="kontak-info">
+          <li>📞 0812-3456-7890</li>
+          <li>✉️ info@jasapemasangan.com</li>
+          <li>📍 Jakarta, Indonesia</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <div class="blur-bg"></div>
+
+    <div class="profile-modal">
+      <a class="dashboard-btn">
+        <i class="fa fa-home" aria-hidden="true"></i> Dashboard
+      </a>
+      <a href="/profile/edit.html">
+        <i class="fa fa-user" aria-hidden="true"></i> Edit profile
+      </a>
+      <a class="logout"
+        ><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a
+      >
+    </div>
+
+    <script src="/sa2/sweetalert2.all.min.js"></script>
+    <script src="/core/data.js"></script>
+    <script src="/core/function.js"></script>
+    <script src="/js/detail.js"></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/fa.min.css" />
+    <link rel="stylesheet" href="../sa2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="../css/output.css" />
+    <link rel="stylesheet" href="../css/payment.css" />
+    <title>Pemesanan WiFi & CCTV</title>
+  </head>
+  <body class="w-full bg-[#f9f9f9] flex flex-col items-center">
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="/" class="logo">
+          <img
+            src="/assets/logo1.png"
+            alt="Logo WiFi & CCTV"
+            style="height: 40px"
+          />
+        </a>
+
+        <div class="auth-buttons">
+          <a href="/auth/register.html" class="btn-outline"> Daftar </a>
+          <a href="/auth/login.html" class="btn-primary"> Masuk </a>
+        </div>
+      </div>
+    </header>
+    
+    <section id="success-modal" class="w-full min-h-[100vh] flex flex-col items-center p-10">
+      <div class="w-[80%] min-h-[80vh] flex flex-col gap-10 items-center pt-10 pb-0 bg-white shadow-md">
+        <h1>Daftar Pesanan</h1>
+        <div class="w-full flex justify-start items-stretch overflow-hidden rounded-md shadow-md p-10 gap-5">
+          <img src="/assets/wifi-package.webp" class="w-[200px] h-[140px] object-cover">
+          <div class="min-w-[80%] h-full flex justify-between">
+            <div class="flex flex-col">
+              <h1>Pemesanan WIFI</h1>
+              <p>Tipe paket: Personal</p>
+              <p>Status: Belum dibayar</p>
+            </div>
+            <div class="flex flex-col gap-5">
+              <h3>Rp. 300.000,-</h3>
+              <a class="py-3 px-5 rounded-md bg-purple-800 shadow-md text-white no-underline" href="/payment/wifi/qris.html">Lihat Detail</a>
+            </div>
+          </div>
+        </div>
+        <div class="w-full flex justify-start items-stretch overflow-hidden rounded-md shadow-md p-10 gap-5">
+          <img src="/assets/wifi-package.webp" class="w-[200px] h-[140px] object-cover">
+          <div class="min-w-[80%] h-full flex justify-between">
+            <div class="flex flex-col">
+              <h1>Pemesanan WIFI</h1>
+              <p>Tipe paket: Personal</p>
+              <p>Status: Belum dibayar</p>
+            </div>
+            <div class="flex flex-col gap-5">
+              <h3>Rp. 300.000,-</h3>
+              <a class="py-3 px-5 rounded-md bg-purple-800 shadow-md text-white no-underline" href="/payment/wifi/gopay.html">Lihat Detail</a>
+            </div>
+          </div>
+        </div>
+        <div class="w-full flex justify-start items-stretch overflow-hidden rounded-md shadow-md p-10 gap-5">
+          <img src="/assets/wifi-package.webp" class="w-[200px] h-[140px] object-cover">
+          <div class="min-w-[80%] h-full flex justify-between">
+            <div class="flex flex-col">
+              <h1>Pemesanan WIFI</h1>
+              <p>Tipe paket: Personal</p>
+              <p>Status: Sudah dibayar</p>
+            </div>
+            <div class="flex flex-col gap-5">
+              <h3>Rp. 300.000,-</h3>
+              <a class="py-3 px-5 rounded-md bg-purple-800 shadow-md text-white no-underline" href="/payment/wifi/qris-done.html">Lihat Detail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak" class="kontak-section w-full">
+      <div class="kontak-overlay">
+        <h2>Hubungi Kami</h2>
+        <p>Siap melayani kebutuhan pemasangan WiFi dan CCTV Anda.</p>
+        <ul class="kontak-info">
+          <li>📞 0812-3456-7890</li>
+          <li>✉️ info@jasapemasangan.com</li>
+          <li>📍 Jakarta, Indonesia</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <div class="blur-bg"></div>
+
+    <div class="profile-modal">
+      <a class="dashboard-btn">
+        <i class="fa fa-home" aria-hidden="true"></i> Dashboard
+      </a>
+      <a href="/profile/edit.html">
+        <i class="fa fa-user" aria-hidden="true"></i> Edit profile
+      </a>
+      <a href="/order">
+        <i class="fa fa-list" aria-hidden="true"></i> Pesanan
+      </a>
+      <a class="logout"
+        ><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a
+      >
+    </div>
+
+    <script src="../sa2/sweetalert2.all.min.js"></script>
+    <script src="/core/data.js"></script>
+    <script src="/core/function.js"></script>
+    <script src="/js/detail.js"></script>
+  </body>
+</html>
