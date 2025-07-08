@@ -1,21 +1,42 @@
-// Cek role saat reload halaman
+// DOM Content Loaded Handler
 window.addEventListener("DOMContentLoaded", () => {
-  const user = checkAuth();
+  const users = localStorage.getItem("users");
+  if (!users) {
+    setUsers();
+  }
 
+  const user = checkAuth();
   if (!user) {
     localStorage.removeItem("userid");
-    return window.location.href = "/";
+    window.location.href = "/";
+  } else {
+    document.querySelector(".auth-buttons").innerHTML = `<span style="color:#a855f7;"><i class="fa-solid fa-user profile-btn"></i></span>`;
+
+    document
+      .querySelector(".profile-btn")
+      .addEventListener("click", (event) => {
+        openProfileModal();
+      });
+
+    document
+      .querySelector(".dashboard-btn")
+      .setAttribute("href", `/dashboard/${user.role}.html`);
+
+    document.querySelector(".logout").addEventListener("click", (e) => {
+      Swal.fire({
+        title: "Yakin untuk logout?",
+        icon: "question",
+        showCancelButton: true,
+        allowOutsideClick: false,
+        confirmButtonColor: "rgb(248,113,113)",
+      }).then((res) => {
+        if (res.isConfirmed) {
+          localStorage.removeItem("userid");
+          window.location.href = "/";
+        }
+      });
+    });
   }
-  const role = user.role;
-  document.querySelector(
-    ".profile-container"
-  ).innerHTML = `<p href="./dashboard/${role}.html" style="color:white;">Halo, ${user.username} (${role})</p>`;
-  
-  document.getElementById('email').value = user.email;
-  document.getElementById('username').value = user.username;
-  document.getElementById('password').value = '';
-  document.getElementById('passwordConfirmation').value = '';
-  document.querySelector('.back-btn').setAttribute('href', `/dashboard/${role}.html`)
 });
 
 document.getElementById("profileForm").addEventListener("submit", (e) => {
@@ -100,3 +121,30 @@ document.getElementById("profileForm").addEventListener("submit", (e) => {
     window.location.reload();
   });
 });
+
+
+
+/** Modal */
+
+function openProfileModal() {
+  showBlur();
+  document.querySelector(".profile-modal").style.display = "flex";
+}
+
+function closeProfileModal() {
+  hiddenBlur();
+  document.querySelector(".profile-modal").style.display = "none";
+}
+
+const blurBgElem = document.querySelector(".blur-bg");
+blurBgElem.addEventListener("click", () => {
+  closeProfileModal();
+});
+
+function showBlur() {
+  blurBgElem.style.display = "flex";
+}
+
+function hiddenBlur() {
+  blurBgElem.style.display = "none";
+}

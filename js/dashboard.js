@@ -1,42 +1,45 @@
-// Cek role saat reload halaman
+// DOM Content Loaded Handler
 window.addEventListener("DOMContentLoaded", () => {
-  const user = checkAuth();
-  const pageRole = getPageRole();
+  const users = localStorage.getItem("users");
+  if (!users) {
+    setUsers();
+  }
 
+  const user = checkAuth();
   if (!user) {
     localStorage.removeItem("userid");
     window.location.href = "/";
   } else {
-    const role = user.role;
+    document.querySelector(".auth-buttons").innerHTML = `<span style="color:#a855f7;"><i class="fa-solid fa-user profile-btn"></i></span>`;
 
-    /** handle role */
-    if (role != pageRole) {
-      window.location.href = `/dashboard/${role}.html`;
-    }
+    document
+      .querySelector(".profile-btn")
+      .addEventListener("click", (event) => {
+        openProfileModal();
+      });
 
-    document.querySelector(
-      ".profile-container"
-    ).innerHTML = `<p href="./dashboard/${role}.html">Halo, ${user.username} (${role})</p>`;
+    document
+      .querySelector(".dashboard-btn")
+      .setAttribute("href", `/dashboard/${user.role}.html`);
+
+    document.querySelector(".logout").addEventListener("click", (e) => {
+      Swal.fire({
+        title: "Yakin untuk logout?",
+        icon: "question",
+        showCancelButton: true,
+        allowOutsideClick: false,
+        confirmButtonColor: "rgb(248,113,113)",
+      }).then((res) => {
+        if (res.isConfirmed) {
+          localStorage.removeItem("userid");
+          window.location.href = "/";
+        }
+      });
+    });
   }
 });
 
-document.querySelector(".profile-container").addEventListener("click", () => {
-  openProfileModal();
-});
 
-document.querySelector(".blur-bg").addEventListener("click", () => {
-  closeModal();
-});
-
-function openProfileModal() {
-  document.querySelector(".blur-bg").style.display = "flex";
-  document.querySelector(".profile-modal").style.display = "flex";
-}
-
-function closeModal() {
-  document.querySelector(".blur-bg").style.display = "none";
-  document.querySelector(".profile-modal").style.display = "none";
-}
 
 document.querySelector(".logout").addEventListener("click", (e) => {
   Swal.fire({
@@ -54,10 +57,26 @@ document.querySelector(".logout").addEventListener("click", (e) => {
 });
 
 
-function showBlur(){
-  document.querySelector(".blur-bg").style.display = "flex";
+
+function openProfileModal() {
+  showBlur();
+  document.querySelector(".profile-modal").style.display = "flex";
 }
 
-function hiddenBlur(){
-  document.querySelector(".blur-bg").style.display = "none";
+function closeProfileModal() {
+  hiddenBlur();
+  document.querySelector(".profile-modal").style.display = "none";
+}
+
+const blurBgElem = document.querySelector(".blur-bg");
+blurBgElem.addEventListener("click", () => {
+  closeProfileModal();
+});
+
+function showBlur() {
+  blurBgElem.style.display = "flex";
+}
+
+function hiddenBlur() {
+  blurBgElem.style.display = "none";
 }

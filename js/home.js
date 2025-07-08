@@ -252,6 +252,8 @@ function hiddenBlur() {
 }
 
 
+
+/** Slider */
 const slider = document.getElementById("scroll-container");
 let isDown = false;
 let startX;
