@@ -25,55 +25,57 @@
       </div>
     </header>
 
-    <div class="w-[80%] p-10 flex flex-col items-center gap-5">
-      <h1 class="text-center">Silahkan masuk untuk melanjutkan.</h1>
-      <form id="loginForm" class="w-full flex flex-col items-center gap-7">
-        <div class="w-full flex flex-col gap-3">
-          <label class="text-[18px] font-semibold" for="email"
-            >Email</label
-          >
-          <input
-            required
-            autofocus
-            class="p-5 rounded-md outline-none border-none shadow-md"
-            type="email"
-            id="email"
-            placeholder="Masukkan email..."
-          />
-        </div>
-        <div class="w-full flex flex-col gap-3">
-          <label class="text-[18px] font-semibold" for="password"
-            >Password</label
-          >
-          <input
-            required
-            minlength="8"
-            class="p-5 rounded-md outline-none border-none shadow-md"
-            type="password"
-            id="password"
-            placeholder="Masukkan password..."
-          />
-        </div>
-        <!-- <div class="w-full flex flex-col gap-3">
-          <label class="text-[18px] font-semibold" for="role">Peran</label>
-          <select required
-            class="p-3 rounded-lg outline-none border-none shadow-md"
-            name="role"
-            id="role"
-          >
-            <option value="pengguna">Pengguna</option>
-            <option value="pekerja">Pekerja</option>
-            <option value="pemilik">Pemilik</option>
-          </select>
-        </div> -->
-        <div class="w-full flex flex-col items-end gap-3">
-          <button
-            class="p-5 pl-8 pr-8 rounded-md border-none outline-none shadow-md cursor-pointer bg-purple-800 text-white hover:shadow-lg text-[16px]"
-          >
-            Masuk
-          </button>
-        </div>
-      </form>
+    <div class="w-full min-h-screen flex items-center justify-center">
+      <div class="w-[25%] p-10 flex flex-col items-center gap-5 bg-yellow-300 rounded-lg">
+        <h2 class="text-center text-[20px]">Silahkan masuk untuk melanjutkan.</h2>
+        <form id="loginForm" class="w-full flex flex-col items-center gap-7">
+          <div class="w-full flex flex-col gap-3">
+            <label class="text-[12px] font-semibold" for="email"
+              >Email</label
+            >
+            <input
+              required
+              autofocus
+              class="p-3 rounded-md outline-none border-none shadow-md"
+              type="email"
+              id="email"
+              placeholder="Masukkan email..."
+            />
+          </div>
+          <div class="w-full flex flex-col gap-3">
+            <label class="text-[12px] font-semibold" for="password"
+              >Password</label
+            >
+            <input
+              required
+              minlength="8"
+              class="p-3 rounded-md outline-none border-none shadow-md"
+              type="password"
+              id="password"
+              placeholder="Masukkan password..."
+            />
+          </div>
+          <!-- <div class="w-full flex flex-col gap-3">
+            <label class="text-[18px] font-semibold" for="role">Peran</label>
+            <select required
+              class="p-3 rounded-lg outline-none border-none shadow-md"
+              name="role"
+              id="role"
+            >
+              <option value="pengguna">Pengguna</option>
+              <option value="pekerja">Pekerja</option>
+              <option value="pemilik">Pemilik</option>
+            </select>
+          </div> -->
+          <div class="w-full flex flex-col items-end gap-3">
+            <button
+              class="p-3 px-6 rounded-md border-none outline-none shadow-md cursor-pointer bg-black text-white hover:shadow-lg text-[16px]"
+            >
+              Masuk
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
 
     <div class="w-full"></div>

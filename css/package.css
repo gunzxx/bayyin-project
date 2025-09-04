@@ -150,19 +150,19 @@ body {
   display: inline-block;
   border: 2px solid white;
   background: white;
-  color: #6b21a8;
+  color: black;
 }
 
 .btn-outline {
-  border: 2px solid #6b21a8;
+  border: 2px solid black;
   color: white;
-  background-color: #6b21a8;
+  background-color: black;
 }
 
 .btn-primary:hover,
 .btn-outline:hover {
-  background-color: #6b21a8;
-  border-color: #6b21a8;
+  background-color: black;
+  border-color: black;
   color: white;
 }
 

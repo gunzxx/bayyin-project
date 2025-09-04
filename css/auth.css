@@ -48,7 +48,7 @@ header p {
 
 .navbar {
   /* background-color: rgba(46, 136, 253, 0.821); */
-  background-color: var(--c1);
+  background-color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
