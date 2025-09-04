@@ -49,6 +49,26 @@
               <span class="error-msg hidden text-sm text-red-400">Password tidak sama!</span>
             </div>
             <div class="w-full flex flex-col gap-3">
+              <label class="text-[12px] font-semibold" for="prov">Provinsi</label>
+              <select disabled required class="p-3 rounded-lg outline-none border-none shadow-md" name="prov" id="prov">
+              </select>
+            </div>
+            <div class="w-full flex flex-col gap-3">
+              <label class="text-[12px] font-semibold" for="kab">Kabupaten/kota</label>
+              <select required disabled class="p-3 rounded-lg outline-none border-none shadow-md" name="kab" id="kab">
+              </select>
+            </div>
+            <div class="w-full flex flex-col gap-3">
+              <label class="text-[12px] font-semibold" for="kec">Kecamatan</label>
+              <select required disabled class="p-3 rounded-lg outline-none border-none shadow-md" name="kec" id="kec">
+              </select>
+            </div>
+            <div class="w-full flex flex-col gap-3">
+              <label class="text-[12px] font-semibold" for="desa">Desa</label>
+              <select required disabled class="p-3 rounded-lg outline-none border-none shadow-md" name="desa" id="desa">
+              </select>
+            </div>
+            <div class="w-full flex flex-col gap-3">
               <label class="text-[12px] font-semibold" for="role">Peran</label>
               <select required class="p-3 rounded-lg outline-none border-none shadow-md" name="role" id="role">
                 <option value="pengguna">Pengguna</option>
@@ -68,6 +88,7 @@
     <script src="/core/data.js"></script>
     <script src="/core/function.js"></script>
     <script src="/js/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/js/register.js"></script>
   </body>
 </html>
