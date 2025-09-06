@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" href="/assets/logo1.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/fa.min.css" />
     <link rel="stylesheet" href="../sa2/sweetalert2.min.css" />
@@ -33,7 +34,7 @@
         <h1 class="font-bold text-[16px]">Job List Hari Ini</h1>
         <table id="tableData">
           <thead>
-            <tr>
+            <tr class="bg-yellow-300 text-black">
               <th>Layanan</th>
               <th>Pengguna</th>
               <th>Alamat</th>
@@ -86,13 +87,13 @@
             class="border px-3 py-2 rounded"
           />
   
-          <label for="laporan">Laporan Pekerjaan:</label>
+          <label for="laporan">Peralatan:</label>
           <textarea
             name="laporan"
             id="laporan"
             rows="4"
             required
-            placeholder="Contoh: Instalasi selesai, router berfungsi normal."
+            placeholder="Kabel, dll."
             class="border px-3 py-2 rounded"
           ></textarea>
   
@@ -108,7 +109,7 @@
   
           <button
             type="submit"
-            class="bg-purple-800 text-white px-4 py-2 rounded hover:bg-purple-900 transition"
+            class="bg-yellow-300 text-black px-4 py-2 rounded hover:bg-purple-900 transition"
           >
             Kirim Laporan
           </button>

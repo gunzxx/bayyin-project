@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" href="/assets/logo1.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/fa.min.css" />
     <link rel="stylesheet" href="../sa2/sweetalert2.min.css" />
@@ -25,6 +26,15 @@
       </div>
     </header>
 
+    <!-- <div class="w-full flex">
+      <div class="min-w-[20%] sticky min-h-screen bg-red-300 p-5 pt-[70px]">
+        <div class="w-full flex flex-col">
+          <a href="/dashboard/pemilik.html/order.html" class="w-full">
+            Pesanan masuk
+          </a>
+        </div>
+      </div>
+    </div> -->
     <div class="w-[80%] flex flex-col items-center p-5 text-center gap-5">
       <h1 class="font-bold text-[24px]">Dashboard Pemilik</h1>
       <div
@@ -35,7 +45,7 @@
         </h1>
         <table id="tableData">
           <thead>
-            <tr>
+            <tr class="bg-yellow-300 text-black">
               <th>Pengguna</th>
               <th>Layanan</th>
               <th>Alamat</th>
@@ -56,11 +66,13 @@
         </h1>
         <table id="userTable">
           <thead>
-            <tr>
+            <tr class="bg-yellow-300 text-black">
               <th>Nama</th>
               <th>Alamat</th>
               <th>No. Handphone</th>
-              <th>Catatan</th>
+              <th>Peralatan yang dibawa</th>
+              <th>Tanggal mulai</th>
+              <th>Tanggal selesai</th>
               <th>Status</th>
               <th class="center">Dokumentasi</th>
             </tr>
@@ -98,6 +110,7 @@
             placeholder="Masukkan nama pengguna"
             required
             class="border px-3 py-2 rounded"
+            autocomplete="name"
           />
   
           <label for="lokasi">Lokasi Pemasangan:</label>
@@ -110,19 +123,29 @@
             class="border px-3 py-2 rounded"
           />
   
-          <label for="laporan">Laporan Pekerjaan:</label>
+          <label for="laporan">Laporan Pemilik:</label>
           <textarea
             name="laporan"
             id="laporan"
             rows="4"
             required
-            placeholder="Contoh: Instalasi selesai, router berfungsi normal."
+            placeholder="Contoh: Instalasi selesai, router berfungsi normal..."
+            class="border px-3 py-2 rounded"
+          ></textarea>
+  
+          <label for="laporan">Catatan:</label>
+          <textarea
+            name="catatan"
+            id="catatan"
+            rows="4"
+            required
+            placeholder="Tambahkan catatan..."
             class="border px-3 py-2 rounded"
           ></textarea>
   
           <button
             type="submit"
-            class="bg-purple-800 text-white px-4 py-2 rounded hover:bg-purple-900 transition"
+            class="bg-yellow-300 font-[900] px-4 py-2 rounded hover:bg-purple-900 transition"
           >
             Kirim Laporan
           </button>
@@ -143,6 +166,10 @@
         <i class="fa fa-list" aria-hidden="true"></i> Pesanan
       </a>
       <a class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+    </div>
+
+    <div class="dok-modal">
+      <img src="" class="dok-img">
     </div>
 
     <script src="../sa2/sweetalert2.all.min.js"></script>

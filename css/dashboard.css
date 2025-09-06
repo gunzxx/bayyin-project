@@ -119,10 +119,10 @@ table{
 tr{
   border-bottom: 1px solid #bbb;
 }
-tr:has(th){
+/* tr:has(th){
   background: #6b21a8;
   color: white;
-}
+} */
 th{
   font-weight: bold;
 }
@@ -262,7 +262,7 @@ td.center, th.center{
 /* Tombol */
 #pekerjaForm button[type="submit"] {
   /* background: #007bff; */
-  color: #fff;
+  /* color: #fff; */
   border: none;
   padding: 10px;
   font-weight: 600;

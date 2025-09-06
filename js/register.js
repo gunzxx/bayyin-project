@@ -146,44 +146,46 @@ const getVillages = (districtId) => {
 };
 
 window.addEventListener("load", async function () {
-  const provEl = document.getElementById("prov");
-  const kabEl = document.getElementById("kab");
+  // const provEl = document.getElementById("prov");
+  // const kabEl = document.getElementById("kab");
   const kecEl = document.getElementById("kec");
   const desaEl = document.getElementById("desa");
 
   const provs = (await getProvinces()).data;
 
-  provs.forEach((prov) => {
+  // provs.forEach((prov) => {
+  //   const opt = document.createElement("option");
+  //   opt.setAttribute("value", prov.id);
+  //   opt.textContent = prov.name;
+  //   provEl.appendChild(opt);
+  // });
+  // provEl.removeAttribute("disabled");
+
+  // provEl.addEventListener("change", async function (e) {
+  //   const kabId = e.target.value;
+  //   const kabs = (await getRegencies(kabId)).data;
+  //   kabs.forEach((kab) => {
+  //     const opt = document.createElement("option");
+  //     opt.setAttribute("value", kab.id);
+  //     opt.textContent = kab.name;
+  //     kabEl.appendChild(opt);
+  //   });
+  //   kabEl.removeAttribute("disabled");
+  // });
+
+  // kabEl.addEventListener("change", async function (e) {
+  //   const kecId = e.target.value;
+  //   console.log(kecId);
+    
+  // });
+  const kecs = (await getDistricts(3512)).data;
+  kecs.forEach((kec) => {
     const opt = document.createElement("option");
-    opt.setAttribute("value", prov.id);
-    opt.textContent = prov.name;
-    provEl.appendChild(opt);
+    opt.setAttribute("value", kec.id);
+    opt.textContent = kec.name;
+    kecEl.appendChild(opt);
   });
-  provEl.removeAttribute("disabled");
-
-  provEl.addEventListener("change", async function (e) {
-    const kabId = e.target.value;
-    const kabs = (await getRegencies(kabId)).data;
-    kabs.forEach((kab) => {
-      const opt = document.createElement("option");
-      opt.setAttribute("value", kab.id);
-      opt.textContent = kab.name;
-      kabEl.appendChild(opt);
-    });
-    kabEl.removeAttribute("disabled");
-  });
-
-  kabEl.addEventListener("change", async function (e) {
-    const kecId = e.target.value;
-    const kecs = (await getDistricts(kecId)).data;
-    kecs.forEach((kec) => {
-      const opt = document.createElement("option");
-      opt.setAttribute("value", kec.id);
-      opt.textContent = kec.name;
-      kecEl.appendChild(opt);
-    });
-    kecEl.removeAttribute("disabled");
-  });
+  kecEl.removeAttribute("disabled");
 
   kecEl.addEventListener("change", async function (e) {
     const desaId = e.target.value;

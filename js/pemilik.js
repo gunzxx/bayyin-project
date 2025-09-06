@@ -1,9 +1,14 @@
 // const tableDataEl = document.getElementById('tableData');
 
+const statuses = [
+  'selesai',
+  'proses',
+]
+
 const datas = [
   {
     layanan: "WiFi",
-    tanggal: Date.now(),
+    // tanggal: Date.now(),
     pengguna: "Rudi",
     alamat: "Jl. Cemara No.23",
     status: "selesai",
@@ -12,7 +17,7 @@ const datas = [
   },
   {
     layanan: "CCTV",
-    tanggal: Date.now(),
+    // tanggal: Date.now(),
     pengguna: "Dian",
     alamat: "Jl. Bunga Raya No.12",
     status: "proses",
@@ -30,6 +35,8 @@ const userDatas = [
     phone: "+6281234567890",
     catatan: "perlu kabel tambahan",
     dokumentasi: "/assets/dok-wifi.jpeg",
+    startDate: '2025-06-02',
+    endDate: '2025-07-02',
   },
   {
     nama: "dian",
@@ -39,6 +46,8 @@ const userDatas = [
     phone: "+6281234567890",
     catatan: "kamera outdoor",
     dokumentasi: "/assets/dok-cctv.jpeg",
+    startDate: '2025-06-02',
+    endDate: '2025-07-02',
   },
 ];
 
@@ -110,14 +119,36 @@ userDatas.forEach((data) => {
 
   const col5 = document.createElement("td");
   const col5Val = document.createElement("div");
-  col5Val.innerText = capitalizeFirst(data["status"]);
+  col5Val.innerText = capitalizeFirst(data["startDate"]);
   col5.appendChild(col5Val);
 
   const col6 = document.createElement("td");
-  const col6Val = document.createElement("div");
-  col6Val.innerHTML = makeDokButton(data["dokumentasi"]);
+  const col6Div = document.createElement("div");
+  col6Div.innerHTML = capitalizeFirst(data["endDate"]);
   col6.classList.add("center");
-  col6.appendChild(col6Val);
+  col6.appendChild(col6Div);
+
+  const col7 = document.createElement("td");
+  const col7Val = document.createElement("div");
+  const col7Select = document.createElement("select");
+  col7Select.setAttribute('name', 'status');
+  statuses.forEach(status => {
+    const selectOption = document.createElement("option")
+    selectOption.value = status
+    selectOption.textContent = capitalizeFirst(status);
+    if(status == data["status"]){
+      selectOption.setAttribute("selected", true)
+    }
+    col7Select.appendChild(selectOption);
+  });
+  col7Val.appendChild(col7Select);
+  col7.appendChild(col7Val);
+
+  const col8 = document.createElement("td");
+  const col8Val = document.createElement("div");
+  col8Val.innerHTML = makeDokButton(data["dokumentasi"]);
+  col8.classList.add("center");
+  col8.appendChild(col8Val);
 
   rowElement.appendChild(col1);
   rowElement.appendChild(col2);
@@ -125,6 +156,8 @@ userDatas.forEach((data) => {
   rowElement.appendChild(col4);
   rowElement.appendChild(col5);
   rowElement.appendChild(col6);
+  rowElement.appendChild(col7);
+  rowElement.appendChild(col8);
 
   document.querySelector("#userTable tbody").appendChild(rowElement);
 });
