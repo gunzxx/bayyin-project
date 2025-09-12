@@ -11,8 +11,9 @@
     <title>Pemesanan WiFi & CCTV</title>
   </head>
   <body class="w-full bg-[#f9f9f9] flex flex-col items-center">
-    <header class="navbar">
-      <div class="nav-container">
+    <nav class="bg-white shadow-md sticky w-full top-0 left-0">
+      <div class="w-full px-4 flex justify-between items-center h-16">
+        <!-- Logo -->
         <a href="/" class="logo">
           <img
             src="/assets/logo1.png"
@@ -21,10 +22,12 @@
           />
         </a>
 
-        <div class="auth-buttons cursor-pointer">
+        <div class="auth-buttons block px-4 py-2 hover:text-yellow-500">
+          <a href="/auth/register.html" class="btn-outline"> Daftar </a>
+          <a href="/auth/login.html" class="btn-primary"> Masuk </a>
         </div>
       </div>
-    </header>
+    </nav>
 
     <!-- <div class="w-full flex">
       <div class="min-w-[20%] sticky min-h-screen bg-red-300 p-5 pt-[70px]">
@@ -35,7 +38,7 @@
         </div>
       </div>
     </div> -->
-    <div class="w-[80%] flex flex-col items-center p-5 text-center gap-5">
+    <div class="w-[80%] flex flex-col items-center md:p-5 text-center gap-5">
       <h1 class="font-bold text-[24px]">Dashboard Pemilik</h1>
       <div
         class="w-full bg-white flex flex-col p-7 items-start gap-5 rounded-lg shadow-lg"
@@ -43,7 +46,7 @@
         <h1 class="font-bold text-[16px]">
           Berikut adalah daftar pesanan yang masuk:
         </h1>
-        <table id="tableData">
+        <table id="tableData" class="bg-white">
           <thead>
             <tr class="bg-yellow-300 text-black">
               <th>Pengguna</th>
@@ -64,7 +67,7 @@
         <h1 class="font-bold text-[16px]">
           Berikut adalah laporan pekerjaan:
         </h1>
-        <table id="userTable">
+        <table id="userTable" class="bg-white">
           <thead>
             <tr class="bg-yellow-300 text-black">
               <th>Nama</th>
