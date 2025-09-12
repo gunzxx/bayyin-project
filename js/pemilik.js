@@ -1,4 +1,8 @@
-// const tableDataEl = document.getElementById('tableData');
+function convertMinutes(minutes) {
+  const hours = Math.floor(minutes / 60); // ambil jam
+  const remainingMinutes = minutes % 60;  // sisa menit
+  return `${hours} jam ${remainingMinutes} menit`;
+}
 
 const statuses = [
   'selesai',
@@ -36,7 +40,8 @@ const userDatas = [
     catatan: "perlu kabel tambahan",
     dokumentasi: "/assets/dok-wifi.jpeg",
     startDate: '2025-06-02',
-    endDate: '2025-07-02',
+    endDate: '2025-06-02',
+    durasi: 100,
   },
   {
     nama: "dian",
@@ -47,7 +52,8 @@ const userDatas = [
     catatan: "kamera outdoor",
     dokumentasi: "/assets/dok-cctv.jpeg",
     startDate: '2025-06-02',
-    endDate: '2025-07-02',
+    endDate: '2025-06-02',
+    durasi: 200,
   },
 ];
 
@@ -129,9 +135,15 @@ userDatas.forEach((data) => {
   col6.appendChild(col6Div);
 
   const col7 = document.createElement("td");
-  const col7Val = document.createElement("div");
-  const col7Select = document.createElement("select");
-  col7Select.setAttribute('name', 'status');
+  const col7Div = document.createElement("div");
+  col7Div.innerHTML = capitalizeFirst(convertMinutes(data["durasi"]));
+  col7.classList.add("center");
+  col7.appendChild(col7Div);
+
+  const col8 = document.createElement("td");
+  const col8Val = document.createElement("div");
+  const col8Select = document.createElement("select");
+  col8Select.setAttribute('name', 'status');
   statuses.forEach(status => {
     const selectOption = document.createElement("option")
     selectOption.value = status
@@ -139,16 +151,16 @@ userDatas.forEach((data) => {
     if(status == data["status"]){
       selectOption.setAttribute("selected", true)
     }
-    col7Select.appendChild(selectOption);
+    col8Select.appendChild(selectOption);
   });
-  col7Val.appendChild(col7Select);
-  col7.appendChild(col7Val);
-
-  const col8 = document.createElement("td");
-  const col8Val = document.createElement("div");
-  col8Val.innerHTML = makeDokButton(data["dokumentasi"]);
-  col8.classList.add("center");
+  col8Val.appendChild(col8Select);
   col8.appendChild(col8Val);
+
+  const col9 = document.createElement("td");
+  const col9Val = document.createElement("div");
+  col9Val.innerHTML = makeDokButton(data["dokumentasi"]);
+  col9.classList.add("center");
+  col9.appendChild(col9Val);
 
   rowElement.appendChild(col1);
   rowElement.appendChild(col2);
@@ -158,6 +170,7 @@ userDatas.forEach((data) => {
   rowElement.appendChild(col6);
   rowElement.appendChild(col7);
   rowElement.appendChild(col8);
+  rowElement.appendChild(col9);
 
   document.querySelector("#userTable tbody").appendChild(rowElement);
 });

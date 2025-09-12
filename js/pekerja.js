@@ -1,4 +1,9 @@
-// const tableDataEl = document.getElementById('tableData');
+function convertMinutes(minutes) {
+  const hours = Math.floor(minutes / 60); // ambil jam
+  const remainingMinutes = minutes % 60;  // sisa menit
+  return `${hours} jam ${remainingMinutes} menit`;
+}
+
 
 const datas = [
   {
@@ -8,6 +13,7 @@ const datas = [
     alamat: "Jl. Cemara No.23",
     catatan: "Perlu kabel tambahan",
     phone: "+6281234567890",
+    durasi: convertMinutes(100),
   },
   {
     layanan: "CCTV",
@@ -16,6 +22,7 @@ const datas = [
     alamat: "Jl. Bunga Raya No.12",
     catatan: "Kamera outdoor",
     phone: "+6281234567890",
+    durasi: convertMinutes(200),
   },
 ];
 
@@ -44,14 +51,20 @@ datas.forEach((data) => {
 
   const col5 = document.createElement("td");
   const col5Val = document.createElement("div");
-  col5Val.innerText = capitalizeFirst(data["catatan"]);
+  col5Val.innerText = capitalizeFirst(data["durasi"]);
   col5.appendChild(col5Val);
+
+  const col6 = document.createElement("td");
+  const col6Val = document.createElement("div");
+  col6Val.innerText = capitalizeFirst(data["catatan"]);
+  col6.appendChild(col6Val);
 
   rowElement.appendChild(col1);
   rowElement.appendChild(col2);
   rowElement.appendChild(col3);
   rowElement.appendChild(col4);
   rowElement.appendChild(col5);
+  rowElement.appendChild(col6);
 
   document.querySelector("#tableData tbody").appendChild(rowElement);
 });

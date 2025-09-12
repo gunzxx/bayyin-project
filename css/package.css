@@ -227,3 +227,11 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
 }
+
+/* === Responsif === */
+@media (max-width: 768px) {
+  .profile-modal{
+    right: 10px;
+    height: fit-content;
+  }
+}

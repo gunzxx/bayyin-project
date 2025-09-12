@@ -17,9 +17,9 @@
   </head>
 
   <body>
-    <!-- ===== NAVBAR ===== -->
-    <header class="navbar">
-      <div class="nav-container">
+    <nav class="bg-white shadow-md sticky w-full top-0 left-0">
+      <div class="w-full px-4 flex justify-between items-center h-16">
+        <!-- Logo -->
         <a href="/" class="logo">
           <img
             src="/assets/logo1.png"
@@ -27,78 +27,59 @@
             style="height: 40px"
           />
         </a>
-        <nav class="nav-menu">
-          <ul class="nav-links">
-            <li><a href="#beranda">Beranda</a></li>
-            <li><a href="#layanan">Layanan</a></li>
-            <li><a href="#galeri">Galeri</a></li>
-            <li><a href="#kontak">Kontak</a></li>
-          </ul>
-        </nav>
 
-        <div class="auth-buttons">
-          <a href="/auth/register.html" class="btn-outline"> Daftar </a>
-          <a href="/auth/login.html" class="btn-primary"> Masuk </a>
+        <!-- Menu -->
+        <div
+          id="menu"
+          class="hidden md:!flex md:items-center md:justify-center md:space-x-6 absolute md:!relative top-16 md:top-0 left-0 w-full md:!w-full bg-white md:bg-transparent shadow-md md:shadow-none"
+        >
+          <a href="#" class="block px-4 py-2 hover:text-yellow-500">Beranda</a>
+          <a href="#" class="block px-4 py-2 hover:text-yellow-500">Layanan</a>
+          <a href="#" class="block px-4 py-2 hover:text-yellow-500">Galeri</a>
+          <a href="#" class="block px-4 py-2 hover:text-yellow-500">Kontak</a>
+
+          <div class="w-full flex justify-end">
+            <div class="auth-buttons block px-4 py-2 hover:text-yellow-500">
+              <a href="/auth/register.html" class="btn-outline"> Daftar </a>
+              <a href="/auth/login.html" class="btn-primary"> Masuk </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </header>
 
-    <!-- ===== HERO SECTION ===== -->
-    <!-- <section class="hero-header" id="beranda">
-      <div class="hero-content">
-        <h2 class="hero-title">Jasa Pemasangan WiFi & CCTV</h2>
-        <p class="hero-subtitle">
-          Profesional, cepat, dan terpercaya untuk rumah & bisnis Anda.
-        </p>
-        <a href="#layanan" class="hero-button">Lihat Layanan</a>
+        <!-- Tombol hamburger (hanya muncul di mobile) -->
+        <button
+          id="menu-btn"
+          class="block md:hidden focus:outline-none bg-yellow-300 hover:bg-yellow-500"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
       </div>
-    </section> -->
+    </nav>
 
     <main>
-      <!-- DASHBOARD -->
-      <!-- <section class="dashboard container" id="beranda">
-        <div class="dashboard-content">
-          <div class="promo-container">
-            <h2>Butuh Internet Cepat & Keamanan Terjamin? Kami Solusinya!</h2>
-            <p class="promo-text">
-              Dikerjakan oleh <strong> Teknisi Berpengalaman </strong> &
-              <strong> Bergaransi! </strong>
-            </p>
-          </div>
-
-          <div class="features">
-            <div class="feature-card">
-              <span>⚡</span>
-              <p>Pemasangan WiFi cepat & stabil</p>
-            </div>
-            <div class="feature-card">
-              <span>🎥</span>
-              <p>Instalasi CCTV indoor & outdoor</p>
-            </div>
-            <div class="feature-card">
-              <span>💡</span>
-              <p>Paket hemat WiFi + CCTV</p>
-            </div>
-            <div class="feature-card">
-              <span>🛡️</span>
-              <p>Garansi layanan 6 bulan</p>
-            </div>
-          </div>
-          <p>
-            <strong> Yuk, </strong> amankan <strong> Rumah </strong> dan
-            <strong> Bisnis </strong> anda hari ini juga!
-          </p>
-        </div>
-      </section> -->
-
       <!-- ALASAN SECTION -->
       <section
-        class="why-section container flex flex-col items-center gap-10 !pb-[100px]"
+        class="why-section min-h-[calc(100vh-54px)] container flex flex-col justify-center items-center gap-10 md:gap-[140px] bg-white"
         id="why"
       >
-        <h2>Kenapa Memilih Kami?</h2>
-        <div class="max-w-[80%] flex gap-10 justify-center">
-          <div class="max-w-[30%] text-center">
+        <h1>Kenapa Memilih Kami?</h1>
+        <div
+          class="max-w-[80%] flex flex-col md:flex-row gap-10 justify-center pb-10"
+        >
+          <div class="w-full md:max-w-[30%] text-center">
             <i class="bi bi-speedometer2 text-[20px] text-blue-400"></i>
             <h4 class="mt-3 font-bold text-[20px]">Kecepatan Tinggi</h4>
             <p>
@@ -106,7 +87,7 @@
               hingga 500 Mbps.
             </p>
           </div>
-          <div class="max-w-[30%] text-center">
+          <div class="w-full md:max-w-[30%] text-center">
             <i class="bi bi-shield-check text-[20px] text-blue-400"></i>
             <h4 class="mt-3 font-bold text-[20px]">Koneksi Stabil</h4>
             <p>
@@ -114,7 +95,7 @@
               apapun cuacanya.
             </p>
           </div>
-          <div class="max-w-[30%] text-center">
+          <div class="w-full md:max-w-[30%] text-center">
             <i class="bi bi-headset text-[20px] text-blue-400"></i>
             <h4 class="mt-3 font-bold text-[20px]">Dukungan Pelanggan</h4>
             <p>
@@ -125,68 +106,102 @@
         </div>
       </section>
 
-      <!-- KARTU LAYANAN -->
-      <section class="services-section container bg-white !pt-[100px]" id="layanan">
-        <h2>Layanan Kami</h2>
-        <div class="flex justify-center gap-10">
-          <a
-            href="/package/wifi.html"
-            class="shadow-md bg-white hover:scale-[101%] rounded-md w-[30%] no-underline"
-          >
-            <img
-              src="assets/gambar 2.webp"
-              alt="Pemasangan WiFi"
-              class="card-img"
-            />
-            <div class="pr-5 pl-5 text-left text-black">
-              <h3>Pemasangan WiFi</h3>
-              <p>Layanan WiFi cepat dan stabil.</p>
-            </div>
-          </a>
-          <a
-            href="/package/cctv.html"
-            class="shadow-md bg-white hover:scale-[101%] rounded-md w-[30%] no-underline"
-          >
-            <img
-              src="assets/gambar 3.jpg"
-              alt="Pemasangan CCTV"
-              class="card-img"
-            />
-            <div class="pr-5 pl-5 text-left text-black">
-              <h3>Pemasangan CCTV</h3>
-              <p>Instalasi CCTV untuk keamanan optimal.</p>
-            </div>
-          </a>
+      <section
+        class="relative w-full max-w-[100%] mx-auto overflow-hidden bg-white"
+      >
+        <div id="slider" class="flex transition-transform duration-500">
+          <div class="w-full flex-shrink-0">
+            <a href="/package/wifi.html">
+              <img
+                src="/assets/1.png"
+                alt="Slide 1"
+                class="w-full h-auto object-cover"
+              />
+            </a>
+          </div>
+          <div class="w-full flex-shrink-0">
+            <a href="/package/cctv.html">
+              <img
+                src="/assets/2.png"
+                alt="Slide 2"
+                class="w-full h-auto object-cover"
+              />
+            </a>
+          </div>
         </div>
+
+        <!-- Tombol Kiri -->
+        <button
+          onclick="prevSlide()"
+          class="absolute top-1/2 left-3 -translate-y-1/2 bg-yellow-300 hover:bg-yellow-800 text-white p-2 rounded-full"
+        >
+          &#10094;
+        </button>
+
+        <!-- Tombol Kanan -->
+        <button
+          onclick="nextSlide()"
+          class="absolute top-1/2 right-3 -translate-y-1/2 bg-yellow-300 hover:bg-yellow-800 text-white p-2 rounded-full"
+        >
+          &#10095;
+        </button>
       </section>
 
       <!-- Galeri Section -->
-      <section class="w-full container !p-[100px] text-center bg-white" id="galeri">
+      <section class="w-full container text-center bg-white" id="galeri">
         <h2><i class="fas fa-image"></i> Galeri Pemasangan</h2>
         <p class="subheading">
           Dokumentasi instalasi WiFi dan CCTV oleh tim profesional kami
         </p>
-        <div class="flex gap-10 overflow-x-auto space-x-4 scrollbar-hide" id="scroll-container">
-          <img
-            class="min-w-[600px] w-[600px] h-[400px] object-cover"
-            src="assets/gambar 1.webp"
-            alt="Installer 1"
-          />
-          <img
-            class="min-w-[600px] w-[600px] h-[400px] object-cover"
-            src="assets/gambar 4.webp"
-            alt="Installer 2"
-          />
-          <img
-            class="min-w-[600px] w-[600px] h-[400px] object-cover"
-            src="assets/gambar 5.jpg"
-            alt="Installer 3"
-          />
-          <img
-            class="min-w-[600px] w-[600px] h-[400px] object-cover"
-            src="assets/gambar 6.webp"
-            alt="Installer 4"
-          />
+        <div class="relative">
+          <div
+            class="flex gap-10 overflow-x-auto space-x-4 scrollbar-hide"
+            id="galeries"
+          >
+            <div class="w-full flex-shrink-0 md:flex-shrink">
+              <img
+                class="w-[80%] md:w-[600px] h-[400px] md:h-[400px] object-cover"
+                src="assets/gambar 1.webp"
+                alt="Installer 1"
+              />
+            </div>
+            <div class="w-full flex-shrink-0 md:flex-shrink">
+              <img
+                class="w-[80%] md:w-[600px] h-[400px] md:h-[400px] object-cover"
+                src="assets/gambar 4.webp"
+                alt="Installer 2"
+              />
+            </div>
+            <div class="w-full flex-shrink-0 md:flex-shrink">
+              <img
+                class="w-[80%] md:w-[600px] h-[400px] md:h-[400px] object-cover"
+                src="assets/gambar 5.jpg"
+                alt="Installer 3"
+              />
+            </div>
+            <div class="w-full flex-shrink-0 md:flex-shrink">
+              <img
+                class="w-[80%] md:w-[600px] h-[400px] md:h-[400px] object-cover"
+                src="assets/gambar 6.webp"
+                alt="Installer 4"
+              />
+            </div>
+          </div>
+
+          <!-- <button
+            onclick="prevGaleriSlide()"
+            class="absolute top-1/2 left-3 -translate-y-1/2 bg-yellow-300 hover:bg-yellow-800 text-white p-2 rounded-full"
+          >
+            &#10094;
+          </button> -->
+
+          <!-- Tombol Kanan -->
+          <!-- <button
+            onclick="nextGaleriSlide()"
+            class="absolute top-1/2 right-3 -translate-y-1/2 bg-yellow-300 hover:bg-yellow-800 text-white p-2 rounded-full"
+          >
+            &#10095;
+          </button> -->
         </div>
       </section>
     </main>
@@ -215,12 +230,60 @@
       <a href="/order">
         <i class="fa fa-list" aria-hidden="true"></i> Pesanan
       </a>
-      <a class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+      <a class="logout"
+        ><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a
+      >
     </div>
 
     <script src="../sa2/sweetalert2.all.min.js"></script>
     <script src="/core/data.js"></script>
     <script src="/core/function.js"></script>
     <script src="/js/home.js"></script>
+
+    <script>
+      // slider
+      const slideres = document.getElementById("slider");
+      const totalSlides = slideres.children.length;
+      let index = 0;
+
+      function showSlide() {
+        slideres.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      function nextSlide() {
+        index = (index + 1) % totalSlides;
+        showSlide();
+      }
+
+      function prevSlide() {
+        index = (index - 1 + totalSlides) % totalSlides;
+        showSlide();
+      }
+
+      // hamburger menu navbar
+      const menuBtn = document.getElementById("menu-btn");
+      const menu = document.getElementById("menu");
+
+      menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+
+      // galeri
+      const galeries = document.getElementById("galeries");
+      const totalGalery = slideres.children.length;
+      let indexGalery = 0;
+
+      function showGalerySlide() {
+        galeries.style.transform = `translateX(-${indexGalery * 100}%)`
+      }
+      function prevGaleriSlide() {
+        indexGalery = (indexGalery - 1 + totalGalery) % totalGalery
+        showGalerySlide()
+      }
+      function nextGaleriSlide() {
+        indexGalery = (indexGalery + 1) % totalGalery
+        showGalerySlide()
+      }
+    </script>
   </body>
 </html>

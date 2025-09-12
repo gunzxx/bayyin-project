@@ -45,6 +45,8 @@ document.getElementById("profileForm").addEventListener("submit", (e) => {
   const username = e.target.username.value.trim();
   const password = e.target.password.value;
   const passwordConfirmation = e.target.passwordConfirmation.value;
+  const kecamatan = e.target.kec.value;
+  const desa = e.target.desa.value;
 
   /** Handle input validation */
   if (/\s/.test(email)) {
@@ -86,6 +88,22 @@ document.getElementById("profileForm").addEventListener("submit", (e) => {
   if (password != passwordConfirmation) {
     return Swal.fire({
       title: "Password tidak sama!",
+      icon: "error",
+    });
+  }
+
+  if (kecamatan.trim().length <= 0) {
+    console.log(kecamatan);
+    
+    return Swal.fire({
+      title: "Kecamatan tidak boleh kosong!",
+      icon: "error",
+    });
+  }
+
+  if (desa.trim().length <= 0) {
+    return Swal.fire({
+      title: "Desa tidak boleh kosong!",
       icon: "error",
     });
   }
@@ -148,3 +166,57 @@ function showBlur() {
 function hiddenBlur() {
   blurBgElem.style.display = "none";
 }
+
+
+
+
+
+
+const API_BASE_URL = "https://www.emsifa.com/api-wilayah-indonesia/api";
+
+const getProvinces = () => {
+  return axios.get(`${API_BASE_URL}/provinces.json`);
+};
+
+const getRegencies = (provinceId) => {
+  return axios.get(`${API_BASE_URL}/regencies/${provinceId}.json`);
+};
+
+const getDistricts = (regencyId) => {
+  return axios.get(`${API_BASE_URL}/districts/${regencyId}.json`);
+};
+
+const getVillages = (districtId) => {
+  return axios.get(`${API_BASE_URL}/villages/${districtId}.json`);
+};
+
+window.addEventListener("load", async function () {
+  const kecEl = document.getElementById("kec");
+  const desaEl = document.getElementById("desa");
+
+  const provs = (await getProvinces()).data;
+  
+  const kecs = (await getDistricts(3512)).data;
+  kecs.forEach((kec) => {
+    const opt = document.createElement("option");
+    opt.setAttribute("value", kec.id);
+    opt.textContent = kec.name;
+    kecEl.appendChild(opt);
+  });
+  kecEl.removeAttribute("disabled");
+
+  kecEl.addEventListener("change", async function (e) {
+    desaEl.setAttribute("disabled", true);
+    desaEl.innerHTML = '';
+
+    const desaId = e.target.value;
+    const desas = (await getVillages(desaId)).data;
+    desas.forEach((desa) => {
+      const opt = document.createElement("option");
+      opt.setAttribute("value", desa.id);
+      opt.textContent = desa.name;
+      desaEl.appendChild(opt);
+    });
+    desaEl.removeAttribute("disabled");
+  });
+});

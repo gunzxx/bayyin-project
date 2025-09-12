@@ -12,8 +12,9 @@
   </head>
   
   <body class="w-full bg-[#f9f9f9] flex flex-col items-center">
-    <header class="navbar">
-      <div class="container nav-container">
+    <nav class="bg-white shadow-md sticky w-full top-0 left-0">
+      <div class="w-full px-4 flex justify-between items-center h-16">
+        <!-- Logo -->
         <a href="/" class="logo">
           <img
             src="/assets/logo1.png"
@@ -21,32 +22,30 @@
             style="height: 40px"
           />
         </a>
-
-        <div class="profile-container"></div>
       </div>
-    </header>
+    </nav>
 
-    <div class="w-full min-h-screen flex items-center justify-center">
-      <div class="w-[25%] p-10 bg-yellow-300 rounded-lg">
+    <div class="w-full min-h-[calc(100vh-80px)] flex items-center justify-center py-[40px]">
+      <div class="md:w-[20%] p-5 bg-yellow-300 rounded-lg">
         <h2 class="text-center">Silahkan daftarkan diri anda.</h2>
         <div class="w-full flex">
           <form id="registerForm" class="w-full flex flex-col items-center gap-7">
             <div class="w-full flex flex-col gap-3">
               <label class="text-[12px] font-semibold" for="email">Email</label>
-              <input required autofocus class="p-5 rounded-md outline-none border-none shadow-md" type="email" id="email" placeholder="Masukkan email...">
+              <input required autofocus class="p-3 rounded-md outline-none border-none shadow-md" type="email" id="email" placeholder="Masukkan email...">
             </div>
             <div class="w-full flex flex-col gap-3">
               <label class="text-[12px] font-semibold" for="username">Username</label>
-              <input required autofocus class="p-5 rounded-md outline-none border-none shadow-md" type="text" id="username" placeholder="Masukkan username...">
+              <input required autofocus class="p-3 rounded-md outline-none border-none shadow-md" type="text" id="username" placeholder="Masukkan username...">
             </div>
             <div class="w-full flex flex-col gap-3">
               <label class="text-[12px] font-semibold" for="password">Password</label>
-              <input required class="passwordInput p-5 rounded-md outline-none border-none shadow-md" type="password" id="password" placeholder="Masukkan password...">
+              <input required class="passwordInput p-3 rounded-md outline-none border-none shadow-md" type="password" id="password" placeholder="Masukkan password...">
               <span class="error-msg hidden text-sm text-red-400">Password tidak sama!</span>
             </div>
             <div class="w-full flex flex-col gap-3">
               <label class="text-[12px] font-semibold" for="passwordConfirmation">Ulangi Password</label>
-              <input required class="passwordInput p-5 rounded-md outline-none border-none shadow-md" type="password" id="passwordConfirmation" placeholder="Masukkan passwordConfirmation...">
+              <input required class="passwordInput p-3 rounded-md outline-none border-none shadow-md" type="password" id="passwordConfirmation" placeholder="Masukkan passwordConfirmation...">
               <span class="error-msg hidden text-sm text-red-400">Password tidak sama!</span>
             </div>
             <!-- <div class="w-full flex flex-col gap-3">
@@ -59,7 +58,7 @@
               <select required disabled class="p-3 rounded-lg outline-none border-none shadow-md" name="kab" id="kab">
               </select>
             </div> -->
-            <div class="w-full flex flex-col gap-3">
+            <!-- <div class="w-full flex flex-col gap-3">
               <label class="text-[12px] font-semibold" for="kec">Kecamatan</label>
               <select required disabled class="p-3 rounded-lg outline-none border-none shadow-md" name="kec" id="kec">
               </select>
@@ -68,7 +67,7 @@
               <label class="text-[12px] font-semibold" for="desa">Desa</label>
               <select required disabled class="p-3 rounded-lg outline-none border-none shadow-md" name="desa" id="desa">
               </select>
-            </div>
+            </div> -->
             <div class="w-full flex flex-col gap-3">
               <label class="text-[12px] font-semibold" for="role">Peran</label>
               <select required class="p-3 rounded-lg outline-none border-none shadow-md" name="role" id="role">
@@ -77,7 +76,7 @@
               </select>
             </div>
             <div class="w-full flex flex-col items-end gap-3">
-              <button class="p-5 pl-8 pr-8 rounded-md border-none outline-none shadow-md cursor-pointer bg-black text-white hover:shadow-lg text-[16px]">Daftar</button>
+              <button class="p-3 pl-8 pr-8 rounded-md border-none outline-none shadow-md cursor-pointer bg-black text-white hover:shadow-lg text-[16px]">Daftar</button>
             </div>
           </form>
         </div>

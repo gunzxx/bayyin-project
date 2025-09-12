@@ -236,3 +236,12 @@ body {
     border-color: #9048f0; /* Warna border saat dipilih */
     color: #333;
 }
+
+
+/* === Responsif === */
+@media (max-width: 768px) {
+  .profile-modal{
+    right: 10px;
+    height: fit-content;
+  }
+}
