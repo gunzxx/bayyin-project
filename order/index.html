@@ -11,8 +11,9 @@
     <title>Pemesanan WiFi & CCTV</title>
   </head>
   <body class="w-full bg-[#f9f9f9] flex flex-col items-center">
-    <header class="navbar">
-      <div class="nav-container">
+    <nav class="bg-white shadow-md sticky w-full top-0 left-0">
+      <div class="w-full px-4 flex justify-between items-center h-16">
+        <!-- Logo -->
         <a href="/" class="logo">
           <img
             src="/assets/logo1.png"
@@ -21,55 +22,56 @@
           />
         </a>
 
-        <div class="auth-buttons">
+        <div class="auth-buttons block px-4 py-2 hover:text-yellow-500">
           <a href="/auth/register.html" class="btn-outline"> Daftar </a>
           <a href="/auth/login.html" class="btn-primary"> Masuk </a>
         </div>
       </div>
-    </header>
+    </nav>
     
     <section id="success-modal" class="w-full min-h-[100vh] flex flex-col items-center p-10">
-      <div class="w-[80%] min-h-[80vh] flex flex-col gap-10 items-center pt-10 pb-0 bg-white shadow-md">
+      <div class="w-[80%] min-h-[80vh] flex flex-col gap-10 items-center pt-10 pb-0">
         <h1>Daftar Pesanan</h1>
-        <div class="w-full flex justify-start items-stretch overflow-hidden rounded-md shadow-md p-3 lg:p-10 gap-5">
-          <img src="/assets/wifi-package.webp" class="max-w-[40%] lg:w-[200px] lg:h-[140px] object-cover">
-          <div class="w-[60%] h-full flex flex-col justify-between lg:flex-row">
+        
+        <div class="w-full flex flex-col md:flex-row justify-start items-stretch overflow-hidden rounded-md shadow-md p-3 lg:p-10 gap-5 bg-white">
+          <img src="/assets/wifi-package.webp" class="md:max-w-[40%] lg:w-[200px] lg:h-[140px] object-cover">
+          <div class="w-full md:w-[60%] h-full flex flex-col justify-between lg:flex-row">
             <div class="flex flex-col">
-              <h1>Pemesanan WIFI</h1>
-              <p>Tipe paket: Personal</p>
+              <h1 class="text-[16px] md:text-[20px]">Pemesanan WIFI</h1>
+              <p class="text-[14px] md:text-[18px]">Tipe paket: Personal</p>
               <p>Status: Belum dibayar</p>
             </div>
-            <div class="flex flex-col gap-0 lg:gap-5">
+            <div class="w-full flex flex-col items-start gap-0 lg:gap-5">
               <h3>Rp. 300.000,-</h3>
-              <a class="py-3 max-w-full overflow-hidden px-5 rounded-md bg-purple-800 shadow-md text-white no-underline" href="/payment/wifi/qris.html">Lihat Detail</a>
+              <a class="w-full text-center mt-[15px] py-3 max-w-full overflow-hidden px-5 rounded-md bg-yellow-700 shadow-md text-white no-underline" href="/payment/wifi/qris.html">Lihat Detail</a>
             </div>
           </div>
         </div>
-        <div class="w-full flex justify-start items-stretch overflow-hidden rounded-md shadow-md p-3 lg:p-10 gap-5">
-          <img src="/assets/wifi-package.webp" class="max-w-[40%] lg:w-[200px] lg:h-[140px] object-cover">
-          <div class="w-[60%] h-full flex flex-col justify-between lg:flex-row">
+        <div class="w-full flex flex-col md:flex-row justify-start items-stretch overflow-hidden rounded-md shadow-md p-3 lg:p-10 gap-5 bg-white">
+          <img src="/assets/wifi-package.webp" class="md:max-w-[40%] lg:w-[200px] lg:h-[140px] object-cover">
+          <div class="w-full md:w-[60%] h-full flex flex-col justify-between lg:flex-row">
             <div class="flex flex-col">
-              <h1>Pemesanan WIFI</h1>
-              <p>Tipe paket: Personal</p>
+              <h1 class="text-[16px] md:text-[20px]">Pemesanan WIFI</h1>
+              <p class="text-[14px] md:text-[18px]">Tipe paket: Personal</p>
               <p>Status: Belum dibayar</p>
             </div>
-            <div class="flex flex-col gap-0 lg:gap-5">
+            <div class="w-full flex flex-col items-start gap-0 lg:gap-5">
               <h3>Rp. 300.000,-</h3>
-              <a class="py-3 px-5 rounded-md bg-purple-800 shadow-md text-white no-underline" href="/payment/wifi/gopay.html">Lihat Detail</a>
+              <a class="w-full text-center mt-[15px] py-3 max-w-full overflow-hidden px-5 rounded-md bg-yellow-700 shadow-md text-white no-underline" href="/payment/wifi/gopay.html">Lihat Detail</a>
             </div>
           </div>
         </div>
-        <div class="w-full flex justify-start items-stretch overflow-hidden rounded-md shadow-md p-3 lg:p-10 gap-5">
-          <img src="/assets/wifi-package.webp" class="max-w-[40%] lg:w-[200px] lg:h-[140px] object-cover">
-          <div class="w-[60%] h-full flex flex-col justify-between lg:flex-row">
+        <div class="w-full flex flex-col md:flex-row justify-start items-stretch overflow-hidden rounded-md shadow-md p-3 lg:p-10 gap-5 bg-white">
+          <img src="/assets/wifi-package.webp" class="md:max-w-[40%] lg:w-[200px] lg:h-[140px] object-cover">
+          <div class="w-full md:w-[60%] h-full flex flex-col justify-between lg:flex-row">
             <div class="flex flex-col">
-              <h1>Pemesanan WIFI</h1>
-              <p>Tipe paket: Personal</p>
+              <h1 class="text-[16px] md:text-[20px]">Pemesanan WIFI</h1>
+              <p class="text-[14px] md:text-[18px]">Tipe paket: Personal</p>
               <p>Status: Sudah dibayar</p>
             </div>
-            <div class="flex flex-col gap-0 lg:gap-5">
+            <div class="w-full flex flex-col items-start gap-0 lg:gap-5">
               <h3>Rp. 300.000,-</h3>
-              <a class="py-3 px-5 rounded-md bg-purple-800 shadow-md text-white no-underline" href="/payment/wifi/qris-done.html">Lihat Detail</a>
+              <a class="w-full text-center mt-[15px] py-3 max-w-full overflow-hidden px-5 rounded-md bg-yellow-700 shadow-md text-white no-underline" href="/payment/wifi/qris-done.html">Lihat Detail</a>
             </div>
           </div>
         </div>
