@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     document
       .querySelector(".dashboard-btn")
-      .setAttribute("href", `/dashboard/${user.role}.html`);
+      .setAttribute("href", `/dashboard/${user.role}`);
 
     document.querySelector(".logout").addEventListener("click", (e) => {
       Swal.fire({
@@ -152,7 +152,7 @@ function showContentByRole(userParams) {
   document.querySelector(
     ".auth-buttons"
   ).innerHTML = `<span style="color:#a855f7;"><i class="fa-solid fa-user profile-btn"></i></span>`;
-  // ).innerHTML = `<span href="./dashboard/${userParams.role}.html" style="color:white;"><i class="fa-solid fa-user"></i></span>`;
+  // ).innerHTML = `<span href="./dashboard/${userParams.role}" style="color:white;"><i class="fa-solid fa-user"></i></span>`;
 }
 
 function openModal(type) {

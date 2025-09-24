@@ -27,7 +27,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     document
       .querySelector(".dashboard-btn")
-      .setAttribute("href", `/dashboard/${user.role}.html`);
+      .setAttribute("href", `/dashboard/${user.role}`);
   }
 });
 

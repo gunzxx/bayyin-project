@@ -17,7 +17,7 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
       if(user.role == 'pengguna'){
         return window.location.href = `/`;
       }
-      return window.location.href = `/dashboard/${user.role}.html`;
+      return window.location.href = `/dashboard/${user.role}`;
     });
   } else {
     return Swal.fire({

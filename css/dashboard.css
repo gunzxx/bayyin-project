@@ -127,7 +127,7 @@ th{
   font-weight: bold;
 }
 td, th{
-  padding: 10px 30px;
+  padding: 10px;
   text-align: left;
 }
 td.center, th.center{

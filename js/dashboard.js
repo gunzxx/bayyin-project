@@ -10,7 +10,9 @@ window.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("userid");
     window.location.href = "/";
   } else {
-    document.querySelector(".auth-buttons").innerHTML = `<span style="color:#a855f7;"><i class="fa-solid fa-user profile-btn"></i></span>`;
+    document.querySelector(
+      ".auth-buttons"
+    ).innerHTML = `<span style="color:#a855f7;"><i class="fa-solid fa-user profile-btn"></i></span>`;
 
     document
       .querySelector(".profile-btn")
@@ -20,7 +22,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     document
       .querySelector(".dashboard-btn")
-      .setAttribute("href", `/dashboard/${user.role}.html`);
+      .setAttribute("href", `/dashboard/${user.role}`);
 
     document.querySelector(".logout").addEventListener("click", (e) => {
       Swal.fire({
@@ -37,9 +39,21 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+  const openBtn = document.getElementById("openSidebar");
+
+  openBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("-translate-x-full");
+    overlay.classList.toggle("hidden");
+  });
+
+  overlay.addEventListener("click", () => {
+    sidebar.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+  });
 });
-
-
 
 document.querySelector(".logout").addEventListener("click", (e) => {
   Swal.fire({
@@ -47,7 +61,7 @@ document.querySelector(".logout").addEventListener("click", (e) => {
     icon: "question",
     showCancelButton: true,
     allowOutsideClick: false,
-    confirmButtonColor: 'rgb(248,113,113)',
+    confirmButtonColor: "rgb(248,113,113)",
   }).then((res) => {
     if (res.isConfirmed) {
       localStorage.removeItem("userid");
@@ -55,8 +69,6 @@ document.querySelector(".logout").addEventListener("click", (e) => {
     }
   });
 });
-
-
 
 function openProfileModal() {
   showBlur();
