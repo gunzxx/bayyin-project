@@ -4,31 +4,6 @@ function convertMinutes(minutes) {
   return `${hours} jam ${remainingMinutes} menit`;
 }
 
-const statuses = [
-  'selesai',
-  'proses',
-]
-
-const datas = [
-  {
-    layanan: "WiFi",
-    // tanggal: Date.now(),
-    pengguna: "Rudi",
-    alamat: "Jl. Cemara No.23",
-    status: "selesai",
-    tanggal: "2025-05-12",
-    phone: "+6281234567890",
-  },
-  {
-    layanan: "CCTV",
-    // tanggal: Date.now(),
-    pengguna: "Dian",
-    alamat: "Jl. Bunga Raya No.12",
-    status: "proses",
-    tanggal: "2025-06-02",
-    phone: "+6281234567890",
-  },
-];
 
 const userDatas = [
   {
@@ -42,6 +17,7 @@ const userDatas = [
     startDate: '2025-06-02',
     endDate: '2025-06-02',
     durasi: 100,
+    status: "selesai",
   },
   {
     nama: "dian",
@@ -52,44 +28,64 @@ const userDatas = [
     catatan: "kamera outdoor",
     dokumentasi: "/assets/dok-cctv.jpeg",
     startDate: '2025-06-02',
-    endDate: '2025-06-02',
-    durasi: 200,
+    endDate: '',
+    durasi: null,
+    status: "proses",
   },
 ];
 
-datas.forEach((data) => {
+userDatas.forEach((data) => {
   const rowElement = document.createElement("tr");
 
   const col1 = document.createElement("td");
   const col1Val = document.createElement("div");
-  col1.innerText = capitalizeFirst(data["pengguna"]);
+  col1.innerText = capitalizeFirst(data["nama"]);
   col1.appendChild(col1Val);
 
   const col2 = document.createElement("td");
   const col2Val = document.createElement("div");
-  col2Val.innerText = capitalizeFirst(data["layanan"]);
+  col2Val.innerText = capitalizeFirst(data["alamat"]);
   col2.appendChild(col2Val);
 
   const col3 = document.createElement("td");
   const col3Val = document.createElement("div");
-  col3Val.innerText = capitalizeFirst(data["alamat"]);
+  col3Val.innerText = capitalizeFirst(data["phone"]);
   col3.appendChild(col3Val);
 
   const col4 = document.createElement("td");
   const col4Val = document.createElement("div");
-  col4Val.innerText = capitalizeFirst(data["tanggal"]);
+  col4Val.innerText = capitalizeFirst(data["catatan"]);
   col4.appendChild(col4Val);
 
   const col5 = document.createElement("td");
   const col5Val = document.createElement("div");
-  col5Val.innerText = capitalizeFirst(data["phone"]);
+  col5Val.innerText = capitalizeFirst(data["startDate"]);
   col5.appendChild(col5Val);
 
   const col6 = document.createElement("td");
-  const col6Val = document.createElement("div");
-  col6Val.innerHTML = data["status"] == "proses" ? makeVerifyButton() : makeVerified();
+  const col6Div = document.createElement("div");
+  col6Div.innerHTML = capitalizeFirst(data["endDate"]);
   col6.classList.add("center");
-  col6.appendChild(col6Val);
+  col6.appendChild(col6Div);
+
+  const col7 = document.createElement("td");
+  const col7Div = document.createElement("div");
+  col7Div.innerHTML = capitalizeFirst(convertMinutes(data["durasi"]));
+  col7.classList.add("center");
+  col7.appendChild(col7Div);
+
+  const col8 = document.createElement("td");
+  const col8Div = document.createElement("div");
+  col8Div.innerHTML = capitalizeFirst(data["status"]);
+  col8Div.classList.add("px-4","text-center","py-3","rounded-lg","text-white");
+  data["status"] == "proses" ? col8Div.classList.add('bg-red-500') : col8Div.classList.add('bg-green-500')
+  col8.appendChild(col8Div);
+
+  const col9 = document.createElement("td");
+  const col9Div = document.createElement("div");
+  col9Div.innerHTML = makeDokButton(data["dokumentasi"]);
+  col9.classList.add("center");
+  col9.appendChild(col9Div);
 
   rowElement.appendChild(col1);
   rowElement.appendChild(col2);
@@ -97,9 +93,12 @@ datas.forEach((data) => {
   rowElement.appendChild(col4);
   rowElement.appendChild(col5);
   rowElement.appendChild(col6);
-  document.querySelector("#tableData tbody").appendChild(rowElement);
-});
+  rowElement.appendChild(col7);
+  rowElement.appendChild(col8);
+  rowElement.appendChild(col9);
 
+  document.querySelector("#userTable tbody").appendChild(rowElement);
+});
 
 function capitalizeFirst(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);

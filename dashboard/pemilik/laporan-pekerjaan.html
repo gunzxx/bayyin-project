@@ -46,32 +46,39 @@
     >
       <div class="p-4 font-bold text-xl border-b">Menu</div>
       <ul class="p-4">
-        <a href="/dashboard/pekerja" class="block p-2 rounded hover:bg-yellow-200 no-underline text-yellow-800">
-          Joblist
+        <a href="/dashboard/pemilik" class="block p-2 rounded hover:bg-yellow-200 no-underline text-yellow-800">
+          Daftar pesanan
         </a>
-        <a href="/dashboard/pekerja/laporan.html" class="block p-2 rounded hover:bg-yellow-200 no-underline text-yellow-800"
-          >Laporan pemasangan</a
+        <a href="/dashboard/pemilik/laporan-pekerjaan.html" class="block p-2 rounded hover:bg-yellow-200 no-underline text-yellow-800"
+          >Laporan pekerjaan</a
+        >
+        <a href="/dashboard/pemilik/form-job.html" class="block p-2 rounded hover:bg-yellow-200 no-underline text-yellow-800"
+          >Buat job untuk pekerja</a
         >
       </ul>
     </div>
 
     <div class="w-[80%] flex flex-col items-center md:p-5 text-center gap-5">
-      <h1 class="font-bold text-[24px]">Dashboard Pekerja</h1>
+      <h1 class="font-bold text-[24px]">Dashboard Pemilik</h1>
+
       <div
         class="w-full bg-white flex flex-col p-7 items-start gap-5 rounded-lg shadow-lg"
       >
-        <h1 class="font-bold text-[16px]">Job List Hari Ini</h1>
-        <table id="tableData" class="bg-white">
+        <h1 class="font-bold text-[16px]">
+          Berikut adalah laporan pekerjaan:
+        </h1>
+        <table id="userTable" class="bg-white">
           <thead>
             <tr class="bg-yellow-300 text-black">
-              <th>Layanan</th>
-              <th>Pengguna</th>
+              <th>Nama</th>
               <th>Alamat</th>
               <th>No. Handphone</th>
-              <th>Durasi Kerja</th>
-              <th>Catatan</th>
+              <th>Peralatan yang dibawa</th>
+              <th>Tanggal mulai</th>
+              <th>Tanggal selesai</th>
+              <th>Durasi</th>
               <th>Status</th>
-              <th>Aksi</th>
+              <th class="center">Dokumentasi</th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -91,15 +98,17 @@
       <a href="/order">
         <i class="fa fa-list" aria-hidden="true"></i> Pesanan
       </a>
-      <a class="logout"
-        ><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a
-      >
+      <a class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+    </div>
+
+    <div class="dok-modal">
+      <img src="" class="dok-img">
     </div>
 
     <script src="/sa2/sweetalert2.all.min.js"></script>
     <script src="/core/data.js"></script>
     <script src="/core/function.js"></script>
     <script src="/js/dashboard.js"></script>
-    <script src="/js/pekerja.js"></script>
+    <script src="/js/pemilik-laporan.js"></script>
   </body>
 </html>
