@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/assets/logo1.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/fa.min.css" />
-    <link rel="stylesheet" href="../sa2/sweetalert2.min.css" />
-    <link rel="stylesheet" href="../css/output.css" />
-    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="/css/fa.min.css" />
+    <link rel="stylesheet" href="/sa2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/css/output.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
     <title>Pemesanan WiFi & CCTV</title>
   </head>
   <body class="w-full bg-[#f9f9f9] flex flex-col items-center">
@@ -28,6 +28,29 @@
         </div>
       </div>
     </nav>
+
+    <!-- Tombol Menu di bawah navbar -->
+    <div class="p-2 absolute top-16 left-0">
+      <button id="openSidebar" class="p-2 bg-yellow-500 text-white rounded-md outline-none border-none">
+        ☰ Menu
+      </button>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
+
+    <!-- Sidebar -->
+    <div
+      id="sidebar"
+      class="fixed top-0 left-0 w-[50vw] md:w-[20vw] h-full bg-white shadow-lg -translate-x-full transition-transform duration-300 z-30"
+    >
+      <div class="p-4 font-bold text-xl border-b">Menu</div>
+      <ul class="p-4">
+        <a href="/dashboard/pengguna/" class="block p-2 rounded hover:bg-yellow-200 no-underline text-yellow-800">
+          Riwayat pesanan
+        </a>
+      </ul>
+    </div>
 
     <div class="w-[80%] flex flex-col items-center p-5 text-center gap-5">
       <h1 class="font-bold text-[24px]">Dashboard Pengguna</h1>
@@ -63,10 +86,10 @@
       <a class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
     </div>
 
-    <script src="../sa2/sweetalert2.all.min.js"></script>
+    <script src="/sa2/sweetalert2.all.min.js"></script>
     <script src="/core/data.js"></script>
     <script src="/core/function.js"></script>
-    <script src="../js/dashboard.js"></script>
-    <script src="../js/pengguna.js"></script>
+    <script src="/js/dashboard.js"></script>
+    <script src="/js/pengguna.js"></script>
   </body>
 </html>
