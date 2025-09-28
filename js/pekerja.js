@@ -23,7 +23,7 @@ const datas = [
     alamat: "Jl. Bunga Raya No.12",
     catatan: "Kamera outdoor",
     phone: "+6281234567890",
-    durasi: convertMinutes(200),
+    durasi: "-",
     status: "dikerjakan",
   },
 ];
@@ -54,6 +54,7 @@ datas.forEach((data) => {
   const col5 = document.createElement("td");
   const col5Val = document.createElement("div");
   col5Val.innerText = capitalizeFirst(data["durasi"]);
+  col5Val.classList.add("durasi-col")
   col5.appendChild(col5Val);
 
   const col6 = document.createElement("td");
@@ -81,6 +82,7 @@ datas.forEach((data) => {
     }).then((result) => {
       if(result.isConfirmed){
         col8Val.parentElement.previousElementSibling.querySelector("div").innerText = capitalizeFirst("selesai")
+        col8Val.parentElement.parentElement.querySelector(".durasi-col").innerText = capitalizeFirst(convertMinutes(200))
         col8Val.classList.remove("bg-red-500")
         col8Val.classList.add("bg-gray-500")
         col8Val.innerText = capitalizeFirst("selesai")
