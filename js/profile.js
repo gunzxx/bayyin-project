@@ -1,5 +1,5 @@
 // DOM Content Loaded Handler
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", async () => {
   const users = localStorage.getItem("users");
   if (!users) {
     setUsers();
@@ -10,7 +10,9 @@ window.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("userid");
     window.location.href = "/";
   } else {
-    document.querySelector(".auth-buttons").innerHTML = `<span style="color:#a855f7;"><i class="fa-solid fa-user profile-btn"></i></span>`;
+    document.querySelector(
+      ".auth-buttons"
+    ).innerHTML = `<span style="color:#a855f7;"><i class="fa-solid fa-user profile-btn"></i></span>`;
 
     document
       .querySelector(".profile-btn")
@@ -37,6 +39,63 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  const profileEmail = document.getElementById("profile-email");
+  const profileName = document.getElementById("profile-name");
+  const profileKec = document.getElementById("profile-kec");
+  const profileDesa = document.getElementById("profile-desa");
+  const profileRole = document.getElementById("profile-role");
+
+  profileName.innerText = user["username"];
+  profileEmail.innerText = user["email"];
+  profileRole.innerText = user["role"];
+
+  const kecEl = document.getElementById("kec");
+  const desaEl = document.getElementById("desa");
+
+  // const provs = (await getProvinces()).data;
+
+  const kecs = (await getDistricts(3512)).data;
+  const kecIdx = Math.floor(Math.random() * kecs.length);
+  const kecamatan = kecs[kecIdx];
+  kecs.forEach((kec) => {
+    const opt = document.createElement("option");
+    opt.setAttribute("value", kec.id);
+    opt.textContent = kec.name;
+    kecEl.appendChild(opt);
+  });
+  kecEl.selectedIndex = kecIdx;
+  kecEl.removeAttribute("disabled");
+  profileKec.innerText = kecamatan.name;
+
+  const dataDesaAwal = (await getVillages(kecamatan.id)).data;
+  const desaIdx = Math.floor(Math.random() * dataDesaAwal.length);
+  const desaAwal = dataDesaAwal[desaIdx];
+  profileDesa.innerText = desaAwal.name
+  
+  desaEl.removeAttribute("disabled");
+  dataDesaAwal.forEach((desa) => {
+    const opt = document.createElement("option");
+    opt.setAttribute("value", desa.id);
+    opt.textContent = desa.name;
+    desaEl.appendChild(opt);
+  });
+  desaEl.selectedIndex = desaIdx;
+
+  kecEl.addEventListener("change", async function (e) {
+    desaEl.setAttribute("disabled", true);
+    desaEl.innerHTML = "";
+
+    const desaId = e.target.value;
+    const desas = (await getVillages(desaId)).data;
+    desas.forEach((desa) => {
+      const opt = document.createElement("option");
+      opt.setAttribute("value", desa.id);
+      opt.textContent = desa.name;
+      desaEl.appendChild(opt);
+    });
+    desaEl.removeAttribute("disabled");
+  });
 });
 
 document.getElementById("profileForm").addEventListener("submit", (e) => {
@@ -94,7 +153,7 @@ document.getElementById("profileForm").addEventListener("submit", (e) => {
 
   if (kecamatan.trim().length <= 0) {
     console.log(kecamatan);
-    
+
     return Swal.fire({
       title: "Kecamatan tidak boleh kosong!",
       icon: "error",
@@ -109,7 +168,7 @@ document.getElementById("profileForm").addEventListener("submit", (e) => {
   }
 
   /** Handle email duplicate */
-  const allUsers = getUsers().filter(data => data.id != getUserId());
+  const allUsers = getUsers().filter((data) => data.id != getUserId());
   const user = allUsers.find(
     (data) => data.email.toLowerCase() == email.toLowerCase()
   );
@@ -123,9 +182,9 @@ document.getElementById("profileForm").addEventListener("submit", (e) => {
   }
 
   /** Update profile */
-  const saveUsers = getUsers().map(data => {
-    if(data.id == getUserId()){
-      return {...data, email, username, password};
+  const saveUsers = getUsers().map((data) => {
+    if (data.id == getUserId()) {
+      return { ...data, email, username, password };
     }
     return data;
   });
@@ -139,8 +198,6 @@ document.getElementById("profileForm").addEventListener("submit", (e) => {
     window.location.reload();
   });
 });
-
-
 
 /** Modal */
 
@@ -167,11 +224,6 @@ function hiddenBlur() {
   blurBgElem.style.display = "none";
 }
 
-
-
-
-
-
 const API_BASE_URL = "https://www.emsifa.com/api-wilayah-indonesia/api";
 
 const getProvinces = () => {
@@ -189,34 +241,3 @@ const getDistricts = (regencyId) => {
 const getVillages = (districtId) => {
   return axios.get(`${API_BASE_URL}/villages/${districtId}.json`);
 };
-
-window.addEventListener("load", async function () {
-  const kecEl = document.getElementById("kec");
-  const desaEl = document.getElementById("desa");
-
-  const provs = (await getProvinces()).data;
-  
-  const kecs = (await getDistricts(3512)).data;
-  kecs.forEach((kec) => {
-    const opt = document.createElement("option");
-    opt.setAttribute("value", kec.id);
-    opt.textContent = kec.name;
-    kecEl.appendChild(opt);
-  });
-  kecEl.removeAttribute("disabled");
-
-  kecEl.addEventListener("change", async function (e) {
-    desaEl.setAttribute("disabled", true);
-    desaEl.innerHTML = '';
-
-    const desaId = e.target.value;
-    const desas = (await getVillages(desaId)).data;
-    desas.forEach((desa) => {
-      const opt = document.createElement("option");
-      opt.setAttribute("value", desa.id);
-      opt.textContent = desa.name;
-      desaEl.appendChild(opt);
-    });
-    desaEl.removeAttribute("disabled");
-  });
-});
