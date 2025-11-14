@@ -4,7 +4,7 @@ document.getElementById("registerForm").addEventListener("submit", (e) => {
   const username = e.target.username.value.trim();
   const password = e.target.password.value.trim();
   const passwordConfirmation = e.target.passwordConfirmation.value.trim();
-  const role = e.target.role.value;
+  // const role = e.target.role.value;
 
   /** Handle input validation */
   if (/\s/.test(email)) {
@@ -69,7 +69,7 @@ document.getElementById("registerForm").addEventListener("submit", (e) => {
     email,
     username,
     password,
-    role,
+    role : "pengguna",
   };
   const saveUsers = [...allUsers, newUser];
   localStorage.setItem("users", JSON.stringify(saveUsers));
