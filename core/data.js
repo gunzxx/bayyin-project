@@ -35,3 +35,16 @@ const usersData = [
         role: 'pengguna',
     },
 ]
+
+
+document.addEventListener("load", function(){
+    const user = checkAuth();
+    if (user){
+        console.log("oke");
+        
+        if (user.role == 'pekerja' || user.role == 'pemilik'){
+            document.getElementById("profile-link").style('display', 'none')
+            document.getElementById("order-link").style('display', 'none')
+        }
+    }
+})
