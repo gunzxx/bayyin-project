@@ -6,9 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/fa.min.css" />
     <link rel="stylesheet" href="/sa2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/lib/dataTables.dataTables.min.css" />
     <link rel="stylesheet" href="/css/output.css" />
     <link rel="stylesheet" href="/css/dashboard.css" />
     <title>Pemesanan WiFi & CCTV</title>
+    <style>
+      .dt-container{
+        width: 100%;
+      }
+    </style>
   </head>
   <body class="w-full bg-[#f9f9f9] flex flex-col items-center">
     <nav class="bg-white shadow-md sticky w-full top-0 left-0">
@@ -31,7 +37,10 @@
 
     <!-- Tombol Menu di bawah navbar -->
     <div class="p-2 absolute top-16 left-0">
-      <button id="openSidebar" class="p-2 bg-yellow-500 text-white rounded-md outline-none border-none">
+      <button
+        id="openSidebar"
+        class="p-2 bg-yellow-500 text-white rounded-md outline-none border-none"
+      >
         ☰ Menu
       </button>
     </div>
@@ -46,10 +55,15 @@
     >
       <div class="p-4 font-bold text-xl border-b">Menu</div>
       <ul class="p-4">
-        <a href="/dashboard/pekerja" class="block p-2 rounded hover:bg-yellow-200 no-underline text-yellow-800">
+        <a
+          href="/dashboard/pekerja"
+          class="block p-2 rounded hover:bg-yellow-200 no-underline text-yellow-800"
+        >
           Joblist
         </a>
-        <a href="/dashboard/pekerja/laporan.html" class="block p-2 rounded hover:bg-yellow-200 no-underline text-yellow-800"
+        <a
+          href="/dashboard/pekerja/laporan.html"
+          class="block p-2 rounded hover:bg-yellow-200 no-underline text-yellow-800"
           >Laporan pemasangan</a
         >
       </ul>
@@ -61,6 +75,7 @@
         class="w-full bg-white flex flex-col p-7 items-start gap-5 rounded-lg shadow-lg"
       >
         <h1 class="font-bold text-[16px]">Job List Hari Ini</h1>
+
         <table id="tableData" class="bg-white">
           <thead>
             <tr class="bg-yellow-300 text-black">
@@ -96,6 +111,8 @@
       >
     </div>
 
+    <script src="/lib/jquery.js"></script>
+    <script src="/lib/dataTables.min.js"></script>
     <script src="/sa2/sweetalert2.all.min.js"></script>
     <script src="/core/data.js"></script>
     <script src="/core/function.js"></script>

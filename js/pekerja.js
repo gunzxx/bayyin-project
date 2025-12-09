@@ -1,6 +1,6 @@
 function convertMinutes(minutes) {
   const hours = Math.floor(minutes / 60); // ambil jam
-  const remainingMinutes = minutes % 60;  // sisa menit
+  const remainingMinutes = minutes % 60; // sisa menit
   return `${hours} jam ${remainingMinutes} menit`;
 }
 
@@ -13,8 +13,8 @@ const datas = [
     alamat: "Jl. Anggrek No.2",
     catatan: "Perlu kabel tambahan",
     phone: "+6281234567890",
-    startDate: '',
-    endDate: '',
+    startDate: "",
+    endDate: "",
     durasi: "-",
     status: null,
   },
@@ -25,8 +25,8 @@ const datas = [
     alamat: "Jl. Cemara No.23",
     catatan: "Perlu kabel tambahan",
     phone: "+6281234567890",
-    startDate: '',
-    endDate: '',
+    startDate: "",
+    endDate: "",
     durasi: convertMinutes(100),
     status: "selesai",
   },
@@ -37,26 +37,145 @@ const datas = [
     alamat: "Jl. Bunga Raya No.12",
     catatan: "Kamera outdoor",
     phone: "+6281234567890",
-    startDate: '',
-    endDate: '',
+    startDate: "",
+    endDate: "",
     durasi: "-",
     status: "proses",
+  },
+  // ===== DATA DUMMY TANPA "-" =====
+  {
+    layanan: "WiFi",
+    tanggal: Date.now(),
+    pengguna: "Akbar",
+    alamat: "Jl. Kepodang No.5",
+    catatan: "Cek ulang sambungan LAN",
+    phone: "+6281239991112",
+    startDate: "",
+    endDate: "",
+    durasi: convertMinutes(60),
+    status: "proses",
+  },
+  {
+    layanan: "CCTV",
+    tanggal: Date.now(),
+    pengguna: "Tia",
+    alamat: "Jl. Kelinci No.8",
+    catatan: "Ganti lensa kamera",
+    phone: "+6285213322110",
+    startDate: "",
+    endDate: "",
+    durasi: convertMinutes(35),
+    status: "selesai",
+  },
+  {
+    layanan: "WiFi",
+    tanggal: Date.now(),
+    pengguna: "Gilang",
+    alamat: "Jl. Alpukat No.44",
+    catatan: "Tambah titik akses baru",
+    phone: "+6287774561230",
+    startDate: "",
+    endDate: "",
+    durasi: convertMinutes(120),
+    status: "proses",
+  },
+  {
+    layanan: "CCTV",
+    tanggal: Date.now(),
+    pengguna: "Mawar",
+    alamat: "Jl. Nanas No.12",
+    catatan: "Perbaikan kabel power",
+    phone: "+6281399902211",
+    startDate: "",
+    endDate: "",
+    durasi: convertMinutes(50),
+    status: "selesai",
+  },
+  {
+    layanan: "WiFi",
+    tanggal: Date.now(),
+    pengguna: "Dio",
+    alamat: "Jl. Cempedak No.17",
+    catatan: "Upgrade router dual-band",
+    phone: "+6281122233344",
+    startDate: "",
+    endDate: "",
+    durasi: convertMinutes(90),
+    status: "selesai",
+  },
+  {
+    layanan: "CCTV",
+    tanggal: Date.now(),
+    pengguna: "Anisa",
+    alamat: "Jl. Kenari No.14",
+    catatan: "Tambahkan kamera pintu depan",
+    phone: "+6287833344990",
+    startDate: "",
+    endDate: "",
+    durasi: convertMinutes(70),
+    status: "proses",
+  },
+  {
+    layanan: "WiFi",
+    tanggal: Date.now(),
+    pengguna: "Eko",
+    alamat: "Jl. Apel No.29",
+    catatan: "Cek interferensi sinyal",
+    phone: "+6289500011123",
+    startDate: "",
+    endDate: "",
+    durasi: convertMinutes(40),
+    status: "selesai",
+  },
+  {
+    layanan: "CCTV",
+    tanggal: Date.now(),
+    pengguna: "Lina",
+    alamat: "Jl. Raspberry No.21",
+    catatan: "Tes kualitas rekaman",
+    phone: "+6286677788890",
+    startDate: "",
+    endDate: "",
+    durasi: convertMinutes(25),
+    status: "selesai",
+  },
+  {
+    layanan: "WiFi",
+    tanggal: Date.now(),
+    pengguna: "Bayu",
+    alamat: "Jl. Anggur No.31",
+    catatan: "Perlu perpanjangan kabel FO",
+    phone: "+6281223344001",
+    startDate: "",
+    endDate: "",
+    durasi: convertMinutes(130),
+    status: "proses",
+  },
+  {
+    layanan: "CCTV",
+    tanggal: Date.now(),
+    pengguna: "Nanda",
+    alamat: "Jl. Lemon No.41",
+    catatan: "DVR perlu update firmware",
+    phone: "+6288881112678",
+    startDate: "",
+    endDate: "",
+    durasi: convertMinutes(45),
+    status: "selesai",
   },
 ];
 
 /** Handle user data */
-function updateByIndex(idx, col, val){
-  if (datas[idx]){
-    if(datas[idx][col]){
-      datas[idx][col] = val
-      return true
+function updateByIndex(idx, col, val) {
+  if (datas[idx]) {
+    if (datas[idx][col]) {
+      datas[idx][col] = val;
+      return true;
     }
-    return false
+    return false;
   }
-  return false
+  return false;
 }
-
-
 
 /** Making data table */
 datas.forEach((data, idx) => {
@@ -85,7 +204,7 @@ datas.forEach((data, idx) => {
   const col5 = document.createElement("td");
   const col5Val = document.createElement("div");
   col5Val.innerText = capitalizeFirst(data["durasi"]);
-  col5Val.classList.add("durasi-col")
+  col5Val.classList.add("durasi-col");
   col5.appendChild(col5Val);
 
   const col6 = document.createElement("td");
@@ -96,73 +215,88 @@ datas.forEach((data, idx) => {
   const col7 = document.createElement("td");
   const col7Val = document.createElement("div");
   col7Val.innerText = capitalizeFirstStatus(data["status"]);
-  col7Val.classList.add(data['status'])
+  col7Val.classList.add(data["status"]);
   col7.appendChild(col7Val);
 
-  function getTextButton(){
-    if(!data['status']){
-      return 'mulai'
-    }else if(data['status'] == 'proses'){
-      return 'selesaikan'
-    }else if(data['status'] == 'selesai'){
-      return 'selesai'
+  function getTextButton() {
+    if (!data["status"]) {
+      return "mulai";
+    } else if (data["status"] == "proses") {
+      return "selesaikan";
+    } else if (data["status"] == "selesai") {
+      return "selesai";
     }
   }
 
-  function getBgButton(){
-    if(!data['status']){
-      return 'bg-green-500'
-    }else if(data['status'] == 'proses'){
-      return 'bg-red-500'
-    }else if(data['status'] == 'selesai'){
-      return 'bg-gray-500'
+  function getBgButton() {
+    if (!data["status"]) {
+      return "bg-green-500";
+    } else if (data["status"] == "proses") {
+      return "bg-red-500";
+    } else if (data["status"] == "selesai") {
+      return "bg-gray-500";
     }
   }
 
   const col8 = document.createElement("td");
   const col8Val = document.createElement("button");
   col8Val.innerText = capitalizeFirst(getTextButton());
-  col8Val.classList.add("w-full", "min-w-max", "border-none", "py-3", "px-4", "rounded-md", "text-white")
-  col8Val.classList.add(getBgButton())
+  col8Val.classList.add(
+    "w-full",
+    "min-w-max",
+    "border-none",
+    "py-3",
+    "px-4",
+    "rounded-md",
+    "text-white"
+  );
+  col8Val.classList.add(getBgButton());
 
-  function handleClick(){
-    if (!data['status']){
+  function handleClick() {
+    if (!data["status"]) {
       return Swal.fire({
         title: "Mulai pekerjaan?",
         showCancelButton: true,
         confirmButtonColor: "red",
       }).then((result) => {
-        if(result.isConfirmed){
-          col8Val.parentElement.previousElementSibling.querySelector("div").innerText = capitalizeFirst("proses")
-          col8Val.classList.remove("bg-green-500")
-          col8Val.classList.add("bg-red-500")
-          col8Val.innerText = capitalizeFirst("selesaikan")
+        if (result.isConfirmed) {
+          col8Val.parentElement.previousElementSibling.querySelector(
+            "div"
+          ).innerText = capitalizeFirst("proses");
+          col8Val.classList.remove("bg-green-500");
+          col8Val.classList.add("bg-red-500");
+          col8Val.innerText = capitalizeFirst("selesaikan");
           col8Val.removeEventListener("click", handleClick);
         }
       });
-    } else if (data['status'] == 'proses'){
-      
+    } else if (data["status"] == "proses") {
       return Swal.fire({
         title: "Selesaikan pekerjaan?",
         showCancelButton: true,
         confirmButtonColor: "red",
       }).then((result) => {
-        if(result.isConfirmed){
-          col8Val.parentElement.previousElementSibling.querySelector("div").innerText = capitalizeFirst("selesai")
-          col8Val.parentElement.parentElement.querySelector(".durasi-col").innerText = capitalizeFirst(convertMinutes(200))
-          col8Val.classList.remove("bg-red-500")
-          col8Val.classList.add("bg-gray-500")
-          col8Val.innerText = capitalizeFirst("selesai")
-          col8Val.classList.remove("cursor-pointer")
+        if (result.isConfirmed) {
+          col8Val.parentElement.previousElementSibling.querySelector(
+            "div"
+          ).innerText = capitalizeFirst("selesai");
+          col8Val.parentElement.parentElement.querySelector(
+            ".durasi-col"
+          ).innerText = capitalizeFirst(convertMinutes(200));
+          col8Val.classList.remove("bg-red-500");
+          col8Val.classList.add("bg-gray-500");
+          col8Val.innerText = capitalizeFirst("selesai");
+          col8Val.classList.remove("cursor-pointer");
           col8Val.removeEventListener("click", handleClick);
         }
       });
     }
   }
-  
-  col8Val.classList.add("cursor-pointer")
-  data['status'] == "selesai" ? col8Val.setAttribute("disabled", true) : ""
-  data['status'] == "selesai" ? "" : col8Val.addEventListener("click", handleClick)
+
+  col8Val.classList.add("cursor-pointer");
+  data["status"] == "selesai" ? col8Val.setAttribute("disabled", true) : "";
+  data["status"] == "selesai"
+    ? ""
+    : col8Val.addEventListener("click", handleClick);
   col8.appendChild(col8Val);
 
   rowElement.appendChild(col1);
@@ -182,8 +316,16 @@ function capitalizeFirst(str) {
 }
 
 function capitalizeFirstStatus(str) {
-  if (!str){
-    return "Belum dimulai"
+  if (!str) {
+    return "Belum dimulai";
   }
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+
+const table = new DataTable("#tableData", {
+  // data: [],
+  // columns: header,
+  // scrollX: true,
+  responsive: true,
+});
