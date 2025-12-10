@@ -280,9 +280,9 @@ const table = new DataTable("#tableData", {
 });
 
 // --- Pencarian Kecamatan ---
-// $("#search-kecamatan").on("keyup", function () {
-//   table.column(1).search($(this).val()).draw();
-// });
+$("#search-kecamatan").on("keyup", function () {
+  table.search($(this).val()).draw();
+});
 
 // --- Filter tahun ---
 const tanggalInput = $("#tanggal");
